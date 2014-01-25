@@ -1,5 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HUD : MonoBehaviour
 {
@@ -7,6 +8,12 @@ public class HUD : MonoBehaviour
     private Transform m_player2;
     private Transform m_player3;
     private Transform m_player4;
+
+    private Player p1;
+    private Player p2;
+    private Player p3;
+    private Player p4;
+    private List<Player> m_players;
 
     private int player1HUDMoneyValue = 0;
     private int player2HUDMoneyValue = 0;
@@ -20,28 +27,34 @@ public class HUD : MonoBehaviour
         m_player3 = transform.FindChild("Player3");
         m_player4 = transform.FindChild("Player4");
 
-        Player p1 = PlayerManager.GetPlayer(0);
+        m_players = new List<Player>();
+
+        p1 = PlayerManager.GetPlayer(0);
         if (p1 != null) {
             player1HUDMoneyValue = p1.m_money;
+            m_players.Add(p1);
         }
 
-        Player p2 = PlayerManager.GetPlayer(1);
+        p2 = PlayerManager.GetPlayer(1);
         if (p2 != null) {
             player2HUDMoneyValue = p2.m_money;
+            m_players.Add(p2);
         } else {
             EnablePlayerHUD(2, false);
         }
 
-        Player p3 = PlayerManager.GetPlayer(2);
+        p3 = PlayerManager.GetPlayer(2);
         if (p3 != null) {
             player3HUDMoneyValue = p3.m_money;
+            m_players.Add(p3);
         } else {
             EnablePlayerHUD(3, false);
         }
 
-        Player p4 = PlayerManager.GetPlayer(3);
+        p4 = PlayerManager.GetPlayer(3);
         if (p4 != null) {
             player4HUDMoneyValue = p4.m_money;
+            m_players.Add(p4);
         } else {
             EnablePlayerHUD(4, false);
         }
@@ -49,12 +62,8 @@ public class HUD : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-        Player[] players = PlayerManager.GetPlayers();
-        for (int index = 0; index < players.Length; index++) {
-            Player p = players[index];
-            if (p != null) {
-                UpdatePlayerMoney(index);
-            }
+        foreach (Player p in m_players) {
+            UpdatePlayerMoney(p);
         }
 	}
 
@@ -140,9 +149,9 @@ public class HUD : MonoBehaviour
         playerHUDTransform.FindChild("PlayerMoney").GetComponent<GUIText>().text = "$$$: " + moneyValue.ToString();
     }
 
-    public void UpdatePlayerMoney(int playerNumber)
+    public void UpdatePlayerMoney(Player p)
     {
-        Player p = PlayerManager.GetPlayer(playerNumber);
+        int playerNumber = p.m_playerIndex+ 1;
         if (p != null) {
             int currentHUDValue = GetCurrentPlayerHUDMoneyValue(playerNumber);
             if (currentHUDValue < p.m_money) {
@@ -153,8 +162,8 @@ public class HUD : MonoBehaviour
                 }
             }
 
-            ChangePlayerMoneyString(playerNumber+1, currentHUDValue);
-            SetCurrentPlayerHUDMoneyValue(playerNumber+1, currentHUDValue);
+            ChangePlayerMoneyString(playerNumber, currentHUDValue);
+            SetCurrentPlayerHUDMoneyValue(playerNumber, currentHUDValue);
         }
     }
 }
