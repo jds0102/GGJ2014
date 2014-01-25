@@ -43,7 +43,7 @@ MonoBehaviour:
   m_description: 
   m_myCharacter: {fileID: 0}
   m_cooldownTime: 0
-  m_projectile: {fileID: 0}
+  m_range: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

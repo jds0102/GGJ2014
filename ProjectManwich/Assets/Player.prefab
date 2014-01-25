@@ -420,14 +420,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0be5b724b33b34c86c361fb22f3e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FaceRight: 0
   MoveForce: 365
   MaxSpeed: 5
   JumpForce: 1000
   GroundCollider: {fileID: 5800000}
   m_skills:
   - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
-  - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
-  - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
+  - {fileID: 11400000, guid: dc783d2ad0e5b8549a1d30eaf634298d, type: 2}
+  - {fileID: 11400000, guid: dc783d2ad0e5b8549a1d30eaf634298d, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

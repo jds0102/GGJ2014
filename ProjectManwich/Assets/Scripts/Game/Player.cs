@@ -37,15 +37,15 @@ public class Player
 		}
 
 		if(Input.GetButton(player + "Skill1")){
-			m_character.FireSkill(1);
+			m_character.FireSkill(0);
 		}
 
 		if(Input.GetButton(player + "Skill2")){
-			m_character.FireSkill(2);
+			m_character.FireSkill(1);
 		}
 
 		if(Input.GetButton(player + "Skill3")){
-			m_character.FireSkill(3);
+			m_character.FireSkill(2);
 		}
 	}
 
