@@ -7,6 +7,7 @@ public class InteractableItem : MonoBehaviour {
 	public Sprite activatedImage;
 
 	private BoxCollider2D collisionBox;
+	private bool m_activated;
 
 	// Use this for initialization
 	void Start () {
@@ -23,8 +24,9 @@ public class InteractableItem : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		
-		Debug.Log("Activated Interactable Object");
+		//Only activate it once for now
+		if (m_activated) return;
+
 		if(interaction == InteractionType.onCollide) {
 			if (other.gameObject.GetComponent<Character>()) {
 				Activate();
@@ -33,6 +35,7 @@ public class InteractableItem : MonoBehaviour {
 	}
 
 	void Activate() {
+		m_activated = true;
 		GetComponent<SpriteRenderer> ().sprite = activatedImage;
 
 	}
