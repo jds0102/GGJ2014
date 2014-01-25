@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
+    private bool m_enable = true;
+    private GameObject m_uiElements;
+    private GameObject m_playerSignIn;
+
     private GameObject m_newGameElement;
-    private GameObject m_settingsElement;
     private GameObject m_exitElement;
     private List<GameObject> m_elements;
 
@@ -14,18 +17,23 @@ public class MainMenu : MonoBehaviour
 
 	// Use this for initialization
 	void Start () {
-        m_newGameElement = transform.FindChild("GUI Element - New Game").gameObject;
-        m_settingsElement = transform.FindChild("GUI Element - Settings").gameObject;
-        m_exitElement = transform.FindChild("GUI Element - Exit").gameObject;
+        m_uiElements = transform.FindChild("UIElements").gameObject;
+        m_playerSignIn = transform.parent.FindChild("Player SignIn").gameObject;
+
+        m_newGameElement = m_uiElements.transform.FindChild("GUI Element - New Game").gameObject;
+        m_exitElement = m_uiElements.transform.FindChild("GUI Element - Exit").gameObject;
 
         m_elements = new List<GameObject>();
         m_elements.Add(m_newGameElement);
-        m_elements.Add(m_settingsElement);
         m_elements.Add(m_exitElement);
 	}
 
     void Update()
     {
+        if (!m_enable) {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.DownArrow)) {
             m_selectedIndex++;
         }
@@ -67,7 +75,9 @@ public class MainMenu : MonoBehaviour
     {
         switch (m_selectedIndex) {
             case 0:
-                //Load Scene
+                // Load player sign in
+                EnableUIElements(false);
+                m_playerSignIn.GetComponent<PlayerSignin>().EnableUIElements(true);
                 break;
 
             case 1:
@@ -79,5 +89,11 @@ public class MainMenu : MonoBehaviour
                 Application.Quit();
                 break;
         }
+    }
+
+    public void EnableUIElements(bool enable)
+    {
+        m_enable = enable;
+        m_uiElements.SetActive(enable);
     }
 }
