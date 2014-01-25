@@ -12,6 +12,10 @@ public class Rocket : MonoBehaviour
 		Destroy(gameObject, 2);
 	}
 
+    void Update()
+    {
+
+    }
 
 	void OnExplode()
 	{
