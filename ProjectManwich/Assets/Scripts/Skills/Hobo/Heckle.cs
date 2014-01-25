@@ -1,14 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class Heckle : Skill {
 
     public Projectile m_projectile;
-
-    void Update()
-    {
-
-    }
 
     public override void Execute()
     {

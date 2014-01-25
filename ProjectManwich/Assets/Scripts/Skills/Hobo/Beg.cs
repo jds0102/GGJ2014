@@ -41,8 +41,8 @@ public int SlowHeartRate(int arg) {
             for (int i = 0; i < players.Length; i++) {
                 Player curr = players[i];
                 //make sure we are not checking with ourselves
-                if (curr != null && curr.m_character.gameObject != this.gameObject) {
-                    float distance = Vector3.Distance(gameObject.transform.position, curr.m_character.gameObject.transform.position);
+                if (curr != null && curr.m_character != m_myCharacter) {
+                    float distance = Vector3.Distance(m_myCharacter.gameObject.transform.position, curr.m_character.gameObject.transform.position);
                     if (distance <= m_effectDistance) {
                         // TODO: hook into player to steal $$
                     }
