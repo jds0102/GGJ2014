@@ -24,8 +24,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400002}
   - 50: {fileID: 5000000}
+  - 114: {fileID: 11400002}
   - 61: {fileID: 6100000}
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
