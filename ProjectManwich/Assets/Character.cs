@@ -4,7 +4,10 @@ using System.Collections;
 public class Character : MonoBehaviour
 {
 	private bool m_Jump = false;
-	
+
+	[HideInInspector]
+	public bool FaceRight = true;
+
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
 	public float JumpForce = 1000f;	
@@ -79,6 +82,14 @@ public class Character : MonoBehaviour
 		
 		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
 			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
+		}
+		if(h < 0.0f){
+			FaceRight = false;
+			transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
+		}
+		if(h > 0.0f){
+			FaceRight = true;
+			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
 		}
 	}
 
