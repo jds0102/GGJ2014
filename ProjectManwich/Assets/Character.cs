@@ -63,10 +63,6 @@ public class Character : MonoBehaviour
 				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
 			}
 		}
-	}
-
-	void FixedUpdate ()
-	{
 		if(m_Jump)
 		{			
 			rigidbody2D.AddForce(Vector2.up * JumpForce);
@@ -110,7 +106,7 @@ public class Character : MonoBehaviour
 	{
         m_anim.SetFloat("Speed", Mathf.Abs(h));
 
-		h *= 20.0f*Time.deltaTime;
+		h *= Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
 		}
@@ -118,11 +114,12 @@ public class Character : MonoBehaviour
 		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
 			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
 		}
+		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x*(1.0f-10.0f*Time.deltaTime),rigidbody2D.velocity.y);
 
-		if(h < -0.01f){
+		if(h < -0.0f){
 			FaceRight = false;
 		}
-		if(h > 0.01f){
+		if(h > 0.0f){
 			FaceRight = true;
 		}
 	}
