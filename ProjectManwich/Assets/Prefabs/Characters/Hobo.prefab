@@ -130,7 +130,7 @@ MonoBehaviour:
   m_skills:
   - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
   - {fileID: 11400000, guid: dc783d2ad0e5b8549a1d30eaf634298d, type: 2}
-  - {fileID: 11400000, guid: dc783d2ad0e5b8549a1d30eaf634298d, type: 2}
+  - {fileID: 11400000, guid: ed277ee950d722e4e9005e32d6446265, type: 2}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

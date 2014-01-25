@@ -18,6 +18,9 @@ public class LevelManager : MonoBehaviour {
 
 	private Rect tempScore = new Rect(0,0,300,150);
 
+	//These values are per player, multiply times players in the game to find out what level you should display
+	private int[] m_levelThresholds = {0, 1000, 2000, 3000, 4000};
+
 	// Use this for initialization
 	void Start () {
 		m_singleton = this;
@@ -34,6 +37,25 @@ public class LevelManager : MonoBehaviour {
 				SwitchToLevel(1);
 			} else if(m_activeLevel == 1) {
 				SwitchToLevel(0);
+			}
+		}
+
+		float avgMoneyPerPlayer = 0;
+		float totalPlayers = 0;
+		foreach(Player p in PlayerManager.m_singleton.m_players) {
+			if (p!=null) {
+				avgMoneyPerPlayer+=p.m_money;
+				totalPlayers++;
+			}
+		}
+		avgMoneyPerPlayer /= totalPlayers;
+		//Check which level we should display
+		for(int i = m_levelThresholds.Length-1; i>=0; i--) {
+			if (avgMoneyPerPlayer >= m_levelThresholds[i]) {
+				if (i != m_activeLevel) {
+					SwitchToLevel(i);
+				}
+				break;
 			}
 		}
 
@@ -62,6 +84,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void SwitchToLevel(int levelNum) {
+		if (levelNum >= levels.Count) {
+			Debug.LogError("We don't have a level " + levelNum + " yet!");
+			return;
+		}
 		m_nextLevel = levelNum;
 		StartTransition ();
 	}

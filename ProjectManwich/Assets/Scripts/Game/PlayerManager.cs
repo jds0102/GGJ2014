@@ -35,6 +35,8 @@ public class PlayerManager : MonoBehaviour
                 player.Update();
             }
         }
+
+		m_players [0].m_money ++;
 	}
 
     void OnLevelWasLoaded(int levelID)
