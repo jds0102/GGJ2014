@@ -4,14 +4,16 @@ using System.Collections;
 public class Player : ScriptableObject
 {
     public int m_playerIndex;
+    public int m_playerInputLayer;
 	public Character m_character;
 	
     public int m_health;
     public int m_money;
 
-    public Player(int index)
+    public Player(int index, int playerInputLayer)
     {
         m_playerIndex = index;
+        m_playerInputLayer = playerInputLayer;
         m_money = 500;
         m_health = 3;
     }

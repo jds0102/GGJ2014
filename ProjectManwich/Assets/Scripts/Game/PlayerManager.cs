@@ -31,15 +31,15 @@ public class PlayerManager : MonoBehaviour
     {
         if (levelID == 2) {
             // Setup Characters
-			AddPlayer();
+			//AddPlayer(1);
 			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
 			m_players[0].m_character = newPlayer.GetComponent<Character>();
         }
     }
 
-    public static void AddPlayer()
+    public static void AddPlayer(int playerInputLayer)
     {
-        Player newPlayer = new Player(m_singleton.playerCount);
+        Player newPlayer = new Player(m_singleton.playerCount, playerInputLayer);
 		m_singleton.m_players[newPlayer.m_playerIndex] = newPlayer;
         m_singleton.playerCount++;
     }
