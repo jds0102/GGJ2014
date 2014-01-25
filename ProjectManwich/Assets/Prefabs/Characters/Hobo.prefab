@@ -119,13 +119,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436d0a1f0d7a84e4e8644e86f3e45e89, type: 3}
+  m_Script: {fileID: 11500000, guid: a14515192f21d42419d54984f767843b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_playerIndex: 0
+  m_playerInputLayer: 0
+  m_character: {fileID: 0}
+  m_health: 0
+  m_money: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,7 +142,10 @@ MonoBehaviour:
   MaxSpeed: 5
   JumpForce: 1000
   GroundCollider: {fileID: 0}
-  m_class: {fileID: 0}
+  m_skills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
