@@ -38,6 +38,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: Grounded
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -147,7 +153,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: Grounded
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -218,8 +224,8 @@ Transition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 1
+    m_ConditionEvent: Jump
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -254,9 +260,9 @@ Transition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
+  - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: 0
+    m_EventTreshold: .100000001
     m_ExitTime: .899999976
   m_Atomic: 1
   m_Solo: 0
@@ -273,7 +279,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: Grounded
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -290,8 +296,8 @@ Transition:
   m_TransitionDuration: .100000001
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: Speed
+  - m_ConditionMode: 1
+    m_ConditionEvent: Special
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -326,7 +332,7 @@ State:
   m_Motions:
   - {fileID: 7400000, guid: ba3c499637f3bb54d93e18f807120523, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 24, y: -48, z: 0}
+  m_Position: {x: 36, y: -48, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -339,9 +345,9 @@ State:
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 5ebbc3ffa3ad06e4ca5b23b85c0e1cd4, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: -180, y: -156, z: 0}
+  m_Position: {x: -180, y: -168, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -386,7 +392,7 @@ State:
   m_Motions:
   - {fileID: 0}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 24, y: 36, z: 0}
+  m_Position: {x: 36, y: 36, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -459,5 +465,5 @@ StateMachine:
       second:
       - {fileID: 110112591}
   m_MotionSetCount: 1
-  m_AnyStatePosition: {x: 48, y: -156, z: 0}
+  m_AnyStatePosition: {x: 48, y: -168, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
