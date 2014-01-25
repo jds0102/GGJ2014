@@ -5,6 +5,11 @@ public class Character : MonoBehaviour
 {
 	private bool m_Jump = false;
 
+	private bool m_FallThroughPlatform = false;
+	private float m_FallStartTime;
+
+	public bool b;
+
 	[HideInInspector]
 	public bool FaceRight;
 
@@ -48,6 +53,8 @@ public class Character : MonoBehaviour
 	
 	void Update()
 	{
+
+
 		if(FaceRight){
 			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
 		} else {
@@ -55,7 +62,8 @@ public class Character : MonoBehaviour
 		}
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 	
-		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.5f);
+
+		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.7f);
 		bool turnOffCollision = false;
 		foreach(Collider2D collision in collisions){
 			if(Physics2D.GetIgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"))){
@@ -63,12 +71,20 @@ public class Character : MonoBehaviour
 					turnOffCollision = true;
 				}
 			}
-			if(collision.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
-				turnOffCollision = true;
-			} else if(collision.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
-				turnOffCollision = turnOffCollision || false;
-			}
 		}
+
+		if(rigidbody2D.velocity.y > 0.0f){
+			turnOffCollision = true;
+		} else if(rigidbody2D.velocity.y < 0.0f){
+			turnOffCollision = turnOffCollision || false;
+		}
+
+		if(m_FallThroughPlatform && Time.time - m_FallStartTime < 0.2f){
+			turnOffCollision = true;
+		} else {
+			m_FallThroughPlatform = turnOffCollision || false;
+		}
+
 		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
 
 		if(m_Jump)
@@ -77,6 +93,13 @@ public class Character : MonoBehaviour
 			
 			m_Jump = false;
 		}
+
+
+	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.DrawWireSphere(transform.position,1.7f);
 	}
 
     public void FireSkill(int slot)
@@ -134,7 +157,10 @@ public class Character : MonoBehaviour
 	public void Drop()
 	{
         m_anim.SetTrigger("Jump");
-		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+		if(m_Grounded){
+			m_FallStartTime = Time.time;
+			m_FallThroughPlatform = true;
+		}
 	}
 
 }
