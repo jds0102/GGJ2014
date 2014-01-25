@@ -11,9 +11,14 @@ public class Heckle : Skill {
 
         if (!Activated && !Locked) {
             Activated = true;
-            Rigidbody2D bulletInstance = Instantiate(m_projectile, m_myCharacter.gameObject.transform.position, Quaternion.Euler(new Vector3(0, 0, 0))) as Rigidbody2D;
-            if (bulletInstance != null) {
-                bulletInstance.velocity = new Vector2(m_projectile.m_speed, 0);
+            Vector3 spawnPos = m_myCharacter.gameObject.transform.position;
+            Debug.Log("Facing" + m_myCharacter.FaceRight);
+            if (m_myCharacter.FaceRight) {
+                Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 0))));
+                bulletInstance.FireDirection = Projectile.Direction.Right;
+            } else {
+                Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 180))));
+                bulletInstance.FireDirection = Projectile.Direction.Left;
             }
         }
         Activated = false;

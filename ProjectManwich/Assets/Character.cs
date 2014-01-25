@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
 	private bool m_Jump = false;
 
 	[HideInInspector]
-	public bool FaceRight = true;
+	public bool FaceRight;
 
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
@@ -33,6 +33,11 @@ public class Character : MonoBehaviour
 	
 	void Update()
 	{
+		if(FaceRight){
+			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
+		} else {
+			transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
+		}
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 	}
 	
@@ -42,20 +47,19 @@ public class Character : MonoBehaviour
 		if(m_Jump)
 		{			
 			rigidbody2D.AddForce(Vector2.up * JumpForce);
-			
 			m_Jump = false;
 		}
 	}
 
     public void FireSkill(int slot)
     {
-        //Skill skillToFire = m_skills[slot];
-        //skillToFire.Execute();
+        Skill skillToFire = m_skills[slot];
+        skillToFire.Execute();
     }
 
 	void UseAbility(int slot)
 	{
-        Debug.Log("Use Ability Called - Slot [" + slot + "]");
+        //Debug.Log("Use Ability Called - Slot [" + slot + "]");
         FireSkill(slot);
 	}
 
@@ -86,13 +90,12 @@ public class Character : MonoBehaviour
 		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
 			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
 		}
-		if(h < 0.0f){
+
+		if(h < -0.01f){
 			FaceRight = false;
-			transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
 		}
-		if(h > 0.0f){
+		if(h > 0.01f){
 			FaceRight = true;
-			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
 		}
 	}
 

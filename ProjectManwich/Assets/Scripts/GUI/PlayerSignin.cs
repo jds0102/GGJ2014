@@ -33,20 +33,17 @@ public class PlayerSignin : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            EnableUIElements(false);
-            m_mainMenu.GetComponent<MainMenu>().EnableUIElements(true);
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape)) {
+        //    EnableUIElements(false);
+        //    m_mainMenu.GetComponent<MainMenu>().EnableUIElements(true);
+        //}
 
-
-
-        if (Input.GetKeyDown(KeyCode.Return)) {
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Pause")) {
             Application.LoadLevel("Level"); 
         }
 
-        if (Input.GetButtonDown("Player1" + "Jump")) {
+        if (Input.GetButtonDown("Player1Jump")) {
             // Check if a player has already been registered for this input
-            Debug.LogError("Player1 Pressed");
             Player p = PlayerManager.GetPlayerByInputLayer(1);
             if (p == null) {
                 PlayerManager.AddPlayer(1);
@@ -55,7 +52,7 @@ public class PlayerSignin : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Player2" + "Jump")) {
+        if (Input.GetButtonDown("Player2Jump")) {
             // Check if a player has already been registered for this input
             Player p = PlayerManager.GetPlayerByInputLayer(2);
             if (p == null) {
@@ -65,7 +62,7 @@ public class PlayerSignin : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Player3" + "Jump")) {
+        if (Input.GetButtonDown("Player3Jump")) {
             // Check if a player has already been registered for this input
             Player p = PlayerManager.GetPlayerByInputLayer(3);
             if (p == null) {
@@ -75,7 +72,7 @@ public class PlayerSignin : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Player4" + "Jump")) {
+        if (Input.GetButtonDown("Player4Jump")) {
             // Check if a player has already been registered for this input
             Player p = PlayerManager.GetPlayerByInputLayer(4);
             if (p == null) {
