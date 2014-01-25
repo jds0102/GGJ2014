@@ -6,6 +6,16 @@ public class Projectile : MonoBehaviour
 	public GameObject explosion;		// Prefab of explosion effect.
     public float m_speed;
 
+    public enum Direction
+    {
+        Right,
+        Left
+    }
+
+    public Direction FireDirection {
+        get; set;
+    }
+
 
 	void Start () 
 	{
@@ -15,8 +25,13 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        float speed = m_speed;
+        if (FireDirection == Direction.Left) {
+            speed = -speed;
+        }
+
         if (this != null) {
-            this.rigidbody2D.velocity = new Vector2(m_speed, 0);
+            this.rigidbody2D.velocity = new Vector2(speed, 0);
         }
 
         //this.gameObject.transform.position.Set(this.gameObject.transform.position.x + 5, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
