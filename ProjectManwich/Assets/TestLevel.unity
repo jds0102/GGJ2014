@@ -153,7 +153,8 @@ Prefab:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
   m_RootGameObject: {fileID: 2140852565}
   m_IsPrefabParent: 0
@@ -327,7 +328,12 @@ Prefab:
       propertyPath: m_Layer
       value: 16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11400002, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
   m_RootGameObject: {fileID: 1655696551}
   m_IsPrefabParent: 0
@@ -1825,7 +1831,8 @@ Prefab:
       propertyPath: m_Name
       value: Player3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
   m_RootGameObject: {fileID: 1755599285}
   m_IsPrefabParent: 0
@@ -3352,7 +3359,6 @@ GameObject:
   - 61: {fileID: 1655696558}
   - 58: {fileID: 1655696557}
   - 95: {fileID: 1655696556}
-  - 114: {fileID: 1655696554}
   - 114: {fileID: 1655696553}
   m_Layer: 16
   m_Name: Player1
@@ -3386,22 +3392,6 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1655696551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436d0a1f0d7a84e4e8644e86f3e45e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1655696554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 94b71a5c1c809fe44a2e1513737e8ab6,
-    type: 2}
-  m_PrefabInternal: {fileID: 158825036}
   m_GameObject: {fileID: 1655696551}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3686,7 +3676,6 @@ GameObject:
   - 61: {fileID: 1755599291}
   - 58: {fileID: 1755599290}
   - 95: {fileID: 1755599289}
-  - 114: {fileID: 1755599288}
   - 114: {fileID: 1755599287}
   m_Layer: 18
   m_Name: Player3
@@ -3720,22 +3709,6 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1755599285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436d0a1f0d7a84e4e8644e86f3e45e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &1755599288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 94b71a5c1c809fe44a2e1513737e8ab6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1016699653}
   m_GameObject: {fileID: 1755599285}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -5295,7 +5268,6 @@ GameObject:
   - 61: {fileID: 2140852570}
   - 58: {fileID: 2140852569}
   - 95: {fileID: 2140852568}
-  - 114: {fileID: 2140852573}
   - 114: {fileID: 2140852567}
   m_Layer: 17
   m_Name: Player2
@@ -5411,19 +5383,3 @@ MonoBehaviour:
   JumpForce: 1000
   GroundCollider: {fileID: 2140852569}
   m_class: {fileID: 0}
---- !u!114 &2140852573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 94b71a5c1c809fe44a2e1513737e8ab6,
-    type: 2}
-  m_PrefabInternal: {fileID: 58877522}
-  m_GameObject: {fileID: 2140852565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436d0a1f0d7a84e4e8644e86f3e45e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}

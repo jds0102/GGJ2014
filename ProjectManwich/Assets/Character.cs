@@ -44,16 +44,6 @@ public class Character : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
-		float h = Input.GetAxis("Horizontal");
-		
-		if(h * rigidbody2D.velocity.x < MaxSpeed){
-			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
-		}
-		
-		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
-			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
-		}
-
 		if(m_Jump)
 		{			
 			rigidbody2D.AddForce(Vector2.up * JumpForce);
@@ -81,6 +71,18 @@ public class Character : MonoBehaviour
 	{
 		if(m_Grounded){
 			m_Jump = true;
+		}
+	}
+
+	public void Move(float h)
+	{
+		h *= Time.deltaTime;
+		if(h * rigidbody2D.velocity.x < MaxSpeed){
+			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
+		}
+		
+		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
+			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
 		}
 	}
 

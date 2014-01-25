@@ -40,6 +40,8 @@ public class PlayerClass : MonoBehaviour {
 			this.GetComponent<Character>().Jump();
 		}
 
+		this.GetComponent<Character>().Move(Input.GetAxis(player + "Horizontal"));
+
 	}
 
     public void FireSkill(int slot)
