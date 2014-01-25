@@ -5,6 +5,6 @@ public class Hobo : PlayerClass {
 
     public Hobo()
     {
-        m_skills[1] = SkillManager.Skills[0];
+        //m_skills[1] = SkillManager.Skills[0];
     }
 }

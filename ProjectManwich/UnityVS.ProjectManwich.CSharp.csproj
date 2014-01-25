@@ -68,8 +68,10 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIElement.cs" />
     <Compile Include="Assets\Scripts\GUI\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\GUI\PlayerSignin.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\HealthPickup.cs" />
+    <Compile Include="Assets\Scripts\InteractableItem.cs" />
     <Compile Include="Assets\Scripts\LayBombs.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Pauser.cs" />
