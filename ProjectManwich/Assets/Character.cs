@@ -19,7 +19,8 @@ public class Character : MonoBehaviour
 
 	private Collider2D m_Collider;
     public Skill[] m_skills;
-	
+
+	public Player m_Player { get; set;}
 	
 	void Awake()
 	{
