@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
 	{
 		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
-        m_class = new Hobo();
+         m_class = new Hobo();
 	}
 	
 	

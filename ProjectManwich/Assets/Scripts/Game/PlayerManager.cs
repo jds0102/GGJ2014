@@ -26,6 +26,13 @@ public class PlayerManager : MonoBehaviour
         }
 	}
 
+    void OnLevelWasLoaded(int levelID)
+    {
+        if (levelID == 1) {
+            // Setup Characters
+        }
+    }
+
     public static void AddPlayer()
     {
         Player newPlayer = new Player(m_singleton.playerCount);
@@ -39,7 +46,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     public static Player[] GetPlayers()
-    {
+    {        
         return m_singleton.m_players;
     }
 
