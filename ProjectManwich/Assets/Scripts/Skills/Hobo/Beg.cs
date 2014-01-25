@@ -49,5 +49,7 @@ public int SlowHeartRate(int arg) {
                 }
             }
         }
+
+        Activated = false;
     }
 }

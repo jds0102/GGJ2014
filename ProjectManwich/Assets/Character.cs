@@ -4,7 +4,10 @@ using System.Collections;
 public class Character : MonoBehaviour
 {
 	private bool m_Jump = false;
-	
+
+	[HideInInspector]
+	public bool FaceRight = true;
+
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
 	public float JumpForce = 1000f;	
@@ -15,13 +18,16 @@ public class Character : MonoBehaviour
 	private bool m_Grounded = false;
 
 	private Collider2D m_Collider;
-    public Skill[] m_skills = new Skill[3];
+    public Skill[] m_skills;
 	
 	
 	void Awake()
 	{
 		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
+        foreach (Skill s in m_skills) {
+            s.m_myCharacter = this;
+        }
 	}
 	
 	
@@ -43,8 +49,8 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
-        //Skill skillToFire = m_skills[slot];
-        //skillToFire.Execute();
+        Skill skillToFire = m_skills[slot];
+        skillToFire.Execute();
     }
 
 	void UseAbility(int slot)
@@ -79,6 +85,14 @@ public class Character : MonoBehaviour
 		
 		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
 			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
+		}
+		if(h < 0.0f){
+			FaceRight = false;
+			transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
+		}
+		if(h > 0.0f){
+			FaceRight = true;
+			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
 		}
 	}
 

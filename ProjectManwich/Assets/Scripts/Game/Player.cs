@@ -20,24 +20,8 @@ public class Player : ScriptableObject
 
     public void Update()
     {
-		CheckForPlayerInput();
+		GetPlayerInput(m_playerInputLayer);
     }
-
-	void CheckForPlayerInput()
-	{
-		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player1")){
-			GetPlayerInput(1);
-		}
-		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player2")){
-			GetPlayerInput(2);
-		}
-		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player3")){
-			GetPlayerInput(3);
-		}
-		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player4")){
-			GetPlayerInput(4);
-		}
-	}
 
 	void GetPlayerInput(int num)
 	{
