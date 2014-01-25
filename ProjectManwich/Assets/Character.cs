@@ -35,10 +35,6 @@ public class Character : MonoBehaviour
 				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
 			}
 		}
-		
-		if(Input.GetButtonDown("Jump") && m_Grounded){
-			m_Jump = true;
-		}
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             UseAbility(1);
@@ -78,6 +74,13 @@ public class Character : MonoBehaviour
 		}
 		if(collider.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
 			Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
+		}
+	}
+
+	public void Jump()
+	{
+		if(m_Grounded){
+			m_Jump = true;
 		}
 	}
 
