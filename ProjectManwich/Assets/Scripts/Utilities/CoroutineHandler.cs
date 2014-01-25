@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +8,11 @@ public class CoroutineHandler : MonoBehaviour {
 	private static CoroutineHandler m_singleton;
 	private Dictionary<int, CoroutineInstance> m_coroutines;
 	private int m_assignableKey = 0;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
 
 	void Start () {
 		if (m_singleton == null) {
