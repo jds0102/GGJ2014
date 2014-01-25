@@ -74,13 +74,13 @@ public class LevelManager : MonoBehaviour {
 		Vector3 temp = levels [m_nextLevel].transform.position;
 		temp.x = m_center.x;
 		levels [m_nextLevel].transform.position = temp;
-		GameObject player = GameManager.m_singleton.player;
-		player.GetComponent<Rigidbody2D>().isKinematic = true;
+		//GameObject player = GameManager.m_singleton.player;
+		//player.GetComponent<Rigidbody2D>().isKinematic = true;
 	}
 
 	void EndTransition() {
-		GameObject player = GameManager.m_singleton.player;
-		player.GetComponent<Rigidbody2D> ().isKinematic = false;
+		//GameObject player = GameManager.m_singleton.player;
+		//player.GetComponent<Rigidbody2D> ().isKinematic = false;
 		m_sliding = false;
 		m_activeLevel = m_nextLevel;
 	}
