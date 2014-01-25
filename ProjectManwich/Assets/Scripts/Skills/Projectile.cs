@@ -23,13 +23,13 @@ public class Projectile : MonoBehaviour
     }
 
 
-	void Start () 
+	public virtual void Start () 
 	{
 		// Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
 		Destroy(gameObject, 5);
 	}
 
-    void Update()
+    public virtual void Update()
     {
         float speed = m_speed;
         if (FireDirection == Direction.Left) {

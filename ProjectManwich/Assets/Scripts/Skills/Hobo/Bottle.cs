@@ -7,8 +7,6 @@ public class Bottle : Skill {
 
     public override void Execute()
     {
-        
-
         if (!Locked) {
             Debug.Log("Fired Skill - Bottle - Character[" + m_myCharacter + "]");
             Vector3 charPos = m_myCharacter.gameObject.transform.position;
