@@ -19,7 +19,8 @@ public class Character : MonoBehaviour
 
 	private Collider2D m_Collider;
     public Skill[] m_skills;
-	
+
+    private Animator m_anim;
 	
 	void Awake()
 	{
@@ -28,6 +29,7 @@ public class Character : MonoBehaviour
         foreach (Skill s in m_skills) {
             s.m_myCharacter = this;
         }
+        m_anim = GetComponent<Animator>();
 	}
 	
 	
@@ -55,13 +57,23 @@ public class Character : MonoBehaviour
     {
         Skill skillToFire = m_skills[slot];
         skillToFire.Execute();
+
+        if (slot == 1) {
+            m_anim.SetTrigger("Action1");
+        } else if (slot == 2) {
+            m_anim.SetTrigger("Action2");
+        } else if (slot == 3) {
+            m_anim.SetTrigger("Special");
+        }
     }
 
+    /*
 	void UseAbility(int slot)
 	{
         //Debug.Log("Use Ability Called - Slot [" + slot + "]");
         FireSkill(slot);
 	}
+    */
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
@@ -76,12 +88,15 @@ public class Character : MonoBehaviour
 	public void Jump()
 	{
 		if(m_Grounded){
+            m_anim.SetTrigger("Jump");
 			m_Jump = true;
 		}
 	}
 
 	public void Move(float h)
 	{
+        m_anim.SetFloat("Speed", Mathf.Abs(h));
+
 		h *= 20.0f*Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
@@ -101,6 +116,7 @@ public class Character : MonoBehaviour
 
 	public void Drop()
 	{
+        m_anim.SetTrigger("Jump");
 		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
 	}
 
