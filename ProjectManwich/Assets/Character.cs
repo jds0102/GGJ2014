@@ -64,12 +64,12 @@ public class Character : MonoBehaviour
 				}
 			}
 			if(collision.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
-				turnOffCollision = turnOffCollision || false;
-			} else if(collision.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
 				turnOffCollision = true;
+			} else if(collision.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
+				turnOffCollision = turnOffCollision || false;
 			}
 		}
-		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
+		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
 
 		if(m_Jump)
 		{			

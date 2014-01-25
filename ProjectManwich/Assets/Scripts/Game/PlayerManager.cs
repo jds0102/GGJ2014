@@ -47,6 +47,7 @@ public class PlayerManager : MonoBehaviour
                 if (p != null) {
                     GameObject newPlayer = (GameObject)Instantiate(m_hoboPrefab, Vector3.zero, Quaternion.identity);
                     newPlayer.name = "Player " + index;
+					newPlayer.layer = LayerMask.NameToLayer("Player"+(index+1));;
                     m_players[index].m_character = newPlayer.GetComponent<Character>();
 					m_players[index].m_character.m_Player = m_players[index];
 
