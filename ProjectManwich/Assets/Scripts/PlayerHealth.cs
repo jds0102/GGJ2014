@@ -12,14 +12,14 @@ public class PlayerHealth : MonoBehaviour
 	private SpriteRenderer healthBar;			// Reference to the sprite renderer of the health bar.
 	private float lastHitTime;					// The time at which the player was last hit.
 	private Vector3 healthScale;				// The local scale of the health bar initially (with full health).
-	private PlayerControl playerControl;		// Reference to the PlayerControl script.
+	private PlayerController playerControl;		// Reference to the PlayerControl script.
 	private Animator anim;						// Reference to the Animator on the player
 
 
 	void Awake ()
 	{
 		// Setting up references.
-		playerControl = GetComponent<PlayerControl>();
+		playerControl = GetComponent<PlayerController>();
 		healthBar = GameObject.Find("HealthBar").GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 
@@ -76,8 +76,6 @@ public class PlayerHealth : MonoBehaviour
 
 	void TakeDamage (Transform enemy)
 	{
-		// Make sure the player can't jump.
-		playerControl.jump = false;
 
 		// Create a vector that's from the enemy to the player with an upwards boost.
 		Vector3 hurtVector = transform.position - enemy.position + Vector3.up * 5f;
