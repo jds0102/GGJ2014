@@ -29,6 +29,7 @@ GameObject:
   - 61: {fileID: 6100000}
   - 95: {fileID: 9500000}
   - 60: {fileID: 6000000}
+  - 58: {fileID: 5800000}
   m_Layer: 16
   m_Name: Hobo
   m_TagString: Untagged
@@ -74,6 +75,17 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
+--- !u!58 &5800000
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .660000026
+  m_Center: {x: 0, y: -3.00999999}
 --- !u!60 &6000000
 PolygonCollider2D:
   m_ObjectHideFlags: 1
@@ -348,7 +360,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 5.96000004, y: 8.65999985}
+  m_Size: {x: 5.96000004, y: 7.34000015}
   m_Center: {x: .00999999978, y: .0399999991}
 --- !u!95 &9500000
 Animator:
@@ -379,7 +391,8 @@ MonoBehaviour:
   MoveForce: 365
   MaxSpeed: 5
   JumpForce: 1000
-  GroundCollider: {fileID: 0}
+  GroundCollider: {fileID: 5800000}
+  m_Collider: {fileID: 6000000}
   m_skills:
   - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
   - {fileID: 11400000, guid: dc783d2ad0e5b8549a1d30eaf634298d, type: 2}
