@@ -1466,7 +1466,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   playerCount: 0
-  PlayerPrefab: {fileID: 100000, guid: 94b71a5c1c809fe44a2e1513737e8ab6, type: 2}
+  PlayerPrefab: {fileID: 100002, guid: 224831c7336a16143a3741f2c2882d2d, type: 2}
+  levelLoaded: 0
 --- !u!1 &1452408366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,7 +1813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2130c7699da948cfacab99ae48c3383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &2057378243
 GameObject:
   m_ObjectHideFlags: 0

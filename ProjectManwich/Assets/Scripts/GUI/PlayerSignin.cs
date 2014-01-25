@@ -7,6 +7,11 @@ public class PlayerSignin : MonoBehaviour
     private GameObject m_mainMenu;
     private GameObject m_uiElements;
 
+    private Transform m_player1Element;
+    private Transform m_player2Element;
+    private Transform m_player3Element;
+    private Transform m_player4Element;
+
     private int m_prevSelectedIndex = -1;
     private int m_selectedIndex = 0;
 
@@ -15,6 +20,11 @@ public class PlayerSignin : MonoBehaviour
     {
         m_mainMenu = transform.parent.FindChild("Main Menu").gameObject;
         m_uiElements = transform.FindChild("UIElements").gameObject;
+
+        m_player1Element = m_uiElements.transform.FindChild("Player1");
+        m_player2Element = m_uiElements.transform.FindChild("Player2");
+        m_player3Element = m_uiElements.transform.FindChild("Player3");
+        m_player4Element = m_uiElements.transform.FindChild("Player4");
     }
 
     void Update()
@@ -29,27 +39,55 @@ public class PlayerSignin : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Application.LoadLevel("TestLevel");
+
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            Application.LoadLevel("Level");
         }
 
-        if (Input.GetButton("Player1" + "Jump")) {
-            PlayerManager.AddPlayer(1);
+        if (Input.GetButtonDown("Player1" + "Jump")) {
+            // Check if a player has already been registered for this input
+            Debug.LogError("Player1 Pressed");
+            Player p = PlayerManager.GetPlayerByInputLayer(1);
+            if (p == null) {
+                PlayerManager.AddPlayer(1);
+
+                m_player1Element.FindChild("GUI Element - Join").gameObject.GetComponent<GUIText>().text = "is Ready!";
+            }
         }
 
-        if (Input.GetButton("Player2" + "Jump")) {
+        if (Input.GetButtonDown("Player2" + "Jump")) {
+            // Check if a player has already been registered for this input
+            Player p = PlayerManager.GetPlayerByInputLayer(2);
+            if (p == null) {
+                PlayerManager.AddPlayer(2);
 
-        }
-        
-        if (Input.GetButton("Player3" + "Jump")) {
-
-        }
-
-        if (Input.GetButton("Player4" + "Jump")) {
-
+                m_player2Element.FindChild("GUI Element - Join").gameObject.GetComponent<GUIText>().text = "is Ready!";
+            }
         }
 
+        if (Input.GetButtonDown("Player3" + "Jump")) {
+            // Check if a player has already been registered for this input
+            Player p = PlayerManager.GetPlayerByInputLayer(3);
+            if (p == null) {
+                PlayerManager.AddPlayer(3);
 
+                m_player3Element.FindChild("GUI Element - Join").gameObject.GetComponent<GUIText>().text = "is Ready!";
+            }
+        }
+
+        if (Input.GetButtonDown("Player4" + "Jump")) {
+            // Check if a player has already been registered for this input
+            Player p = PlayerManager.GetPlayerByInputLayer(4);
+            if (p == null) {
+                PlayerManager.AddPlayer(4);
+
+                m_player4Element.FindChild("GUI Element - Join").gameObject.GetComponent<GUIText>().text = "is Ready!";
+            }
+        }
+
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			Application.LoadLevel(1);
+		}
     }
 
     void OnGUI()

@@ -31,16 +31,6 @@ public class Character : MonoBehaviour
 	void Update()
 	{
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
-		
-		if(m_Grounded){
-			//if(Input.GetAxis("Vertical") < 0.0f){
-			//	Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
-			//}
-		}
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            UseAbility(0);
-        }
 	}
 	
 	
@@ -56,8 +46,8 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
-        Skill skillToFire = m_skills[slot];
-        skillToFire.Execute();
+        //Skill skillToFire = m_skills[slot];
+        //skillToFire.Execute();
     }
 
 	void UseAbility(int slot)
@@ -93,6 +83,11 @@ public class Character : MonoBehaviour
 		if(Mathf.Abs(rigidbody2D.velocity.x) > MaxSpeed){
 			rigidbody2D.velocity = new Vector2(Mathf.Sign(rigidbody2D.velocity.x) * MaxSpeed, rigidbody2D.velocity.y);
 		}
+	}
+
+	public void Drop()
+	{
+		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
 	}
 
 }
