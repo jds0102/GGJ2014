@@ -26,7 +26,6 @@ public class LevelManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (Input.GetMouseButtonDown (1));
 		if(Input.GetMouseButtonDown(1)) {
 			if(m_activeLevel == 0) {
 				SwitchToLevel(1);
