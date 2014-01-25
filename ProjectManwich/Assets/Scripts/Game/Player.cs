@@ -52,6 +52,18 @@ public class Player : ScriptableObject
 		if(Input.GetAxis(player + "Vertical") < 0.0f){
 			m_character.Drop();
 		}
+
+		if(Input.GetButton(player + "Skill1")){
+			m_character.FireSkill(1);
+		}
+
+		if(Input.GetButton(player + "Skill2")){
+			m_character.FireSkill(2);
+		}
+
+		if(Input.GetButton(player + "Skill3")){
+			m_character.FireSkill(3);
+		}
 	}
 
 }
