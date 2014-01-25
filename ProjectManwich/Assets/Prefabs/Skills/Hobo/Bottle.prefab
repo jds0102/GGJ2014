@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: Heckle
+  m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,14 +35,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 971fda204cc84994c803b3c3715e446a, type: 3}
+  m_Script: {fileID: 11500000, guid: eabd3945a1bfef4478dcf28271013e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_name: 
   m_icon: {fileID: 0}
   m_description: 
+  m_myCharacter: {fileID: 0}
   m_cooldownTime: 0
-  m_projectile: {fileID: 11400002, guid: 9f6b206463d6e6c4492894c81f3e1af3, type: 2}
+  m_projectile: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

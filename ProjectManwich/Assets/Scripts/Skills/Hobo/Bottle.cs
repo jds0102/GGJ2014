@@ -1,15 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bottle : MonoBehaviour {
+public class Bottle : Skill {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public Projectile m_projectile;
+
+    public override void Execute()
+    {
+        Debug.Log("Fired Skill - Bottle");
+
+        if (!Activated && !Locked) {
+            Activated = true;
+            Vector3 spawnPos = m_myCharacter.gameObject.transform.position;
+            Debug.Log("Facing" + m_myCharacter.FaceRight);
+            if (m_myCharacter.FaceRight) {
+                Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 0))));
+                bulletInstance.FireDirection = Projectile.Direction.Right;
+            } else {
+                Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 180))));
+                bulletInstance.FireDirection = Projectile.Direction.Left;
+            }
+        }
+        Activated = false;
+    }
 }
