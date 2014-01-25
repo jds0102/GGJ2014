@@ -14,10 +14,13 @@ public class Character : MonoBehaviour
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
+
+	private Collider2D m_Collider;
 	
 	
 	void Awake()
 	{
+		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
         m_class = new Hobo();
 	}
@@ -28,7 +31,9 @@ public class Character : MonoBehaviour
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 		
 		if(m_Grounded){
-			
+			if(Input.GetAxis("Vertical") < 0.0f){
+				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+			}
 		}
 		
 		if(Input.GetButtonDown("Jump") && m_Grounded){
@@ -65,4 +70,15 @@ public class Character : MonoBehaviour
 	{
         m_class.FireSkill(slot);
 	}
+
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		if(collider.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
+			Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+		}
+		if(collider.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
+			Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
+		}
+	}
+
 }
