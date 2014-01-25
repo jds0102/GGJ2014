@@ -13,18 +13,19 @@ public class Character : MonoBehaviour
 	public float JumpForce = 1000f;	
 	
 	public Collider2D GroundCollider;
+	public Collider2D m_Collider;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
 
-	private Collider2D m_Collider;
     public Skill[] m_skills;
 
     private Animator m_anim;
+
+	public Player m_Player { get; set;}
 	
 	void Awake()
 	{
-		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
         foreach (Skill s in m_skills) {
             s.m_myCharacter = this;
@@ -41,14 +42,23 @@ public class Character : MonoBehaviour
 			transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
 		}
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
+	
+		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.5f);
+		foreach(Collider2D collision in collisions){
+			if(collision.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
+				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+			} else if(collision.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
+				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
+			}
+		}
 	}
-	
-	
+
 	void FixedUpdate ()
 	{
 		if(m_Jump)
 		{			
 			rigidbody2D.AddForce(Vector2.up * JumpForce);
+			
 			m_Jump = false;
 		}
 	}
@@ -74,16 +84,6 @@ public class Character : MonoBehaviour
         FireSkill(slot);
 	}
     */
-
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		if(collider.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
-			Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
-		}
-		if(collider.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
-			Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
-		}
-	}
 
 	public void Jump()
 	{

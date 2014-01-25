@@ -32,21 +32,20 @@ public class Player
 		}
 
 		m_character.Move(Input.GetAxis(player + "Horizontal"));
-
 		if(Input.GetAxis(player + "Vertical") < 0.0f){
 			m_character.Drop();
 		}
 
 		if(Input.GetButton(player + "Skill1")){
-			m_character.FireSkill(1);
+			m_character.FireSkill(0);
 		}
 
 		if(Input.GetButton(player + "Skill2")){
-			m_character.FireSkill(2);
+			m_character.FireSkill(1);
 		}
 
 		if(Input.GetButton(player + "Skill3")){
-			m_character.FireSkill(3);
+			m_character.FireSkill(2);
 		}
 	}
 

@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Bottle : Skill {
 
-
-    public Projectile m_projectile;
+    public float m_range;
 
     public override void Execute()
     {
@@ -12,14 +11,27 @@ public class Bottle : Skill {
 
         if (!Activated && !Locked) {
             Activated = true;
-            Vector3 spawnPos = m_myCharacter.gameObject.transform.position;
-            Debug.Log("Facing" + m_myCharacter.FaceRight);
+            Vector3 charPos = m_myCharacter.gameObject.transform.position;
+
+
+            RaycastHit2D[] hits; 
             if (m_myCharacter.FaceRight) {
-                Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 0))));
-                bulletInstance.FireDirection = Projectile.Direction.Right;
+                Vector3 endPos = charPos;
+                endPos.x += m_range;
+                hits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player")); 
             } else {
-                Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 180))));
-                bulletInstance.FireDirection = Projectile.Direction.Left;
+                Vector3 endPos = charPos;
+                endPos.x -= m_range;
+                hits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player")); 
+            }
+
+            foreach (RaycastHit2D hit in hits) {
+                if (hit != null) {
+                    if (hit.transform.gameObject != m_myCharacter.gameObject) {
+                        // TODO: HANDLE HIT STUFF HERE
+                        Debug.Log(hit.transform.gameObject);
+                    }
+                }
             }
         }
         Activated = false;
