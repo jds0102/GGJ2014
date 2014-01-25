@@ -16,6 +16,12 @@ public class Projectile : MonoBehaviour
         get; set;
     }
 
+    public Character Owner
+    {
+        get;
+        set;
+    }
+
 
 	void Start () 
 	{
@@ -48,6 +54,15 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        if (col != Owner.collider2D) {
+            foreach (Player p in PlayerManager.GetPlayers()) {
+                if (p != null && col.gameObject == p.m_character.gameObject) {
+                    Debug.Log("Hit: " + col.gameObject);
+                    //TODO: HANDLE DAMAGE
+                    Destroy(gameObject);
+                }
+            }
+        }
 
     }
 }
