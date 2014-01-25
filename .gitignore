@@ -1,2 +1,10 @@
 /ProjectManwich/Library
 /ProjectManwich/Temp
+
+/ProjectManwich/*.csproj
+/ProjectManwich/*.csproj
+
+/ProjectManwich/ProjectManwich-csharp.sln
+/ProjectManwich/ProjectManwich-csharp.suo
+/ProjectManwich/ProjectManwich.sln
+/ProjectManwich/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
