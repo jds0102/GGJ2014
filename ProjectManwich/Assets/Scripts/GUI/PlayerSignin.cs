@@ -39,6 +39,7 @@ public class PlayerSignin : MonoBehaviour
         }
 
 
+
         if (Input.GetKeyDown(KeyCode.Return)) {
             Application.LoadLevel("Level");
         }
@@ -84,7 +85,9 @@ public class PlayerSignin : MonoBehaviour
             }
         }
 
-
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			Application.LoadLevel(1);
+		}
     }
 
     void OnGUI()

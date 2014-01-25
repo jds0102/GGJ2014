@@ -36,7 +36,6 @@ public class LevelManager : MonoBehaviour {
 
 		if (m_sliding) {
 			float distanceToCenter = levels[m_nextLevel].transform.FindChild("LevelCenter").position.y - m_center.y;
-			Debug.Log(distanceToCenter);
 			if ( Mathf.Abs(distanceToCenter) < 1) {
 				float deltaY = distanceToCenter;
 				Vector3 temp;
@@ -72,15 +71,14 @@ public class LevelManager : MonoBehaviour {
 			m_slideDirection = 1;
 		}
 		Vector3 temp = levels [m_nextLevel].transform.position;
-		temp.x = m_center.x;
+		temp.x -= (levels[m_nextLevel].transform.FindChild ("LevelCenter").position.x - m_center.x);
 		levels [m_nextLevel].transform.position = temp;
-		//GameObject player = GameManager.m_singleton.player;
-		//player.GetComponent<Rigidbody2D>().isKinematic = true;
+		GameManager.m_singleton.PauseWorld ();
 	}
 
 	void EndTransition() {
-		//GameObject player = GameManager.m_singleton.player;
-		//player.GetComponent<Rigidbody2D> ().isKinematic = false;
+		GameManager.m_singleton.UnPauseWorld ();
+
 		m_sliding = false;
 		m_activeLevel = m_nextLevel;
 	}
