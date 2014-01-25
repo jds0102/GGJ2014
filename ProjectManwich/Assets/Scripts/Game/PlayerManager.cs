@@ -48,6 +48,7 @@ public class PlayerManager : MonoBehaviour
                     GameObject newPlayer = (GameObject)Instantiate(m_hoboPrefab, Vector3.zero, Quaternion.identity);
                     newPlayer.name = "Player " + index;
                     m_players[index].m_character = newPlayer.GetComponent<Character>();
+					m_players[index].m_character.m_Player = m_players[index];
 
                     //Temp, eventually I will create spawners and attach them to player manager 
                     m_players[index].m_character.transform.position = GameObject.Find("Player1Spawner").transform.position;

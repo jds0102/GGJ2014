@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour {
 	private float m_transitionSpeed = 50.0f;
 	private int m_slideDirection = 1;
 
+	private Rect tempScore = new Rect(0,0,300,150);
+
 	// Use this for initialization
 	void Start () {
 		m_singleton = this;
@@ -23,6 +25,12 @@ public class LevelManager : MonoBehaviour {
 		m_center = new Vector3 (0, 0, 0);
 
 	}
+
+	//TEMP
+	void OnGUI() {
+		GUI.Label (tempScore, "$" + PlayerManager.m_singleton.m_players [0].m_money);
+	}
+
 
 	// Update is called once per frame
 	void Update () {
