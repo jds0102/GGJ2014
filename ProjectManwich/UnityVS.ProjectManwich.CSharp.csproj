@@ -58,8 +58,6 @@
     <Compile Include="Assets\Scripts\Character Classes\CEO.cs" />
     <Compile Include="Assets\Scripts\Character Classes\FryCook.cs" />
     <Compile Include="Assets\Scripts\Character Classes\Hobo.cs" />
-    <Compile Include="Assets\Scripts\Character Classes\PlayerClass.cs" />
-    <Compile Include="Assets\Scripts\Character Classes\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Character Classes\WhiteCollar.cs" />
     <Compile Include="Assets\Scripts\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
