@@ -28,16 +28,17 @@ public class InteractableItem : MonoBehaviour {
 		if (m_activated) return;
 
 		if(interaction == InteractionType.onCollide) {
-			if (other.gameObject.GetComponent<Character>()) {
-				Activate();
+			Player player = other.gameObject.GetComponent<Character>().m_Player;
+			if (player != null) {
+				Activate(player);
 			}
 		}
 	}
 
-	void Activate() {
+	void Activate(Player player) {
 		m_activated = true;
 		GetComponent<SpriteRenderer> ().sprite = activatedImage;
-
+		player.m_money += 500;
 	}
 }
 

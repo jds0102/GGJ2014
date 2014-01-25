@@ -32,7 +32,6 @@ public class Player
 		}
 
 		m_character.Move(Input.GetAxis(player + "Horizontal"));
-
 		if(Input.GetAxis(player + "Vertical") < 0.0f){
 			m_character.Drop();
 		}

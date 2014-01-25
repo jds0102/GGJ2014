@@ -19,16 +19,32 @@ public class Character : MonoBehaviour
 	private bool m_Grounded = false;
 
     public Skill[] m_skills;
-	
+    private Skill[] m_instancedSkills;
+
+    private Animator m_anim;
+
+	public Player m_Player { get; set;}
 	
 	void Awake()
 	{
 		m_GroundCheck = transform.Find("groundCheck");
-        foreach (Skill s in m_skills) {
-            s.m_myCharacter = this;
-        }
 	}
-	
+
+    void Start()
+    {
+        m_instancedSkills = new Skill[m_skills.Length];
+        for (int i = 0; i < m_skills.Length; i++) {
+            Skill s = m_skills[i];
+            
+            Skill instanced = (Skill)(GameObject.Instantiate(s));
+            instanced.gameObject.transform.parent = this.gameObject.transform;
+            instanced.m_myCharacter = this;
+            s.m_myCharacter = this;
+            m_instancedSkills[i] = instanced;
+            //Debug.Log(instanced.m_myCharacter);
+        }
+        m_anim = GetComponent<Animator>();
+	}
 	
 	void Update()
 	{
@@ -61,25 +77,39 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
-        Skill skillToFire = m_skills[slot];
+        Skill skillToFire = m_instancedSkills[slot];
+        Debug.Log("Firing Skill for Character: " + skillToFire.m_myCharacter);
         skillToFire.Execute();
+
+        if (slot == 1) {
+            m_anim.SetTrigger("Action1");
+        } else if (slot == 2) {
+            m_anim.SetTrigger("Action2");
+        } else if (slot == 3) {
+            m_anim.SetTrigger("Special");
+        }
     }
 
+    /*
 	void UseAbility(int slot)
 	{
         //Debug.Log("Use Ability Called - Slot [" + slot + "]");
         FireSkill(slot);
 	}
+    */
 
 	public void Jump()
 	{
 		if(m_Grounded){
+            m_anim.SetTrigger("Jump");
 			m_Jump = true;
 		}
 	}
 
 	public void Move(float h)
 	{
+        m_anim.SetFloat("Speed", Mathf.Abs(h));
+
 		h *= 20.0f*Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
@@ -99,6 +129,7 @@ public class Character : MonoBehaviour
 
 	public void Drop()
 	{
+        m_anim.SetTrigger("Jump");
 		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
 	}
 
