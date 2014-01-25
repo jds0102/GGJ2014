@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
     public Player[] m_players = new Player[4];
     public int playerCount;
 	public GameObject PlayerPrefab;
+    public bool levelLoaded = false;
 
     public static PlayerManager m_singleton;
 
@@ -19,6 +20,10 @@ public class PlayerManager : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+        if (!levelLoaded) {
+            return;
+        }
+
         for (int index = 0; index < m_players.Length; index++) {
             Player player = m_players[index];
             if (player != null) {
@@ -31,7 +36,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (levelID == 2) {
             // Setup Characters
-			//AddPlayer(1);
+            levelLoaded = true;
 			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
 			m_players[0].m_character = newPlayer.GetComponent<Character>();
         }
@@ -48,6 +53,20 @@ public class PlayerManager : MonoBehaviour
     {
         Player player = m_singleton.m_players[index];
         return player;
+    }
+
+    public static Player GetPlayerByInputLayer(int inputLayer)
+    {
+        for (int index = 0; index < m_singleton.m_players.Length; index++) {
+            Player p = m_singleton.m_players[index];
+            if (p != null) {
+                if (p.m_playerInputLayer == inputLayer) {
+                    return p;
+                }
+            }
+        }
+
+        return null;
     }
 
     public static Player[] GetPlayers()
