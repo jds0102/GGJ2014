@@ -5,8 +5,13 @@ public class PlayerManager : MonoBehaviour
 {
     public Player[] m_players = new Player[4];
     public int playerCount;
-	public GameObject PlayerPrefab;
     public bool levelLoaded = false;
+
+    public GameObject m_hoboPrefab;
+    public GameObject m_fryCookPrefab;
+    public GameObject m_constructionPrefab;
+    public GameObject m_officePrefab;
+    public GameObject m_ceoPrefab;
 
     public static PlayerManager m_singleton;
 
@@ -40,7 +45,7 @@ public class PlayerManager : MonoBehaviour
             for (int index = 0; index < m_singleton.m_players.Length; index++) {
                 Player p = m_singleton.m_players[index];
                 if (p != null) {
-                    GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+                    GameObject newPlayer = (GameObject)Instantiate(m_hoboPrefab, Vector3.zero, Quaternion.identity);
                     m_players[index].m_character = newPlayer.GetComponent<Character>();
 
                     //Temp, eventually I will create spawners and attach them to player manager 
