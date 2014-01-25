@@ -8,9 +8,8 @@ public class Heckle : Skill {
 
     public override void Execute()
     {
-        Debug.Log("Fired Skill - Heckle - Character [" + m_myCharacter + "]");
-
         if (!Locked) {
+            Debug.Log("Fired Skill - Heckle - Character [" + m_myCharacter + "]");
             Vector3 spawnPos = m_myCharacter.gameObject.transform.position;
             //Debug.Log("Facing" + m_myCharacter.FaceRight);
             if (m_myCharacter.FaceRight) {

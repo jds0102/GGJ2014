@@ -26,11 +26,6 @@ public class LevelManager : MonoBehaviour {
 
 	}
 
-	//TEMP
-	void OnGUI() {
-		GUI.Label (tempScore, "$" + PlayerManager.m_singleton.m_players [0].m_money);
-	}
-
 
 	// Update is called once per frame
 	void Update () {

@@ -4,10 +4,10 @@ using System.Collections;
 public class InteractableItem : MonoBehaviour {
 
 	public InteractionType interaction;
-	public Sprite activatedImage;
+	public Sprite originalImage, activatedImage;
 
 	private BoxCollider2D collisionBox;
-	private bool m_activated;
+	public bool m_activated;
 
 	// Use this for initialization
 	void Start () {
@@ -16,6 +16,7 @@ public class InteractableItem : MonoBehaviour {
 			Debug.LogError("Interactable object " + gameObject.name + " has no box collider attached. Disabling the object");
 			this.enabled = false;
 		}
+		originalImage = GetComponent<SpriteRenderer> ().sprite;
 	}
 	
 	// Update is called once per frame
@@ -26,20 +27,20 @@ public class InteractableItem : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		//Only activate it once for now
 		if (m_activated) return;
-
 		if(interaction == InteractionType.onCollide) {
-			Player player = other.gameObject.GetComponent<Character>().m_Player;
-			if (player != null) {
-				Activate(player);
+			Character character = other.gameObject.GetComponent<Character>();
+			if (character) {
+				Player player = character.m_Player;
+				if (player != null) {
+					Activate(player);
+				}
 			}
 		}
 	}
 
-	void Activate(Player player) {
-		m_activated = true;
-		GetComponent<SpriteRenderer> ().sprite = activatedImage;
-		player.m_money += 500;
-	}
+	public virtual void Activate(Player player) {}
+
+	public virtual void Reset() {}
 }
 
 public enum InteractionType{

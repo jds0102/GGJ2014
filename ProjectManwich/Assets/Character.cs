@@ -74,7 +74,6 @@ public class Character : MonoBehaviour
     public void FireSkill(int slot)
     {
         Skill skillToFire = m_instancedSkills[slot];
-        Debug.Log("Firing Skill for Character: " + skillToFire.m_myCharacter);
         skillToFire.Execute();
 
         if (slot == 1) {
