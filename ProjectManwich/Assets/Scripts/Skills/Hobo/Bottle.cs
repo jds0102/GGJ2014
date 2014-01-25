@@ -7,10 +7,10 @@ public class Bottle : Skill {
 
     public override void Execute()
     {
-        Debug.Log("Fired Skill - Bottle");
+        
 
-        if (!Activated && !Locked) {
-            Activated = true;
+        if (!Locked) {
+            Debug.Log("Fired Skill - Bottle - Character[" + m_myCharacter + "]");
             Vector3 charPos = m_myCharacter.gameObject.transform.position;
 
 
@@ -33,7 +33,8 @@ public class Bottle : Skill {
                     }
                 }
             }
+            StartCooldownTimer();
+            Locked = true;
         }
-        Activated = false;
     }
 }

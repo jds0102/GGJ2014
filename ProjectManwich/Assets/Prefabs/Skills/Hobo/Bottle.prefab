@@ -42,7 +42,7 @@ MonoBehaviour:
   m_icon: {fileID: 0}
   m_description: 
   m_myCharacter: {fileID: 0}
-  m_cooldownTime: 0
+  m_cooldownTime: .5
   m_range: 5
 --- !u!1001 &100100000
 Prefab:
