@@ -37,9 +37,16 @@ public class PlayerManager : MonoBehaviour
         if(Application.loadedLevelName == "Level") {
         
             // Setup Characters
+            for (int index = 0; index < m_singleton.m_players.Length; index++) {
+                Player p = m_singleton.m_players[index];
+                if (p != null) {
+                    GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+                    m_players[index].m_character = newPlayer.GetComponent<Character>();
+                }
+            }
+
             levelLoaded = true;
-			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
-			m_players[0].m_character = newPlayer.GetComponent<Character>();
+
         }
     }
 
