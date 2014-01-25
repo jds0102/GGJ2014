@@ -34,7 +34,8 @@ public class PlayerManager : MonoBehaviour
 
     void OnLevelWasLoaded(int levelID)
     {
-        if (levelID == 2) {
+        if(Application.loadedLevelName == "Level") {
+        
             // Setup Characters
             levelLoaded = true;
 			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
