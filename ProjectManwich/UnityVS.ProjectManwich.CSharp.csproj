@@ -85,6 +85,9 @@
     <Compile Include="Assets\Scripts\ScoreShadow.cs" />
     <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
     <Compile Include="Assets\Scripts\Skills\Heartburn.cs" />
+    <Compile Include="Assets\Scripts\Skills\Hobo\Beg.cs" />
+    <Compile Include="Assets\Scripts\Skills\Hobo\Bottle.cs" />
+    <Compile Include="Assets\Scripts\Skills\Hobo\Heckle.cs" />
     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
     <Compile Include="Assets\Scripts\Skills\Spiritwalker.cs" />
     <Compile Include="Assets\Scripts\Skills\Stabilizer.cs" />

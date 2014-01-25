@@ -4,6 +4,7 @@ using System.Collections;
 public class InteractableItem : MonoBehaviour {
 
 	public InteractionType interaction;
+	public Sprite activatedImage;
 
 	private BoxCollider2D collisionBox;
 
@@ -22,11 +23,18 @@ public class InteractableItem : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
+		
+		Debug.Log("Activated Interactable Object");
 		if(interaction == InteractionType.onCollide) {
 			if (other.gameObject.GetComponent<Character>()) {
-				Debug.Log("Trigger action");
+				Activate();
 			}
 		}
+	}
+
+	void Activate() {
+		GetComponent<SpriteRenderer> ().sprite = activatedImage;
+
 	}
 }
 
