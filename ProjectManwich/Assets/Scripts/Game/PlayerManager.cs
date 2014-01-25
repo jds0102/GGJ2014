@@ -5,6 +5,7 @@ public class PlayerManager : MonoBehaviour
 {
     public Player[] m_players = new Player[4];
     public int playerCount;
+	public GameObject PlayerPrefab;
 
     public static PlayerManager m_singleton;
 
@@ -28,14 +29,18 @@ public class PlayerManager : MonoBehaviour
 
     void OnLevelWasLoaded(int levelID)
     {
-        if (levelID == 1) {
+        if (levelID == 2) {
             // Setup Characters
+			AddPlayer();
+			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
+			m_players[0].m_character = newPlayer.GetComponent<Character>();
         }
     }
 
     public static void AddPlayer()
     {
         Player newPlayer = new Player(m_singleton.playerCount);
+		m_singleton.m_players[newPlayer.m_playerIndex] = newPlayer;
         m_singleton.playerCount++;
     }
 
