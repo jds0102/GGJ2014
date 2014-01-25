@@ -46,14 +46,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Character.cs" />
      <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
      <Compile Include="Assets\Scripts\BackgroundPropSpawner.cs" />
      <Compile Include="Assets\Scripts\Bomb.cs" />
      <Compile Include="Assets\Scripts\BombPickup.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\BlueCollar.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\CEO.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\FryCook.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\Hobo.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\PlayerClass.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\SkillManager.cs" />
+     <Compile Include="Assets\Scripts\Character Classes\WhiteCollar.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\GUI\GUIElement.cs" />
+     <Compile Include="Assets\Scripts\GUI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\HealthPickup.cs" />
@@ -62,13 +72,21 @@
      <Compile Include="Assets\Scripts\Pauser.cs" />
      <Compile Include="Assets\Scripts\PickupSpawner.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\Remover.cs" />
      <Compile Include="Assets\Scripts\Rocket.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\ScoreShadow.cs" />
      <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
+     <Compile Include="Assets\Scripts\Skills\Heartburn.cs" />
+     <Compile Include="Assets\Scripts\Skills\Skill.cs" />
+     <Compile Include="Assets\Scripts\Skills\Spiritwalker.cs" />
+     <Compile Include="Assets\Scripts\Skills\Stabilizer.cs" />
+     <Compile Include="Assets\Scripts\Skills\SurvivalInstinct.cs" />
+     <Compile Include="Assets\Scripts\Skills\TimedSkill.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Utilities\CoroutineHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

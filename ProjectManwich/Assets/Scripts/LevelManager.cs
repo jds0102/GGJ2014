@@ -11,30 +11,22 @@ public class LevelManager : MonoBehaviour {
 	private float m_transitionStart =0;
 	private int m_activeLevel = 0;
 	private Vector3 m_center;
-	private float m_slideDistance;
 	private bool m_sliding; 
 	private int m_nextLevel;
 	private float m_transitionSpeed = 50.0f;
+	private int m_slideDirection = 1;
 
 	// Use this for initialization
 	void Start () {
 		m_singleton = this;
+		//m_center = levels [m_activeLevel].transform.position;
+		m_center = new Vector3 (0, 0, 0);
 
-		for(int i=0; i< levels.Count; i++) {
-			if (i == m_activeLevel) {
-				levels[i].SetActive(true);
-			} else {
-				levels[i].SetActive(false);
-			}
-		}
-		m_center = levels [m_activeLevel].transform.position;
-		m_slideDistance = Screen.height;
-		Debug.Log (m_slideDistance);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetButtonDown("Jump")) {
+		if(Input.GetMouseButtonDown(1)) {
 			if(m_activeLevel == 0) {
 				SwitchToLevel(1);
 			} else if(m_activeLevel == 1) {
@@ -43,40 +35,44 @@ public class LevelManager : MonoBehaviour {
 		}
 
 		if (m_sliding) {
-			float distanceToCenter = (levels[m_nextLevel].transform.position - m_center).magnitude;
+			float distanceToCenter = levels[m_nextLevel].transform.FindChild("LevelCenter").position.y - m_center.y;
 			Debug.Log(distanceToCenter);
-			if ( Mathf.Abs(distanceToCenter) < 2) {
+			if ( Mathf.Abs(distanceToCenter) < 1) {
+				float deltaY = distanceToCenter;
+				Vector3 temp;
+				foreach(GameObject level in levels) {
+					temp = level.transform.position;
+					temp.y = temp.y - deltaY;
+					level.transform.position = temp;
+				}
 				EndTransition();
 			} else {
-				Vector3 temp = levels[m_activeLevel].transform.position;
-				temp.y -= m_transitionSpeed*Time.deltaTime;
-				levels[m_activeLevel].transform.position = temp;
-				temp = levels[m_nextLevel].transform.position;
-				temp.y -= m_transitionSpeed*Time.deltaTime;
-				levels[m_nextLevel].transform.position = temp;
+				float deltaY = m_transitionSpeed*Time.deltaTime*m_slideDirection;
+				Vector3 temp;
+				foreach(GameObject level in levels) {
+					temp = level.transform.position;
+					temp.y = temp.y - deltaY;
+					level.transform.position = temp;
+				}
+
 			}
 		}
 	}
 
 	void SwitchToLevel(int levelNum) {
-		m_activeLevel = levelNum;
-
-		for(int i=0; i< levels.Count; i++) {
-			if (i == m_activeLevel) {
-				levels[i].SetActive(true);
-			} else {
-				levels[i].SetActive(false);
-			}
-		}
 		m_nextLevel = levelNum;
 		StartTransition ();
 	}
 
 	void StartTransition() {
 		m_sliding = true;
+		if (m_activeLevel > m_nextLevel) {
+			m_slideDirection = -1;
+		} else {
+			m_slideDirection = 1;
+		}
 		Vector3 temp = levels [m_nextLevel].transform.position;
 		temp.x = m_center.x;
-		temp.y = m_center.y + m_slideDistance;
 		levels [m_nextLevel].transform.position = temp;
 		GameObject player = GameManager.m_singleton.player;
 		player.GetComponent<Rigidbody2D>().isKinematic = true;
