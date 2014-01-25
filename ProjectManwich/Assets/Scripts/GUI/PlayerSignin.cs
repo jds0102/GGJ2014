@@ -41,7 +41,7 @@ public class PlayerSignin : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.Return)) {
-            Application.LoadLevel("Level");
+            Application.LoadLevel("Level"); 
         }
 
         if (Input.GetButtonDown("Player1" + "Jump")) {
@@ -84,10 +84,6 @@ public class PlayerSignin : MonoBehaviour
                 m_player4Element.FindChild("GUI Element - Join").gameObject.GetComponent<GUIText>().text = "is Ready!";
             }
         }
-
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			Application.LoadLevel(1);
-		}
     }
 
     void OnGUI()
