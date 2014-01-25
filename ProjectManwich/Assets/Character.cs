@@ -60,7 +60,7 @@ public class Character : MonoBehaviour
 
 	void UseAbility(int slot)
 	{
-        Debug.Log("Use Ability Called - Slot [" + slot + "]");
+        //Debug.Log("Use Ability Called - Slot [" + slot + "]");
         FireSkill(slot);
 	}
 
