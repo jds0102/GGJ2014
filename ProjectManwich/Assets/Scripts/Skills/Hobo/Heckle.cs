@@ -7,7 +7,7 @@ public class Heckle : Skill {
 
     public override void Execute()
     {
-        Debug.Log("Fired Skill - Heckle");
+        Debug.Log("Fired Skill - Heckle - Character [" + m_myCharacter + "]");
 
         if (!Activated && !Locked) {
             Activated = true;

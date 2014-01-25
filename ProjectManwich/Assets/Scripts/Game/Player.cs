@@ -38,6 +38,7 @@ public class Player
 		}
 
 		if(Input.GetButton(player + "Skill1")){
+            Debug.Log(m_character);
 			m_character.FireSkill(0);
 		}
 

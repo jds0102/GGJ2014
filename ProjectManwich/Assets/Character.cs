@@ -19,16 +19,28 @@ public class Character : MonoBehaviour
 	private bool m_Grounded = false;
 
     public Skill[] m_skills;
+    private Skill[] m_instancedSkills;
 	
 	
 	void Awake()
 	{
 		m_GroundCheck = transform.Find("groundCheck");
-        foreach (Skill s in m_skills) {
-            s.m_myCharacter = this;
-        }
 	}
-	
+
+    void Start()
+    {
+        m_instancedSkills = new Skill[m_skills.Length];
+        for (int i = 0; i < m_skills.Length; i++) {
+            Skill s = m_skills[i];
+            
+            Skill instanced = (Skill)(GameObject.Instantiate(s));
+            instanced.gameObject.transform.parent = this.gameObject.transform;
+            instanced.m_myCharacter = this;
+            s.m_myCharacter = this;
+            m_instancedSkills[i] = instanced;
+            Debug.Log(instanced.m_myCharacter);
+        }
+    }
 	
 	void Update()
 	{
@@ -61,7 +73,8 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
-        Skill skillToFire = m_skills[slot];
+        Skill skillToFire = m_instancedSkills[slot];
+        Debug.Log("Firing Skill for Character: " + skillToFire.m_myCharacter);
         skillToFire.Execute();
     }
 

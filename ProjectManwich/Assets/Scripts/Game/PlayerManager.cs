@@ -46,6 +46,7 @@ public class PlayerManager : MonoBehaviour
                 Player p = m_singleton.m_players[index];
                 if (p != null) {
                     GameObject newPlayer = (GameObject)Instantiate(m_hoboPrefab, Vector3.zero, Quaternion.identity);
+                    newPlayer.name = "Player " + index;
                     m_players[index].m_character = newPlayer.GetComponent<Character>();
 
                     //Temp, eventually I will create spawners and attach them to player manager 
