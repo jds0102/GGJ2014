@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
 					m_players[index].m_character.m_Player = m_players[index];
 
                     //Temp, eventually I will create spawners and attach them to player manager 
-                    m_players[index].m_character.transform.position = GameObject.Find("Player1Spawner").transform.position;
+                    m_players[index].m_character.transform.position = GameObject.Find("Player" +index +"Spawner").transform.position;
                 }
             }
 
