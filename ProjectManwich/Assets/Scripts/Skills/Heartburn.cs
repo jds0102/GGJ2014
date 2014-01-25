@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -29,4 +29,10 @@ public class Heartburn : Skill {
 		PlayerCharacter.s_singleton.SlowHeartRate(1);
 		return 0;
 	}*/
+
+    public override void Execute()
+    {
+        Debug.Log("Fired Skill - Heartburn");
+        //base.Execute();
+    }
 }

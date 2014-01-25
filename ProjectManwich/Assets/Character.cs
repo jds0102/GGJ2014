@@ -36,7 +36,7 @@ public class Character : MonoBehaviour
 		}
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            UseAbility(1);
+            UseAbility(0);
         }
 	}
 	
@@ -59,6 +59,7 @@ public class Character : MonoBehaviour
 
 	void UseAbility(int slot)
 	{
+        Debug.Log("Use Ability Called - Slot [" + slot + "]");
         FireSkill(slot);
 	}
 
