@@ -43,8 +43,9 @@ public class PlayerSignin : MonoBehaviour
             Application.LoadLevel("TestLevel");
         }
 
-        if (Input.GetButton("Player1" + "Jump")) {
+        if (Input.GetButtonDown("Player1" + "Jump")) {
             // Check if a player has already been registered for this input
+            Debug.LogError("Player1 Pressed");
             Player p = PlayerManager.GetPlayerByInputLayer(1);
             if (p == null) {
                 PlayerManager.AddPlayer(1);
@@ -53,7 +54,7 @@ public class PlayerSignin : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Player2" + "Jump")) {
+        if (Input.GetButtonDown("Player2" + "Jump")) {
             // Check if a player has already been registered for this input
             Player p = PlayerManager.GetPlayerByInputLayer(2);
             if (p == null) {
@@ -62,8 +63,8 @@ public class PlayerSignin : MonoBehaviour
                 m_player2Element.FindChild("GUI Element - Join").gameObject.GetComponent<GUIText>().text = "is Ready!";
             }
         }
-        
-        if (Input.GetButton("Player3" + "Jump")) {
+
+        if (Input.GetButtonDown("Player3" + "Jump")) {
             // Check if a player has already been registered for this input
             Player p = PlayerManager.GetPlayerByInputLayer(3);
             if (p == null) {
@@ -73,7 +74,7 @@ public class PlayerSignin : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Player4" + "Jump")) {
+        if (Input.GetButtonDown("Player4" + "Jump")) {
             // Check if a player has already been registered for this input
             Player p = PlayerManager.GetPlayerByInputLayer(4);
             if (p == null) {
