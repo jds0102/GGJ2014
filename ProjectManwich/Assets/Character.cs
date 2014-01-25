@@ -28,16 +28,6 @@ public class Character : MonoBehaviour
 	void Update()
 	{
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
-		
-		if(m_Grounded){
-			//if(Input.GetAxis("Vertical") < 0.0f){
-			//	Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
-			//}
-		}
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            UseAbility(0);
-        }
 	}
 	
 	
