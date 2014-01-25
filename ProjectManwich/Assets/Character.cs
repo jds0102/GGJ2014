@@ -56,13 +56,21 @@ public class Character : MonoBehaviour
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 	
 		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.5f);
+		bool turnOffCollision = false;
 		foreach(Collider2D collision in collisions){
+			if(Physics2D.GetIgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"))){
+				if(collision.gameObject.layer == LayerMask.NameToLayer("Platform")){
+					turnOffCollision = true;
+				}
+			}
 			if(collision.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
-				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+				turnOffCollision = turnOffCollision || false;
 			} else if(collision.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
-				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
+				turnOffCollision = true;
 			}
 		}
+		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),false);
+
 		if(m_Jump)
 		{			
 			rigidbody2D.AddForce(Vector2.up * JumpForce);

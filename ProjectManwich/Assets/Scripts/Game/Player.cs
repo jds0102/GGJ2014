@@ -27,7 +27,7 @@ public class Player
 	{
 		string player = "Player" + num.ToString();
 		
-		if(Input.GetButton(player + "Jump")){
+		if(Input.GetButtonDown(player + "Jump")){
 			m_character.Jump();
 		}
 
@@ -36,15 +36,15 @@ public class Player
 			m_character.Drop();
 		}
 
-		if(Input.GetButton(player + "Skill1")){
+		if(Input.GetButtonDown(player + "Skill1")){
 			m_character.FireSkill(0);
 		}
 
-		if(Input.GetButton(player + "Skill2")){
+		if(Input.GetButtonDown(player + "Skill2")){
 			m_character.FireSkill(1);
 		}
 
-		if(Input.GetButton(player + "Skill3")){
+		if(Input.GetButtonDown(player + "Skill3")){
 			m_character.FireSkill(2);
 		}
 	}

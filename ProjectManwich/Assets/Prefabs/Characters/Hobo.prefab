@@ -124,7 +124,7 @@ MonoBehaviour:
   FaceRight: 1
   MoveForce: 5000
   MaxSpeed: 10
-  JumpForce: 300
+  JumpForce: 1000
   GroundCollider: {fileID: 5800000}
   m_Collider: {fileID: 6100000}
   m_skills:
