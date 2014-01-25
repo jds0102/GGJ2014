@@ -379,7 +379,7 @@ MonoBehaviour:
   MoveForce: 365
   MaxSpeed: 5
   JumpForce: 1000
-  GroundCollider: {fileID: 0}
+  GroundCollider: {fileID: 6000000}
   m_skills:
   - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
   - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}

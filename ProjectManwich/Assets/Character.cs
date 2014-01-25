@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
 	public float MaxSpeed = 5f;
 	public float JumpForce = 1000f;	
 	
-	public CircleCollider2D GroundCollider;
+	public Collider2D GroundCollider;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
@@ -82,7 +82,7 @@ public class Character : MonoBehaviour
 
 	public void Move(float h)
 	{
-		h *= 10.0f*Time.deltaTime;
+		h *= 20.0f*Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
 		}
