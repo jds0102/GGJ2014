@@ -84,6 +84,10 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	void SwitchToLevel(int levelNum) {
+		if (levelNum >= levels.Count) {
+			Debug.LogError("We don't have a level " + levelNum + " yet!");
+			return;
+		}
 		m_nextLevel = levelNum;
 		StartTransition ();
 	}
