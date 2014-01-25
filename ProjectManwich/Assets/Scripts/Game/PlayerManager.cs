@@ -34,16 +34,22 @@ public class PlayerManager : MonoBehaviour
 
     void OnLevelWasLoaded(int levelID)
     {
-
         if(Application.loadedLevelName == "Level") {
         
             // Setup Characters
-            levelLoaded = true;
-			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
-			m_players[0].m_character = newPlayer.GetComponent<Character>();
+            for (int index = 0; index < m_singleton.m_players.Length; index++) {
+                Player p = m_singleton.m_players[index];
+                if (p != null) {
+                    GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
+                    m_players[index].m_character = newPlayer.GetComponent<Character>();
 
-			//Temp, eventually I will create spawners and attach them to player manager 
-			m_players[0].m_character.transform.position = GameObject.Find("Player1Spawner").transform.position;
+                    //Temp, eventually I will create spawners and attach them to player manager 
+                    m_players[index].m_character.transform.position = GameObject.Find("Player1Spawner").transform.position;
+                }
+            }
+
+            levelLoaded = true;
+
         }
     }
 

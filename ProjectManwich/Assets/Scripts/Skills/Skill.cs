@@ -7,6 +7,7 @@ public class Skill : MonoBehaviour {
     public string m_name;
 	public Texture m_icon;
 	public string m_description;
+    public Character m_myCharacter;
 	
 	public float m_cooldownTime;
 	protected float m_cooldownTimer;
