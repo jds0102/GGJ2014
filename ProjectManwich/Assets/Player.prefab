@@ -405,7 +405,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_playerIndex: 0
-  m_class: {fileID: 0}
   m_character: {fileID: 11400002}
   m_health: 0
   m_money: 0
@@ -424,7 +423,10 @@ MonoBehaviour:
   MaxSpeed: 5
   JumpForce: 1000
   GroundCollider: {fileID: 5800000}
-  m_class: {fileID: 0}
+  m_skills:
+  - {fileID: 11400000, guid: 8e9a1465e1e3a4f4d9c7b84ae7beb5fc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
