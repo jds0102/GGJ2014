@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
 	public AudioClip[] jumpClips;
-	public float JumpForce = 1000f;	
+	public float JumpForce = 500f;	
 
 	public CircleCollider2D GroundCollider;
 

@@ -10,19 +10,18 @@ public class Character : MonoBehaviour
 	public float JumpForce = 1000f;	
 	
 	public CircleCollider2D GroundCollider;
-    public PlayerClass m_class;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
 
 	private Collider2D m_Collider;
+    public Skill[] m_skills = new Skill[3];
 	
 	
 	void Awake()
 	{
 		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
-        m_class = new Hobo();
 	}
 	
 	
@@ -31,13 +30,13 @@ public class Character : MonoBehaviour
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 		
 		if(m_Grounded){
-			if(Input.GetAxis("Vertical") < 0.0f){
-				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
-			}
+			//if(Input.GetAxis("Vertical") < 0.0f){
+			//	Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+			//}
 		}
 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            UseAbility(1);
+            UseAbility(0);
         }
 	}
 	
@@ -51,10 +50,17 @@ public class Character : MonoBehaviour
 			m_Jump = false;
 		}
 	}
-	
+
+    public void FireSkill(int slot)
+    {
+        //Skill skillToFire = m_skills[slot];
+        //skillToFire.Execute();
+    }
+
 	void UseAbility(int slot)
 	{
-        m_class.FireSkill(slot);
+        Debug.Log("Use Ability Called - Slot [" + slot + "]");
+        FireSkill(slot);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)
@@ -76,7 +82,7 @@ public class Character : MonoBehaviour
 
 	public void Move(float h)
 	{
-		h *= Time.deltaTime;
+		h *= 10.0f*Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
 		}

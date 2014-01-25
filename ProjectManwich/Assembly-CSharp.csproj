@@ -57,7 +57,6 @@
      <Compile Include="Assets\Scripts\Character Classes\FryCook.cs" />
      <Compile Include="Assets\Scripts\Character Classes\Hobo.cs" />
      <Compile Include="Assets\Scripts\Character Classes\PlayerClass.cs" />
-     <Compile Include="Assets\Scripts\Character Classes\SkillManager.cs" />
      <Compile Include="Assets\Scripts\Character Classes\WhiteCollar.cs" />
      <Compile Include="Assets\Scripts\Destroyer.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -66,6 +65,7 @@
      <Compile Include="Assets\Scripts\GUI\MainMenu.cs" />
      <Compile Include="Assets\Scripts\GUI\PlayerSignin.cs" />
      <Compile Include="Assets\Scripts\Game\Player.cs" />
+     <Compile Include="Assets\Scripts\Game\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\HealthPickup.cs" />

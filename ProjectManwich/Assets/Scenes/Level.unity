@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 33444382}
   - 212: {fileID: 33444383}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: rightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +725,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 211469330}
   - 212: {fileID: 211469331}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: leftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,45 +1565,6 @@ SpriteRenderer:
   m_SortingLayerID: 1024582385
   m_Sprite: {fileID: 21300000, guid: f8540bea7b77f4952adc2b7974912096, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &359173877
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 359173879}
-  - 114: {fileID: 359173878}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &359173878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 359173877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2130c7699da948cfacab99ae48c3383, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 538008244}
---- !u!4 &359173879
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 359173877}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
 --- !u!1 &385141476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,7 +3415,7 @@ GameObject:
   - 58: {fileID: 538008247}
   - 95: {fileID: 538008246}
   - 114: {fileID: 538008245}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3470,10 +3431,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 538008244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436d0a1f0d7a84e4e8644e86f3e45e89, type: 3}
+  m_Script: {fileID: 11500000, guid: a14515192f21d42419d54984f767843b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_skills: []
+  m_playerIndex: 0
+  m_character: {fileID: 538008250}
+  m_health: 0
+  m_money: 0
 --- !u!95 &538008246
 Animator:
   serializedVersion: 2
@@ -3545,7 +3509,10 @@ MonoBehaviour:
   MaxSpeed: 5
   JumpForce: 1000
   GroundCollider: {fileID: 538008247}
-  m_class: {fileID: 0}
+  m_skills:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &538008251
 Transform:
   m_ObjectHideFlags: 0
@@ -8133,7 +8100,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1192308855}
   - 212: {fileID: 1192308856}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: rightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8583,7 +8550,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1336033493}
   - 212: {fileID: 1336033494}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: leftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10078,7 +10045,7 @@ GameObject:
   - 4: {fileID: 1557993446}
   - 212: {fileID: 1557993448}
   - 82: {fileID: 1557993447}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10491,7 +10458,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1720051743}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -10649,7 +10616,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1770720981}
   - 212: {fileID: 1770720982}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: leftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11169,7 +11136,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1994223064}
   - 212: {fileID: 1994223065}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: rightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11414,7 +11381,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2071201019}
   - 212: {fileID: 2071201020}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: tache
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (Input.GetMouseButtonDown (1));
 		if(Input.GetMouseButtonDown(1)) {
 			if(m_activeLevel == 0) {
 				SwitchToLevel(1);
@@ -78,6 +79,7 @@ public class LevelManager : MonoBehaviour {
 
 	void EndTransition() {
 		GameManager.m_singleton.UnPauseWorld ();
+
 		m_sliding = false;
 		m_activeLevel = m_nextLevel;
 	}
