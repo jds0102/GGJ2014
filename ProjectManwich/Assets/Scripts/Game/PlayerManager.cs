@@ -42,6 +42,9 @@ public class PlayerManager : MonoBehaviour
                 if (p != null) {
                     GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity);
                     m_players[index].m_character = newPlayer.GetComponent<Character>();
+
+                    //Temp, eventually I will create spawners and attach them to player manager 
+                    m_players[index].m_character.transform.position = GameObject.Find("Player1Spawner").transform.position;
                 }
             }
 
