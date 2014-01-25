@@ -41,7 +41,7 @@ public class Character : MonoBehaviour
             instanced.m_myCharacter = this;
             s.m_myCharacter = this;
             m_instancedSkills[i] = instanced;
-            Debug.Log(instanced.m_myCharacter);
+            //Debug.Log(instanced.m_myCharacter);
         }
         m_anim = GetComponent<Animator>();
 	}

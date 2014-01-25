@@ -29,7 +29,7 @@ public class Bottle : Skill {
                 if (hit != null) {
                     if (hit.transform.gameObject != m_myCharacter.gameObject) {
                         // TODO: HANDLE HIT STUFF HERE
-                        Debug.Log(hit.transform.gameObject);
+                        Debug.Log("Bottle hit: " + hit.transform.gameObject);
                     }
                 }
             }
