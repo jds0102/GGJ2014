@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player : ScriptableObject
+public class Player
 {
     public int m_playerIndex;
     public int m_playerInputLayer;
