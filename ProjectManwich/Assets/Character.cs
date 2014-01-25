@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Character : MonoBehaviour
@@ -10,6 +10,7 @@ public class Character : MonoBehaviour
 	public float JumpForce = 1000f;	
 	
 	public CircleCollider2D GroundCollider;
+    public PlayerClass m_class;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
@@ -18,6 +19,7 @@ public class Character : MonoBehaviour
 	void Awake()
 	{
 		m_GroundCheck = transform.Find("groundCheck");
+        m_class = new Hobo();
 	}
 	
 	
@@ -32,6 +34,10 @@ public class Character : MonoBehaviour
 		if(Input.GetButtonDown("Jump") && m_Grounded){
 			m_Jump = true;
 		}
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            UseAbility(1);
+        }
 	}
 	
 	
@@ -55,8 +61,8 @@ public class Character : MonoBehaviour
 		}
 	}
 	
-	void UseAbility()
+	void UseAbility(int slot)
 	{
-		
+        m_class.FireSkill(slot);
 	}
 }

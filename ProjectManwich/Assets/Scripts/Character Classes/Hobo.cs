@@ -1,15 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Hobo : MonoBehaviour {
+public class Hobo : PlayerClass {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public Hobo()
+    {
+        m_skills[1] = SkillManager.Skills[0];
+    }
 }
