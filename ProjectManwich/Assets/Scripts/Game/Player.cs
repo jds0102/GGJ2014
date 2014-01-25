@@ -4,7 +4,6 @@ using System.Collections;
 public class Player : ScriptableObject
 {
     public int m_playerIndex;
-    public PlayerClass m_class;
 	public Character m_character;
 	
     public int m_health;
@@ -13,7 +12,6 @@ public class Player : ScriptableObject
     public Player(int index)
     {
         m_playerIndex = index;
-        m_class = new Hobo();
         m_money = 500;
         m_health = 3;
     }

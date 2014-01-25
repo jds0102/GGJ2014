@@ -10,19 +10,18 @@ public class Character : MonoBehaviour
 	public float JumpForce = 1000f;	
 	
 	public CircleCollider2D GroundCollider;
-    public PlayerClass m_class;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
 
 	private Collider2D m_Collider;
+    public Skill[] m_skills = new Skill[3];
 	
 	
 	void Awake()
 	{
 		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
-         m_class = new Hobo();
 	}
 	
 	
@@ -51,10 +50,16 @@ public class Character : MonoBehaviour
 			m_Jump = false;
 		}
 	}
-	
+
+    public void FireSkill(int slot)
+    {
+        Skill skillToFire = m_skills[slot];
+        skillToFire.Execute();
+    }
+
 	void UseAbility(int slot)
 	{
-        m_class.FireSkill(slot);
+        FireSkill(slot);
 	}
 
 	void OnTriggerEnter2D(Collider2D collider)
