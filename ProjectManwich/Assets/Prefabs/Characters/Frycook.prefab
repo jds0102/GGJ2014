@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Frycook
   m_TagString: Untagged
   m_Icon: {fileID: 0}

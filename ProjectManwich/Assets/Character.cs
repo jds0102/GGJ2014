@@ -47,7 +47,6 @@ public class Character : MonoBehaviour
 		if(m_Jump)
 		{			
 			rigidbody2D.AddForce(Vector2.up * JumpForce);
-			
 			m_Jump = false;
 		}
 	}
