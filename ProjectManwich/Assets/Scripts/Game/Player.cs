@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class Player
+public class Player : ScriptableObject
 {
     public int m_playerIndex;
     public PlayerClass m_class;
-
+	public Character m_character;
+	
     public int m_health;
     public int m_money;
 
@@ -19,61 +20,34 @@ public class Player
 
     public void Update()
     {
-        
+		CheckForPlayerInput();
     }
 
-}
-/*
-using UnityEngine;
-using System;
-using System.Collections;
-
-public class PlayerClass : MonoBehaviour {
-	
-	public Skill[] m_skills = new Skill[3];
-	
-	public PlayerClass()
-	{
-		
-	}
-	
-	void Update()
-	{
-		CheckForPlayerInput();
-	}
-	
 	void CheckForPlayerInput()
 	{
-		if(gameObject.layer == LayerMask.NameToLayer("Player1")){
+		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player1")){
 			GetPlayerInput(1);
 		}
-		if(gameObject.layer == LayerMask.NameToLayer("Player2")){
+		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player2")){
 			GetPlayerInput(2);
 		}
-		if(gameObject.layer == LayerMask.NameToLayer("Player3")){
+		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player3")){
 			GetPlayerInput(3);
 		}
-		if(gameObject.layer == LayerMask.NameToLayer("Player4")){
+		if(m_character.gameObject.layer == LayerMask.NameToLayer("Player4")){
 			GetPlayerInput(4);
 		}
 	}
-	
+
 	void GetPlayerInput(int num)
 	{
 		string player = "Player" + num.ToString();
 		
 		if(Input.GetButton(player + "Jump")){
-			this.GetComponent<Character>().Jump();
+			m_character.Jump();
 		}
-		
-		this.GetComponent<Character>().Move(Input.GetAxis(player + "Horizontal"));
-		
+
+		m_character.Move(Input.GetAxis(player + "Horizontal"));
 	}
-	
-	public void FireSkill(int slot)
-	{
-		Skill skillToFire = m_skills[slot];
-		skillToFire.Execute();
-	}
+
 }
-*/

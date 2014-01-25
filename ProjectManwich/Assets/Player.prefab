@@ -14,7 +14,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
   - 114: {fileID: 11400000}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: leftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -61,7 +61,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400006}
   - 212: {fileID: 21200002}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: tache
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 400008}
   - 212: {fileID: 21200004}
   - 82: {fileID: 8200002}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   - 212: {fileID: 21200006}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: rightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400012}
   - 212: {fileID: 21200008}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: leftEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400014}
   - 212: {fileID: 21200010}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: rightHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 212: {fileID: 21200012}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: leftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400018}
   - 212: {fileID: 21200014}
-  m_Layer: 19
+  m_Layer: 16
   m_Name: rightEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.47504997, y: 3.05689144, z: -1}
+  m_LocalPosition: {x: -17.3274231, y: 3.05689144, z: -1}
   m_LocalScale: {x: 1.20000005, y: 1.20000005, z: 1.20000005}
   m_Children:
   - {fileID: 400012}
@@ -401,13 +401,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 436d0a1f0d7a84e4e8644e86f3e45e89, type: 3}
+  m_Script: {fileID: 11500000, guid: a14515192f21d42419d54984f767843b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_playerIndex: 0
+  m_class: {fileID: 0}
+  m_character: {fileID: 11400002}
+  m_health: 0
+  m_money: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
