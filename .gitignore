@@ -13,3 +13,6 @@
 /ProjectManwich/UnityVS.ProjectManwich.CSharp.csproj
 /ProjectManwich/UnityVS.ProjectManwich.sln
 /ProjectManwich/UnityVS.ProjectManwich.sln.DotSettings
+/ProjectManwich/*.csproj
+/ProjectManwich/*.sln
+/ProjectManwich/ProjectManwich.userprefs
