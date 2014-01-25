@@ -49,8 +49,8 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
-        //Skill skillToFire = m_skills[slot];
-        //skillToFire.Execute();
+        Skill skillToFire = m_skills[slot];
+        skillToFire.Execute();
     }
 
 	void UseAbility(int slot)
