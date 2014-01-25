@@ -15,13 +15,16 @@ public class Character : MonoBehaviour
 	private bool m_Grounded = false;
 
 	private Collider2D m_Collider;
-    public Skill[] m_skills = new Skill[3];
+    public Skill[] m_skills;
 	
 	
 	void Awake()
 	{
 		m_Collider = this.GetComponent<Collider2D>();
 		m_GroundCheck = transform.Find("groundCheck");
+        foreach (Skill s in m_skills) {
+            s.m_myCharacter = this;
+        }
 	}
 	
 	
