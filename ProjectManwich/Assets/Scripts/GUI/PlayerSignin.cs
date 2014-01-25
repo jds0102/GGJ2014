@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerSignin : MonoBehaviour
 {
-    private bool m_enabled;
+    private bool m_enabled = false;
     private GameObject m_mainMenu;
     private GameObject m_uiElements;
 
@@ -26,6 +26,11 @@ public class PlayerSignin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) {
             EnableUIElements(false);
             m_mainMenu.GetComponent<MainMenu>().EnableUIElements(true);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Application.LoadLevel("TestLevel");
         }
     }
 
