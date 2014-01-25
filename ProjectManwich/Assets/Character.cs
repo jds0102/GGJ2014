@@ -92,4 +92,9 @@ public class Character : MonoBehaviour
 		}
 	}
 
+	public void Drop()
+	{
+		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+	}
+
 }
