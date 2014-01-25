@@ -24,12 +24,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
-  - 114: {fileID: 11400002}
   - 50: {fileID: 5000000}
+  - 114: {fileID: 11400002}
   - 61: {fileID: 6100000}
   - 58: {fileID: 5800000}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400000}
   m_Layer: 16
   m_Name: Hobo
   m_TagString: Untagged
@@ -111,22 +110,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_AnimatePhysics: 0
   m_HasTransformHierarchy: 1
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14515192f21d42419d54984f767843b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_playerIndex: 0
-  m_playerInputLayer: 0
-  m_character: {fileID: 11400002}
-  m_health: 0
-  m_money: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0be5b724b33b34c86c361fb22f3e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FaceRight: 1
   MoveForce: 365
   MaxSpeed: 5
   JumpForce: 1000
