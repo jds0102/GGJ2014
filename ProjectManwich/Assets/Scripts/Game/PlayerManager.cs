@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
     public Player[] m_players = new Player[4];
     public int playerCount;
 
+	public GameObject PlayerPrefab;
+
     public static PlayerManager m_singleton;
 
     // Use this for initialization
@@ -28,8 +30,12 @@ public class PlayerManager : MonoBehaviour
 
     void OnLevelWasLoaded(int levelID)
     {
-        if (levelID == 1) {
+        if (levelID == 2) {
             // Setup Characters
+			AddPlayer();
+			GameObject newPlayer = (GameObject)Instantiate(PlayerPrefab,Vector3.zero,Quaternion.identity);
+			m_players[0].m_character = newPlayer.GetComponent<Character>();
+
         }
     }
 

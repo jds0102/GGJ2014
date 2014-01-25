@@ -30,9 +30,9 @@ public class Character : MonoBehaviour
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 		
 		if(m_Grounded){
-			if(Input.GetAxis("Vertical") < 0.0f){
-				Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
-			}
+			//if(Input.GetAxis("Vertical") < 0.0f){
+			//	Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+			//}
 		}
 
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -81,7 +81,7 @@ public class Character : MonoBehaviour
 
 	public void Move(float h)
 	{
-		h *= Time.deltaTime;
+		h *= 10.0f*Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
 		}
