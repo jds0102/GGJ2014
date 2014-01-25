@@ -32,6 +32,24 @@ public class PlayerSignin : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             Application.LoadLevel("TestLevel");
         }
+
+        if (Input.GetButton("Player1" + "Jump")) {
+            PlayerManager.AddPlayer(1);
+        }
+
+        if (Input.GetButton("Player2" + "Jump")) {
+
+        }
+        
+        if (Input.GetButton("Player3" + "Jump")) {
+
+        }
+
+        if (Input.GetButton("Player4" + "Jump")) {
+
+        }
+
+
     }
 
     void OnGUI()
