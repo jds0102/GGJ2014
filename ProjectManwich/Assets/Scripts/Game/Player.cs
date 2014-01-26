@@ -94,6 +94,7 @@ public class Player
     public void TakeDamage(int amount)
     {
         m_health -= amount;
+        Debug.Log("Took Damage - remaining health: " + m_health);
         if (m_health <= 0) {
             m_health = 0;
             Death();
