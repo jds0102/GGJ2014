@@ -19,10 +19,8 @@ public class PickupMoney : InteractableItem {
 		m_activated = true;
 		GetComponent<SpriteRenderer> ().sprite = activatedImage;
 		player.m_money += moneyValue;
-	}
-
-	override public void Reset() {
-		m_activated = false;
-		GetComponent<SpriteRenderer> ().sprite = originalImage;
+		if (destroyAfterInteraction) {
+			Destroy(this.gameObject);
+		}
 	}
 }

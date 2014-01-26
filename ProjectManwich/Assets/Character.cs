@@ -5,15 +5,16 @@ public class Character : MonoBehaviour
 {
 	private bool m_Jump = false;
 
+	private bool m_FallThroughPlatform = false;
+
+	public bool b;
+
 	[HideInInspector]
 	public bool FaceRight;
 
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
-	public float JumpForce = 1000f;	
-	
-	public Collider2D GroundCollider;
-	public Collider2D m_Collider;
+	public float JumpForce = 1000f;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
@@ -48,6 +49,8 @@ public class Character : MonoBehaviour
 	
 	void Update()
 	{
+
+
 		if(FaceRight){
 			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
 		} else {
@@ -55,7 +58,8 @@ public class Character : MonoBehaviour
 		}
 		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
 	
-		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.5f);
+
+		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.7f);
 		bool turnOffCollision = false;
 		foreach(Collider2D collision in collisions){
 			if(Physics2D.GetIgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"))){
@@ -63,12 +67,20 @@ public class Character : MonoBehaviour
 					turnOffCollision = true;
 				}
 			}
-			if(collision.gameObject.layer == LayerMask.NameToLayer("BelowPlatform")){
-				turnOffCollision = true;
-			} else if(collision.gameObject.layer == LayerMask.NameToLayer("AbovePlatform")){
-				turnOffCollision = turnOffCollision || false;
-			}
 		}
+
+		if(rigidbody2D.velocity.y > 0.0f){
+			turnOffCollision = true;
+		} else if(rigidbody2D.velocity.y < 0.0f){
+			turnOffCollision = turnOffCollision || false;
+		}
+
+		if(m_FallThroughPlatform){
+			m_FallThroughPlatform = false;
+			turnOffCollision = true;
+			this.collider2D.isTrigger = false;
+		}
+
 		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
 
 		if(m_Jump)
@@ -89,6 +101,11 @@ public class Character : MonoBehaviour
             m_anim.ResetTrigger("Action2");
             m_anim.ResetTrigger("Special");
         }
+	}
+
+	void OnDrawGizmos()
+	{
+		Gizmos.DrawWireSphere(transform.position,1.7f);
 	}
 
     public void FireSkill(int slot)
@@ -146,7 +163,9 @@ public class Character : MonoBehaviour
 	public void Drop()
 	{
         m_anim.SetTrigger("Jump");
-		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),true);
+		if(m_Grounded){
+			m_FallThroughPlatform = true;
+			this.collider2D.isTrigger = true;
+		}
 	}
-
 }
