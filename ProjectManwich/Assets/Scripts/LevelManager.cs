@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour {
 	private Rect tempScore = new Rect(0,0,300,150);
 
 	//These values are per player, multiply times players in the game to find out what level you should display
-	private int[] m_levelThresholds = {0, 1000, 2000, 3000, 4000};
+	private int[] m_levelThresholds = {0, 600, 2000, 3000, 4000};
 
 	// Use this for initialization
 	void Start () {
