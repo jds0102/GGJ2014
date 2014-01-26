@@ -15,10 +15,7 @@ public class Character : MonoBehaviour
 
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
-	public float JumpForce = 1000f;	
-	
-	public Collider2D GroundCollider;
-	public Collider2D m_Collider;
+	public float JumpForce = 1000f;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
@@ -93,8 +90,6 @@ public class Character : MonoBehaviour
 			
 			m_Jump = false;
 		}
-
-
 	}
 
 	void OnDrawGizmos()
