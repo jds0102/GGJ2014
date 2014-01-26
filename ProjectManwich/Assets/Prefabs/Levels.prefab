@@ -732,12 +732,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400090}
-  - 114: {fileID: 11400030}
   - 212: {fileID: 21200034}
   - 61: {fileID: 6100080}
+  - 114: {fileID: 11400030}
   m_Layer: 0
   m_Name: PickupMoneyObject
-  m_TagString: Untagged
+  m_TagString: BreakableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,8 +2222,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.4297152, y: -19.5224361, z: 10}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 15.9585819, y: -18.1364594, z: 10}
+  m_LocalScale: {x: 1.30370283, y: 1.30370188, z: 1}
   m_Children: []
   m_Father: {fileID: 400092}
 --- !u!4 &400092
@@ -3649,6 +3649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3758,6 +3759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3774,6 +3776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3790,6 +3793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3806,6 +3810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3822,6 +3827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3838,6 +3844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
   m_activated: 0
@@ -3850,14 +3857,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd78eaa43c32141ec9578444844762bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eb1d394a534948cf8820ca6afb2e49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interaction: 0
+  destroyAfterInteraction: 0
   originalImage: {fileID: 0}
-  activatedImage: {fileID: 21300000, guid: b60c382fc506348a48402c25ba4fdacb, type: 3}
+  activatedImage: {fileID: 21300000, guid: ca1fe571da9f00d48b0b756eccdfa686, type: 3}
   m_activated: 0
-  moneyValue: 500
 --- !u!114 &11400032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4289,7 +4296,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortingLayerID: 1024582385
-  m_Sprite: {fileID: 21300000, guid: ef8ca0b19df694e2988c6019261d340e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f66e58b49cbb63741a688917eebb1b1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200036
 SpriteRenderer:
