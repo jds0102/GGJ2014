@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Character : MonoBehaviour
 {
@@ -129,6 +130,7 @@ public class Character : MonoBehaviour
 		Debug.Log (slot);
         Skill skillToFire = m_instancedSkills[slot];
         skillToFire.Execute();
+		AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
 
         if (slot == 0) {
             m_anim.SetTrigger("Action2"); //melee

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MainMenu : MonoBehaviour
 {
+
     private bool m_enable = true;
     private GameObject m_uiElements;
     private GameObject m_playerSignIn;

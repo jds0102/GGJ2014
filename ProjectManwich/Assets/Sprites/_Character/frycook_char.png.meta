@@ -20,17 +20,17 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: -3
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -44,6 +44,186 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: frycook_idle1
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 3317
+        width: 800
+        height: 725
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_idle2
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 3319
+        width: 746
+        height: 651
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_idle_noBasket
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 3307
+        width: 578
+        height: 694
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_basket
+      rect:
+        serializedVersion: 2
+        x: 2438
+        y: 3549
+        width: 360
+        height: 300
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_spatula1
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 3314
+        width: 944
+        height: 687
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_spatula2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2494
+        width: 990
+        height: 679
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_spatula3
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 2492
+        width: 912
+        height: 695
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_flinch
+      rect:
+        serializedVersion: 2
+        x: 2282
+        y: 2508
+        width: 742
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_basketToss1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1615
+        width: 752
+        height: 765
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_basketToss2
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 1616
+        width: 807
+        height: 770
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_basketToss3
+      rect:
+        serializedVersion: 2
+        x: 1964
+        y: 1622
+        width: 465
+        height: 772
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_mop1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 817
+        width: 692
+        height: 720
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_mop2
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 809
+        width: 671
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_mop3
+      rect:
+        serializedVersion: 2
+        x: 1704
+        y: 819
+        width: 745
+        height: 696
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_jump
+      rect:
+        serializedVersion: 2
+        x: 2530
+        y: 894
+        width: 926
+        height: 702
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_walk1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 18
+        width: 789
+        height: 710
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_walk2
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 22
+        width: 795
+        height: 714
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_walk3
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 26
+        width: 790
+        height: 736
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_walk4
+      rect:
+        serializedVersion: 2
+        x: 2474
+        y: 30
+        width: 813
+        height: 732
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_walk5
+      rect:
+        serializedVersion: 2
+        x: 3287
+        y: 18
+        width: 787
+        height: 744
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
