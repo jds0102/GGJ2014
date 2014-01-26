@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class FlyingCoin : InteractableItem {
@@ -20,13 +20,18 @@ public class FlyingCoin : InteractableItem {
 			pos.y = transform.position.y;
 			targetPos.x = coinTarget.m_character.transform.position.x;
 			targetPos.y = coinTarget.m_character.transform.position.y;
-			rigidbody2D.AddForce((targetPos - pos).normalized*100);
+			rigidbody2D.AddForce((targetPos - pos).normalized * 75);
 		}
 
+        
+	}
+
+    void FixedUpdate()
+    {
         if (Vector3.Distance(this.gameObject.transform.position, coinTarget.m_character.transform.position) < 3) {
             Activate(coinTarget);
         }
-	}
+    }
 
 	override public void Activate(Player player) {
 		if (player != coinOrigin) {
