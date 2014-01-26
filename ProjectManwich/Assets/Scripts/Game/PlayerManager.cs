@@ -127,7 +127,7 @@ public class PlayerManager : MonoBehaviour
 
 	void TestTemp() {
 		GameObject coin = (GameObject)Instantiate (tempTest);
-		coin.GetComponent<FlyingCoin> ().Initiate (100, m_players [1].m_character.transform.position, m_players [0]);
+		coin.GetComponent<FlyingCoin> ().Initiate (100, Vector3.zero, m_players[0]);
 	}
 
 }

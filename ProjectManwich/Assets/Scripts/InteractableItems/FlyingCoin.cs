@@ -15,7 +15,6 @@ public class FlyingCoin : InteractableItem {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (coinTarget);
 		if(initiated && coinTarget != null) {
 			pos.x = transform.position.x;
 			pos.y = transform.position.y;
