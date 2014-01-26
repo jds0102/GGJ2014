@@ -100,6 +100,7 @@ public class Character : MonoBehaviour
             m_anim.ResetTrigger("Action1");
             m_anim.ResetTrigger("Action2");
             m_anim.ResetTrigger("Special");
+            m_anim.ResetTrigger("Damaged");
         }
 	}
 
@@ -173,6 +174,7 @@ public class Character : MonoBehaviour
     {
         if (m_Player != null) {
             m_Player.TakeDamage(amount);
+            m_anim.SetTrigger("Damaged");
         }
     }
 }
