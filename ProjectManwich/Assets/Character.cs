@@ -130,7 +130,7 @@ public class Character : MonoBehaviour
 
         Skill skillToFire = m_instancedSkills[slot];
         skillToFire.Execute();
-		AudioManager.Singleton.PlaySFX(skillToFire.m_sfx.Key,skillToFire.m_sfx.Value);
+		AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
 
         if (slot == 0) {
             m_anim.SetTrigger("Action2"); //melee
