@@ -53,10 +53,15 @@ public class Projectile : MonoBehaviour
 	}
 
     void OnTriggerEnter2D(Collider2D col)
-    {   
+    {
+        if (Owner.m_character == null) {
+            OnExplode();
+            Destroy(gameObject);
+            return;
+        }
         if (col != Owner.m_character.collider2D) {
             foreach (Player p in PlayerManager.GetPlayers()) {
-                if (p != null && col.gameObject == p.m_character.gameObject) {
+                if (p != null && p.m_character != null && col.gameObject == p.m_character.gameObject) {
                     Debug.Log("Hit: " + col.gameObject);
                     Character hitChar = col.gameObject.GetComponent<Character>();
                     Debug.Log("Hit Player: " + hitChar);
