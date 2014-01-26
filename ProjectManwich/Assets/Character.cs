@@ -113,12 +113,12 @@ public class Character : MonoBehaviour
         Skill skillToFire = m_instancedSkills[slot];
         skillToFire.Execute();
 
-        if (slot == 1) {
-            m_anim.SetTrigger("Action1");
+        if (slot == 0) {
+            m_anim.SetTrigger("Action2"); //ranged
+        } else if (slot == 1) {
+            m_anim.SetTrigger("Action1"); //melee
         } else if (slot == 2) {
-            m_anim.SetTrigger("Action2");
-        } else if (slot == 3) {
-            m_anim.SetTrigger("Special");
+            m_anim.SetTrigger("Special"); //special
         }
     }
 
