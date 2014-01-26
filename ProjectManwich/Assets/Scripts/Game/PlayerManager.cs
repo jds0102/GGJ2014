@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
 
 	public GameObject m_moneyDrop;
 
+	public GameObject tempTest;
     public static PlayerManager m_singleton;
 
 
@@ -38,6 +39,10 @@ public class PlayerManager : MonoBehaviour
                 player.Update();
             }
         }
+
+		if (Input.GetKeyDown(KeyCode.T)) {
+			TestTemp();
+		}
 
 		//m_players [0].m_money ++;
 	}
@@ -118,6 +123,11 @@ public class PlayerManager : MonoBehaviour
 		moneyDrop2.rigidbody2D.AddForce (new Vector2(1,1) * 400.0f);
 
 
+	}
+
+	void TestTemp() {
+		GameObject coin = (GameObject)Instantiate (tempTest);
+		coin.GetComponent<FlyingCoin> ().Initiate (100, Vector3.zero, m_players[0]);
 	}
 
 }
