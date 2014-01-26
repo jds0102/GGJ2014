@@ -115,9 +115,9 @@ public class Character : MonoBehaviour
         skillToFire.Execute();
 
         if (slot == 0) {
-            m_anim.SetTrigger("Action2"); //ranged
+            m_anim.SetTrigger("Action2"); //melee
         } else if (slot == 1) {
-            m_anim.SetTrigger("Action1"); //melee
+            m_anim.SetTrigger("Action1"); //ranged
         } else if (slot == 2) {
             m_anim.SetTrigger("Special"); //special
         }
@@ -142,7 +142,7 @@ public class Character : MonoBehaviour
 	public void Move(float h)
 	{
         m_anim.SetFloat("Speed", Mathf.Abs(h));
-
+        if(m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") || m_anim.GetCurrentAnimatorStateInfo(0).IsName("Action1")) return;
 		h *= Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
