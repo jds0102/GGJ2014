@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   b: 0
   FaceRight: 1
+  Type: 
   MoveForce: 5000
   MaxSpeed: 15
   JumpForce: 1350

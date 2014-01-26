@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FryCook : MonoBehaviour {
+public class FryCook : Character {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	protected override void Start()
+	{
+		base.Start();
+		Type = "FryCook";
 	}
 }
