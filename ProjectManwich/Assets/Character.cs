@@ -174,5 +174,6 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        m_anim.SetTrigger("Damaged");
     }
 }
