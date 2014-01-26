@@ -4,6 +4,7 @@ using System.Collections;
 public class InteractableItem : MonoBehaviour {
 
 	public InteractionType interaction;
+	public bool destroyAfterInteraction;
 	public Sprite originalImage, activatedImage;
 
 	private BoxCollider2D collisionBox;
@@ -27,7 +28,7 @@ public class InteractableItem : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		//Only activate it once for now
 		if (m_activated) return;
-		if(interaction == InteractionType.onCollide) {
+		if(interaction == InteractionType.onPlayerCollide) {
 			Character character = other.gameObject.GetComponent<Character>();
 			if (character) {
 				Player player = character.m_Player;
@@ -40,10 +41,13 @@ public class InteractableItem : MonoBehaviour {
 
 	public virtual void Activate(Player player) {}
 
-	public virtual void Reset() {}
+	public virtual void Reset() {
+		m_activated = false;
+		GetComponent<SpriteRenderer> ().sprite = originalImage;
+	}
 }
 
 public enum InteractionType{
-	onCollide,
-	onHit
+	onPlayerCollide,
+	onMelee
 }

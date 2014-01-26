@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PickupMoney : InteractableItem {
-
-	public int moneyValue;
+public class BreakableObject : InteractableItem {
 
 	// Use this for initialization
 	void Start () {
@@ -15,12 +13,9 @@ public class PickupMoney : InteractableItem {
 	
 	}
 
-	override public void Activate(Player player) {
+	//This should be called by the players melee atack
+	override public void Activate(Player player){
 		m_activated = true;
 		GetComponent<SpriteRenderer> ().sprite = activatedImage;
-		player.m_money += moneyValue;
-		if (destroyAfterInteraction) {
-			Destroy(this.gameObject);
-		}
 	}
 }

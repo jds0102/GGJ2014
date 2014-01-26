@@ -6,7 +6,6 @@ public class Character : MonoBehaviour
 	private bool m_Jump = false;
 
 	private bool m_FallThroughPlatform = false;
-	private float m_FallStartTime;
 
 	public bool b;
 
@@ -15,10 +14,7 @@ public class Character : MonoBehaviour
 
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
-	public float JumpForce = 1000f;	
-	
-	public Collider2D GroundCollider;
-	public Collider2D m_Collider;
+	public float JumpForce = 1000f;
 	
 	private Transform m_GroundCheck;			
 	private bool m_Grounded = false;
@@ -79,10 +75,10 @@ public class Character : MonoBehaviour
 			turnOffCollision = turnOffCollision || false;
 		}
 
-		if(m_FallThroughPlatform && Time.time - m_FallStartTime < 0.2f){
+		if(m_FallThroughPlatform){
+			m_FallThroughPlatform = false;
 			turnOffCollision = true;
-		} else {
-			m_FallThroughPlatform = turnOffCollision || false;
+			this.collider2D.isTrigger = false;
 		}
 
 		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
@@ -94,7 +90,17 @@ public class Character : MonoBehaviour
 			m_Jump = false;
 		}
 
+        if (!m_Grounded && !m_Jump) {
+            m_anim.SetTrigger("Jump");
+        } else {
+            m_anim.ResetTrigger("Jump");
+        }
 
+        if (m_anim.IsInTransition(0)) {
+            m_anim.ResetTrigger("Action1");
+            m_anim.ResetTrigger("Action2");
+            m_anim.ResetTrigger("Special");
+        }
 	}
 
 	void OnDrawGizmos()
@@ -127,7 +133,7 @@ public class Character : MonoBehaviour
 	public void Jump()
 	{
 		if(m_Grounded){
-            m_anim.SetTrigger("Jump");
+            
 			m_Jump = true;
 		}
 	}
@@ -158,9 +164,8 @@ public class Character : MonoBehaviour
 	{
         m_anim.SetTrigger("Jump");
 		if(m_Grounded){
-			m_FallStartTime = Time.time;
 			m_FallThroughPlatform = true;
+			this.collider2D.isTrigger = true;
 		}
 	}
-
 }
