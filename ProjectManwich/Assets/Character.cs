@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
     private Animator m_anim;
 
 	public Player m_Player { get; set;}
+    public bool m_loaded;
 	
 	void Awake()
 	{
@@ -45,11 +46,11 @@ public class Character : MonoBehaviour
             //Debug.Log(instanced.m_myCharacter);
         }
         m_anim = GetComponent<Animator>();
+        m_loaded = true;
 	}
 	
 	void Update()
 	{
-
 
 		if(FaceRight){
 			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
@@ -111,13 +112,14 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
+		Debug.Log (slot);
         Skill skillToFire = m_instancedSkills[slot];
         skillToFire.Execute();
 
         if (slot == 0) {
-            m_anim.SetTrigger("Action2"); //ranged
+            m_anim.SetTrigger("Action2"); //melee
         } else if (slot == 1) {
-            m_anim.SetTrigger("Action1"); //melee
+            m_anim.SetTrigger("Action1"); //ranged
         } else if (slot == 2) {
             m_anim.SetTrigger("Special"); //special
         }
@@ -142,7 +144,7 @@ public class Character : MonoBehaviour
 	public void Move(float h)
 	{
         m_anim.SetFloat("Speed", Mathf.Abs(h));
-
+        if(m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") || m_anim.GetCurrentAnimatorStateInfo(0).IsName("Action1")) return;
 		h *= Time.deltaTime;
 		if(h * rigidbody2D.velocity.x < MaxSpeed){
 			rigidbody2D.AddForce(Vector2.right * h * MoveForce);
