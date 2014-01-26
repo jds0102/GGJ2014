@@ -15,15 +15,16 @@ public class MeleeSkill : Skill {
             if (m_myCharacter.FaceRight) {
                 Vector3 endPos = charPos;
                 endPos.x += m_range;
-                playerHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player"));
+                playerHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player1") | 1 << LayerMask.NameToLayer("Player2") | 1 << LayerMask.NameToLayer("Player3") | 1 << LayerMask.NameToLayer("Player4"));
             } else {
                 Vector3 endPos = charPos;
                 endPos.x -= m_range;
-                playerHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player"));
+                playerHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player1") | 1 << LayerMask.NameToLayer("Player2") | 1 << LayerMask.NameToLayer("Player3") | 1 << LayerMask.NameToLayer("Player4"));
             }
 
             foreach (RaycastHit2D hit in playerHits) {
                 if (hit != null) {
+                    Debug.Log("Hit: " + hit.transform.gameObject);
                     if (hit.transform.gameObject != m_myCharacter.gameObject) {
                         // TODO: HANDLE HIT STUFF HERE
                         Debug.Log("Bottle hit: " + hit.transform.gameObject);
