@@ -161,6 +161,9 @@ public class Player
         m_dead = true;
         m_deathTime = Time.time;
 		int moneyLost = (int) (m_money * .05f);
+        if (m_character.m_bribeTarget != null) {
+            m_character.m_bribeTarget.m_Marked--;
+        }
 		PlayerManager.m_singleton.DropMoney(m_character.transform.position, moneyLost);
 		m_money -= moneyLost;
         GameObject.Destroy(m_character.gameObject);

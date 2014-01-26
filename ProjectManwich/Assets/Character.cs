@@ -22,6 +22,10 @@ public class Character : MonoBehaviour
 	private bool m_Grounded = false;
     [HideInInspector]
     public bool m_Slowed = false;
+    [HideInInspector]
+    public int m_Marked = 0;
+    [HideInInspector]
+    public Character m_bribeTarget = null;
 
     public Skill[] m_skills;
     private Skill[] m_instancedSkills;

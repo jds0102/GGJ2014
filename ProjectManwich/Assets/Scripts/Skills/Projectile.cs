@@ -68,6 +68,9 @@ public class Projectile : MonoBehaviour
                     if (hitChar != null) {
                         if (hitChar.m_Player.TakeDamage(1)) {
                             Debug.Log(Owner + " killed " + hitChar + "!");
+                            if (hitChar.m_Marked > 0) {
+                                Owner.m_money += 100 * hitChar.m_Marked;
+                            }
                         }
                     }
                     //TODO: HANDLE DAMAGE

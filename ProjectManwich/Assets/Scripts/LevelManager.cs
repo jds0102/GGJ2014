@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour {
 	private Rect tempScore = new Rect(0,0,300,150);
 
 	//These values are per player, multiply times players in the game to find out what level you should display
-	private int[] m_levelThresholds = {0, 600, 2000, 3000, 4000};
+	private int[] m_levelThresholds = {0, 1000, 2000, 3000, 4000};
 
 	// Use this for initialization
 	void Start () {
@@ -96,11 +96,12 @@ public class LevelManager : MonoBehaviour {
 		temp.x -= (levels[m_nextLevel].transform.FindChild ("LevelCenter").position.x - m_center.x);
 		levels [m_nextLevel].transform.position = temp;
 		GameManager.m_singleton.PauseWorld ();
+		CivilianSpawner.m_singleton.PauseForTransition ();
 	}
 
 	void EndTransition() {
 		GameManager.m_singleton.UnPauseWorld ();
-
+		CivilianSpawner.m_singleton.UnPauseForTransition ();
 		m_sliding = false;
 		m_activeLevel = m_nextLevel;
 	}
