@@ -77,6 +77,18 @@ public class Character : MonoBehaviour
 			
 			m_Jump = false;
 		}
+
+        if (!m_Grounded && !m_Jump) {
+            m_anim.SetTrigger("Jump");
+        } else {
+            m_anim.ResetTrigger("Jump");
+        }
+
+        if (m_anim.IsInTransition(0)) {
+            m_anim.ResetTrigger("Action1");
+            m_anim.ResetTrigger("Action2");
+            m_anim.ResetTrigger("Special");
+        }
 	}
 
     public void FireSkill(int slot)
@@ -104,7 +116,7 @@ public class Character : MonoBehaviour
 	public void Jump()
 	{
 		if(m_Grounded){
-            m_anim.SetTrigger("Jump");
+            
 			m_Jump = true;
 		}
 	}
