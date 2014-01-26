@@ -32,9 +32,9 @@ public class Player
 		if(Input.GetButtonDown(player + "Jump")){
 			m_character.Jump();
 		}
-
+		Debug.Log (Input.GetAxis(player + "Vertical"));
 		m_character.Move(Input.GetAxis(player + "Horizontal"));
-		if(Input.GetAxis(player + "Vertical") < 0.0f){
+		if(Input.GetAxis(player + "Vertical") > 0.0f){
 			m_character.Drop();
 		}
 
