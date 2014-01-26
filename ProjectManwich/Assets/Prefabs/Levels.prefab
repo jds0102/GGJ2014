@@ -3860,7 +3860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb1d394a534948cf8820ca6afb2e49f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interaction: 0
+  interaction: 1
   destroyAfterInteraction: 0
   originalImage: {fileID: 0}
   activatedImage: {fileID: 21300000, guid: ca1fe571da9f00d48b0b756eccdfa686, type: 3}

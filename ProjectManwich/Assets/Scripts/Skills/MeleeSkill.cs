@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MeleeSkill : Skill {
@@ -11,18 +11,18 @@ public class MeleeSkill : Skill {
             Vector3 charPos = m_myCharacter.gameObject.transform.position;
 
 
-            RaycastHit2D[] hits;
+            RaycastHit2D[] playerHits;
             if (m_myCharacter.FaceRight) {
                 Vector3 endPos = charPos;
                 endPos.x += m_range;
-                hits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player"));
+                playerHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player"));
             } else {
                 Vector3 endPos = charPos;
                 endPos.x -= m_range;
-                hits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player"));
+                playerHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("Player"));
             }
 
-            foreach (RaycastHit2D hit in hits) {
+            foreach (RaycastHit2D hit in playerHits) {
                 if (hit != null) {
                     if (hit.transform.gameObject != m_myCharacter.gameObject) {
                         // TODO: HANDLE HIT STUFF HERE
@@ -30,6 +30,31 @@ public class MeleeSkill : Skill {
                     }
                 }
             }
+
+            RaycastHit2D[] breakableHits;
+            if (m_myCharacter.FaceRight) {
+                Vector3 endPos = charPos;
+                endPos.x += m_range;
+                breakableHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("BreakableObjects"));
+            } else {
+                Vector3 endPos = charPos;
+                endPos.x -= m_range;
+                breakableHits = Physics2D.LinecastAll(charPos, endPos, 1 << LayerMask.NameToLayer("BreakableObjects"));
+            }
+
+            foreach (RaycastHit2D hit in breakableHits) {
+                if (hit != null) {
+                    if (hit.transform.gameObject != m_myCharacter.gameObject) {
+                        // TODO: HANDLE HIT STUFF HERE
+                        Debug.Log("Bottle hit: " + hit.transform.gameObject);
+                        BreakableObject hitObj = hit.transform.gameObject.GetComponent<BreakableObject>();
+                        if (hitObj != null) {
+                            hitObj.Activate(m_myCharacter.m_Player);
+                        }
+                    }
+                }
+            }
+
             StartCooldownTimer();
             Locked = true;
         }
