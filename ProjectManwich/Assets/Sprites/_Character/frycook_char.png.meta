@@ -61,8 +61,8 @@ TextureImporter:
         y: 3319
         width: 746
         height: 651
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .50999999, y: .545000017}
     - name: frycook_idle_noBasket
       rect:
         serializedVersion: 2
@@ -88,8 +88,8 @@ TextureImporter:
         y: 3314
         width: 944
         height: 687
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .572956145, y: .534061372}
     - name: frycook_spatula2
       rect:
         serializedVersion: 2
@@ -97,8 +97,8 @@ TextureImporter:
         y: 2494
         width: 990
         height: 679
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .596000016, y: .534799993}
     - name: frycook_spatula3
       rect:
         serializedVersion: 2
@@ -106,8 +106,8 @@ TextureImporter:
         y: 2492
         width: 912
         height: 695
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .557760656, y: .523939133}
     - name: frycook_flinch
       rect:
         serializedVersion: 2
@@ -115,8 +115,8 @@ TextureImporter:
         y: 2508
         width: 742
         height: 710
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .519999981, y: .519999981}
     - name: frycook_basketToss1
       rect:
         serializedVersion: 2
@@ -178,8 +178,8 @@ TextureImporter:
         y: 894
         width: 926
         height: 702
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .633660138, y: .548637211}
     - name: frycook_walk1
       rect:
         serializedVersion: 2
@@ -187,8 +187,8 @@ TextureImporter:
         y: 18
         width: 789
         height: 710
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .497364998, y: .555639386}
     - name: frycook_walk2
       rect:
         serializedVersion: 2
@@ -196,8 +196,8 @@ TextureImporter:
         y: 22
         width: 795
         height: 714
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .479999989, y: .550000012}
     - name: frycook_walk3
       rect:
         serializedVersion: 2
@@ -205,8 +205,8 @@ TextureImporter:
         y: 26
         width: 790
         height: 736
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .479999989, y: .529999971}
     - name: frycook_walk4
       rect:
         serializedVersion: 2
@@ -214,8 +214,8 @@ TextureImporter:
         y: 30
         width: 813
         height: 732
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .479999989, y: .519999981}
     - name: frycook_walk5
       rect:
         serializedVersion: 2
@@ -223,7 +223,7 @@ TextureImporter:
         y: 18
         width: 787
         height: 744
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .469999999, y: .519999981}
   spritePackingTag: 
   userData: 
