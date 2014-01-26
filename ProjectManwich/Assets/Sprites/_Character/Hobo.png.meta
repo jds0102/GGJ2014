@@ -48,8 +48,8 @@ TextureImporter:
     - name: Hobo_idle1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 979
+        x: 6
+        y: 3240
         width: 621
         height: 733
       alignment: 0
@@ -58,7 +58,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 731
-        y: 976
+        y: 3237
         width: 625
         height: 703
       alignment: 9
@@ -67,7 +67,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1454
-        y: 994
+        y: 3255
         width: 608
         height: 808
       alignment: 9
@@ -76,7 +76,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2957
-        y: 980
+        y: 3241
         width: 702
         height: 735
       alignment: 9
@@ -85,10 +85,100 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 10
-        y: 67
+        y: 2328
         width: 763
         height: 746
       alignment: 9
       pivot: {x: .625, y: .49000001}
+    - name: Hobo_walk1
+      rect:
+        serializedVersion: 2
+        x: 1630
+        y: 2334
+        width: 630
+        height: 752
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Hobo_walk2
+      rect:
+        serializedVersion: 2
+        x: 2387
+        y: 2363
+        width: 639
+        height: 743
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Hobo_walk3
+      rect:
+        serializedVersion: 2
+        x: 3150
+        y: 2326
+        width: 644
+        height: 740
+      alignment: 9
+      pivot: {x: .504999995, y: .5}
+    - name: Hobo_walk4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1512
+        width: 639
+        height: 722
+      alignment: 9
+      pivot: {x: .5, y: .485000014}
+    - name: Hobo_walk5
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 1486
+        width: 648
+        height: 744
+      alignment: 9
+      pivot: {x: .504999995, y: .5}
+    - name: Hobo_flinch
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 1472
+        width: 660
+        height: 774
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Hobo_jingle1
+      rect:
+        serializedVersion: 2
+        x: 2293
+        y: 1495
+        width: 713
+        height: 743
+      alignment: 9
+      pivot: {x: .550000012, y: .504999995}
+    - name: Hobo_jingle2
+      rect:
+        serializedVersion: 2
+        x: 3030
+        y: 1495
+        width: 748
+        height: 743
+      alignment: 9
+      pivot: {x: .569999993, y: .504999995}
+    - name: Hobo_heckle1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 439
+        width: 744
+        height: 866
+      alignment: 9
+      pivot: {x: .569999993, y: .435000002}
+    - name: Hobo_heckle2
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 439
+        width: 648
+        height: 939
+      alignment: 9
+      pivot: {x: .504000008, y: .400999993}
   spritePackingTag: 
   userData: 

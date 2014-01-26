@@ -61,7 +61,9 @@ public class Projectile : MonoBehaviour
                     Character hitChar = col.gameObject.GetComponent<Character>();
                     Debug.Log("Hit Player: " + hitChar);
                     if (hitChar != null) {
-                        hitChar.m_Player.TakeDamage(1);
+                        if (hitChar.m_Player.TakeDamage(1)) {
+                            Debug.Log(Owner + " killed " + hitChar + "!");
+                        }
                     }
                     //TODO: HANDLE DAMAGE
                     OnExplode();
