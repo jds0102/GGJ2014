@@ -58,6 +58,13 @@ public class Projectile : MonoBehaviour
             foreach (Player p in PlayerManager.GetPlayers()) {
                 if (p != null && col.gameObject == p.m_character.gameObject) {
                     Debug.Log("Hit: " + col.gameObject);
+                    Character hitChar = col.gameObject.GetComponent<Character>();
+                    Debug.Log("Hit Player: " + hitChar);
+                    if (hitChar != null) {
+                        if (hitChar.m_Player.TakeDamage(1)) {
+                            Debug.Log(Owner + " killed " + hitChar + "!");
+                        }
+                    }
                     //TODO: HANDLE DAMAGE
                     OnExplode();
                     Destroy(gameObject);
