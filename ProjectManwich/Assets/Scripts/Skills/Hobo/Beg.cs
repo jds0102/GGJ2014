@@ -47,6 +47,7 @@ public int SlowHeartRate(int arg) {
                     if (distance <= m_effectDistance) {
                         GameObject coin = (GameObject)Instantiate(coinObject);
                         coin.GetComponent<FlyingCoin>().Initiate(100, curr, m_myCharacter.m_Player);
+                        curr.m_money -= 100;
                     }
                 }
             }
