@@ -76,6 +76,7 @@ public class Player
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
+                HUD.ChangePlayerJobString(m_playerIndex, "Hobo");
 			}
 		} else if(m_money < 5000){
             if (m_character.Type != "FryCook") {
@@ -83,6 +84,7 @@ public class Player
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
+                HUD.ChangePlayerJobString(m_playerIndex, "Fry Cook");
 			}
 		} else if(m_money < 6000){
             if (m_character.Type != "BlueCollar") {
@@ -90,6 +92,7 @@ public class Player
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
+                HUD.ChangePlayerJobString(m_playerIndex, "Construction Worker");
 			}
 		} else if(m_money < 8000){
             if (m_character.Type != "WhiteCollar") {
@@ -97,6 +100,7 @@ public class Player
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
+                HUD.ChangePlayerJobString(m_playerIndex, "Paper Pusher");
 			}
 		} else if(m_money < 10000){
             if (m_character.Type != "CEO") {
@@ -104,6 +108,7 @@ public class Player
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
+                HUD.ChangePlayerJobString(m_playerIndex, "CEO");
 			}
 		}
 	}
@@ -116,14 +121,19 @@ public class Player
         GameObject newCharacter = null;
 		if(m_money < 4000){
 			newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab, spawnPosition, Quaternion.identity) as GameObject;
+            HUD.ChangePlayerJobString(m_playerIndex, "Hobo");
 		} else if(m_money < 5000){
             newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab, spawnPosition, Quaternion.identity) as GameObject;
+            HUD.ChangePlayerJobString(m_playerIndex, "Fry Cook");
 		} else if(m_money < 6000){
             newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_constructionPrefab, spawnPosition, Quaternion.identity) as GameObject;
+            HUD.ChangePlayerJobString(m_playerIndex, "Construction Worker");
 		} else if(m_money < 8000){
             newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_officePrefab, spawnPosition, Quaternion.identity) as GameObject;
+            HUD.ChangePlayerJobString(m_playerIndex, "Paper Pusher");
 		} else {
             newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_ceoPrefab, spawnPosition, Quaternion.identity) as GameObject;
+            HUD.ChangePlayerJobString(m_playerIndex, "CEO");
 		}
 
         newCharacter.name = "Player " + m_playerIndex;
