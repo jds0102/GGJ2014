@@ -10,6 +10,11 @@ public class Player
     public int m_health;
     public int m_money;
 
+    public bool m_dead;
+    public float m_deathTime;
+
+    private const float k_respawnTime = 1.0f;
+
     public Player(int index, int playerInputLayer)
     {
         m_playerIndex = index;
@@ -20,14 +25,24 @@ public class Player
 
     public void Update()
     {
-		GetPlayerInput(m_playerInputLayer);
-
-		CheckPlayerPrefab();
+        if (!m_dead) {
+            CheckPlayerPrefab();
+            GetPlayerInput(m_playerInputLayer);
+        } else {
+            if (Time.time - m_deathTime > k_respawnTime) {
+                m_dead = false;
+                m_deathTime = 0.0f;
+            }
+        }
     }
 
 	void GetPlayerInput(int num)
 	{
 		string player = "Player" + num.ToString();
+
+        if (m_character == null || !m_character.m_loaded) {
+            return;
+        }
 		
 		if(Input.GetButtonDown(player + "Jump")){
 			m_character.Jump();
@@ -106,6 +121,8 @@ public class Player
 
     public void Death()
     {
-        // NYI
+        m_dead = true;
+        m_deathTime = Time.time;
+        GameObject.Destroy(m_character.gameObject);
     }
 }
