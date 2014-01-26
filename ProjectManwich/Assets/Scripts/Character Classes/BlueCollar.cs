@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BlueCollar : MonoBehaviour {
+public class BlueCollar : Character {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	protected override void Start()
+	{
+		base.Start();
+		Type = "BlueCollar";
 	}
 }

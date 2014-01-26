@@ -21,6 +21,8 @@ public class Player
     public void Update()
     {
 		GetPlayerInput(m_playerInputLayer);
+
+		CheckPlayerPrefab();
     }
 
 	void GetPlayerInput(int num)
@@ -49,4 +51,18 @@ public class Player
 		}
 	}
 
+	void CheckPlayerPrefab()
+	{
+		if(m_money < 2000){
+
+		} else if(m_money < 4000){
+
+		} else if(m_money < 6000){
+
+		} else if(m_money < 8000){
+
+		} else if(m_money < 10000){
+
+		}
+	}
 }
