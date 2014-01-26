@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
     private Animator m_anim;
 
 	public Player m_Player { get; set;}
+    public bool m_loaded;
 	
 	void Awake()
 	{
@@ -45,11 +46,11 @@ public class Character : MonoBehaviour
             //Debug.Log(instanced.m_myCharacter);
         }
         m_anim = GetComponent<Animator>();
+        m_loaded = true;
 	}
 	
 	void Update()
 	{
-
 
 		if(FaceRight){
 			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
