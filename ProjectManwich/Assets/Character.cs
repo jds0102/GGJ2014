@@ -6,9 +6,7 @@ public class Character : MonoBehaviour
 	private bool m_Jump = false;
 
 	private bool m_FallThroughPlatform = false;
-
-	public bool b;
-
+	
 	[HideInInspector]
 	public bool FaceRight;
 

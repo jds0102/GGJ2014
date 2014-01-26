@@ -122,11 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FaceRight: 0
+  Type: BlueCollar
   MoveForce: 5000
   MaxSpeed: 15
   JumpForce: 1350
-  GroundCollider: {fileID: 5800000}
-  m_Collider: {fileID: 0}
   m_skills:
   - {fileID: 0}
   - {fileID: 0}

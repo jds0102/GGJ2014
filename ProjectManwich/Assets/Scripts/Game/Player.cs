@@ -53,16 +53,41 @@ public class Player
 
 	void CheckPlayerPrefab()
 	{ 
-		if(m_money < 2000){
-
-		} else if(m_money < 4000){
-
+		if(m_money < 4000){
+			if(m_character.Type != "Hobo"){
+				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+				newCharacter.layer = m_character.gameObject.layer;
+				GameObject.Destroy(m_character.gameObject);
+				m_character = newCharacter.GetComponent<Character>();
+			}
+		} else if(m_money < 5000){
+			if(m_character.Type != "FryCook"){
+				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+				newCharacter.layer = m_character.gameObject.layer;
+				GameObject.Destroy(m_character.gameObject);
+				m_character = newCharacter.GetComponent<Character>();
+			}
 		} else if(m_money < 6000){
-
+			if(m_character.Type != "BlueCollar"){
+				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_constructionPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+				newCharacter.layer = m_character.gameObject.layer;
+				GameObject.Destroy(m_character.gameObject);
+				m_character = newCharacter.GetComponent<Character>();
+			}
 		} else if(m_money < 8000){
-
+			if(m_character.Type != "WhiteCollar"){
+				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_officePrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+				newCharacter.layer = m_character.gameObject.layer;
+				GameObject.Destroy(m_character.gameObject);
+				m_character = newCharacter.GetComponent<Character>();
+			}
 		} else if(m_money < 10000){
-
+			if(m_character.Type != "CEO"){
+				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_ceoPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+				newCharacter.layer = m_character.gameObject.layer;
+				GameObject.Destroy(m_character.gameObject);
+				m_character = newCharacter.GetComponent<Character>();
+			}
 		}
 	}
 
