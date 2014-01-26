@@ -101,6 +101,7 @@ public class Character : MonoBehaviour
             m_anim.ResetTrigger("Action1");
             m_anim.ResetTrigger("Action2");
             m_anim.ResetTrigger("Special");
+            m_anim.ResetTrigger("Damaged");
         }
 	}
 
@@ -114,12 +115,13 @@ public class Character : MonoBehaviour
         Skill skillToFire = m_instancedSkills[slot];
         skillToFire.Execute();
 
-        if (slot == 1) {
-            m_anim.SetTrigger("Action1");
+        if (slot == 0) {
+            m_anim.SetTrigger("Action2"); //ranged
+        } else if (slot == 1) {
+            m_anim.SetTrigger("Action1"); //melee
         } else if (slot == 2) {
-            m_anim.SetTrigger("Action2");
-        } else if (slot == 3) {
-            m_anim.SetTrigger("Special");
+            Move(0);
+            m_anim.SetTrigger("Special"); //special
         }
     }
 
@@ -172,8 +174,5 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (m_Player != null) {
-            m_Player.TakeDamage(amount);
-        }
     }
 }
