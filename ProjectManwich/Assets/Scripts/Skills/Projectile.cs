@@ -43,7 +43,7 @@ public class Projectile : MonoBehaviour
         //this.gameObject.transform.position.Set(this.gameObject.transform.position.x + 5, this.gameObject.transform.position.y, this.gameObject.transform.position.z);
     }
 
-	void OnExplode()
+	public void OnExplode()
 	{
         // Create a quaternion with a random rotation in the z-axis.
         Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
         Instantiate(explosion, transform.position, randomRotation);
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
+    public virtual void OnTriggerEnter2D(Collider2D col)
     {
         if (Owner.m_character == null) {
             OnExplode();
