@@ -6,7 +6,6 @@ public class Character : MonoBehaviour
 	private bool m_Jump = false;
 
 	private bool m_FallThroughPlatform = false;
-	private float m_FallStartTime;
 
 	public bool b;
 
@@ -76,11 +75,10 @@ public class Character : MonoBehaviour
 			turnOffCollision = turnOffCollision || false;
 		}
 
-		if(m_FallThroughPlatform && Time.time - m_FallStartTime < 0.2f){
+		if(m_FallThroughPlatform){
+			m_FallThroughPlatform = false;
 			turnOffCollision = true;
 			this.collider2D.isTrigger = false;
-		} else {
-			m_FallThroughPlatform = turnOffCollision || false;
 		}
 
 		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
@@ -154,7 +152,6 @@ public class Character : MonoBehaviour
 	{
         m_anim.SetTrigger("Jump");
 		if(m_Grounded){
-			m_FallStartTime = Time.time;
 			m_FallThroughPlatform = true;
 			this.collider2D.isTrigger = true;
 		}
