@@ -53,15 +53,14 @@ public class Player
 
 	void CheckPlayerPrefab()
 	{ 
-		Debug.Log(m_character.Type);
-		if(m_money < 2000){
+		if(m_money < 4000){
 			if(m_character.Type != "Hobo"){
 				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
 			}
-		} else if(m_money < 4000){
+		} else if(m_money < 5000){
 			if(m_character.Type != "FryCook"){
 				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
