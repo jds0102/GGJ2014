@@ -65,4 +65,18 @@ public class Player
 
 		}
 	}
+
+    public void TakeDamage(int amount)
+    {
+        m_health -= amount;
+        if (m_health <= 0) {
+            m_health = 0;
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+        // NYI
+    }
 }

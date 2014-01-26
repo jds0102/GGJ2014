@@ -170,4 +170,11 @@ public class Character : MonoBehaviour
 			this.collider2D.isTrigger = true;
 		}
 	}
+
+    public void TakeDamage(int amount)
+    {
+        if (m_Player != null) {
+            m_Player.TakeDamage(amount);
+        }
+    }
 }
