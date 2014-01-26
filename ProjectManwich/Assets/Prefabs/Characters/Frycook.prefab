@@ -126,10 +126,12 @@ MonoBehaviour:
   MoveForce: 5000
   MaxSpeed: 15
   JumpForce: 1350
+  m_GroundCheck: {fileID: 0}
+  m_Slowed: 0
   m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ed277ee950d722e4e9005e32d6446265, type: 2}
+  - {fileID: 11400000, guid: 9fa04156a5e341743a8d14cd8efac178, type: 2}
+  - {fileID: 11400000, guid: de505a37e26fd3d47ad6401a054626c9, type: 2}
   m_loaded: 0
 --- !u!212 &21200000
 SpriteRenderer:
