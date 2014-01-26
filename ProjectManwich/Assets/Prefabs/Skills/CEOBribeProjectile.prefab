@@ -12,7 +12,7 @@ GameObject:
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: CEOBribeProjectile
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,11 +176,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c5ff22f75ad9c41bf2216ef2cc1c77, type: 3}
+  m_Script: {fileID: 11500000, guid: c99de7270091bc940831271dc20e1c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
-  m_speed: 20
+  m_speed: 40
+  m_targetMarker: {fileID: 100000, guid: a6e1539e8548cdc4da9b182e4144abc4, type: 2}
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
