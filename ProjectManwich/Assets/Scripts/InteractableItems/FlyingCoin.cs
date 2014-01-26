@@ -22,6 +22,10 @@ public class FlyingCoin : InteractableItem {
 			targetPos.y = coinTarget.m_character.transform.position.y;
 			rigidbody2D.AddForce((targetPos - pos).normalized*100);
 		}
+
+        if (Vector3.Distance(this.gameObject.transform.position, coinTarget.m_character.transform.position) < 3) {
+            Activate(coinTarget);
+        }
 	}
 
 	override public void Activate(Player player) {

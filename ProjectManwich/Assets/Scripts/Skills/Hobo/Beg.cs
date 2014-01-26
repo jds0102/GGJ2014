@@ -45,7 +45,8 @@ public int SlowHeartRate(int arg) {
                 if (curr != null && curr.m_character != m_myCharacter) {
                     float distance = Vector3.Distance(m_myCharacter.gameObject.transform.position, curr.m_character.gameObject.transform.position);
                     if (distance <= m_effectDistance) {
-                        // TODO: hook into player to steal $$
+                        GameObject coin = (GameObject)Instantiate(coinObject);
+                        coin.GetComponent<FlyingCoin>().Initiate(100, curr, m_myCharacter.m_Player);
                     }
                 }
             }
