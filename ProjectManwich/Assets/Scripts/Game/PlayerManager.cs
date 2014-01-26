@@ -39,7 +39,6 @@ public class PlayerManager : MonoBehaviour
                 player.Update();
             }
         }
-		//m_players [0].m_money ++;
 	}
 
     void OnLevelWasLoaded(int levelID)
@@ -50,14 +49,6 @@ public class PlayerManager : MonoBehaviour
             for (int index = 0; index < m_singleton.m_players.Length; index++) {
                 Player p = m_singleton.m_players[index];
                 if (p != null) {
-                    //GameObject newPlayer = (GameObject)Instantiate(m_hoboPrefab, Vector3.zero, Quaternion.identity);
-                    //newPlayer.name = "Player " + index;
-                    //newPlayer.layer = LayerMask.NameToLayer("Player"+(index+1));;
-                    //m_players[index].m_character = newPlayer.GetComponent<Character>();
-                    //m_players[index].m_character.m_Player = m_players[index];
-
-                    ////Temp, eventually I will create spawners and attach them to player manager 
-                    //m_players[index].m_character.transform.position = GameObject.Find("Player" +index +"Spawner").transform.position;
                     p.SpawnPlayerPrefab();
                 }
             }

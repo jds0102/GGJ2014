@@ -126,10 +126,13 @@ MonoBehaviour:
   MoveForce: 5000
   MaxSpeed: 15
   JumpForce: 1350
+  m_GroundCheck: {fileID: 0}
+  m_Slowed: 0
   m_skills:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9aa52540e9fea974191c1f16edfdd93d, type: 2}
+  - {fileID: 11400000, guid: 54f6736bad9e08c41b8495ce4a662ec4, type: 2}
+  - {fileID: 11400000, guid: 54f6736bad9e08c41b8495ce4a662ec4, type: 2}
+  m_loaded: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -151,7 +154,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_SortingLayerID: 2511236001
-  m_Sprite: {fileID: 21300000, guid: 6d8f922b211a9c34d97490ca75ede008, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 877889287ae38de4bb13094b7f62959b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
