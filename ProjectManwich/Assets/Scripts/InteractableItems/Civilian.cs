@@ -35,6 +35,7 @@ public class Civilian : BreakableObject {
 
 	public void OnTriggerEnter2D(Collider2D other) {
 		if (other.GetComponent<Character>() || other.GetComponent<Civilian>() || other.gameObject.tag == "Boundry") {
+			Debug.Log(other.gameObject.name);
 			direction *= -1;
 		}
 	}
