@@ -109,9 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0be5b724b33b34c86c361fb22f3e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  b: 0
   FaceRight: 1
-  Type: 
+  Type: Hobo
   MoveForce: 5000
   MaxSpeed: 15
   JumpForce: 1350
