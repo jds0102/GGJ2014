@@ -104,6 +104,7 @@ public class HUD : MonoBehaviour
 	void Update () {
         foreach (Player p in m_players) {
             UpdatePlayerMoney(p);
+            UpdatePlayerHealth(p);
         }
 	}
 
