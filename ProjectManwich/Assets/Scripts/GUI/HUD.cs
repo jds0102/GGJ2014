@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class HUD : MonoBehaviour
 {
+    public static HUD m_singleton;
+
     public Texture heartFull;
     public Texture heartEmpty;
 
@@ -42,6 +44,8 @@ public class HUD : MonoBehaviour
 
 	void Start ()
     {
+        m_singleton = this;
+
         m_player1 = transform.FindChild("Player1");
         m_player2 = transform.FindChild("Player2");
         m_player3 = transform.FindChild("Player3");
@@ -265,9 +269,13 @@ public class HUD : MonoBehaviour
         playerHUDTransform.gameObject.SetActive(enable);
     }
 
-    public void ChangePlayerJobString(int playerNumber, string jobName)
+    public static void ChangePlayerJobString(int playerNumber, string jobName)
     {
-        Transform playerHUDTransform = GetPlayerHUDTransform(playerNumber);
+        if (m_singleton == null) {
+            return;
+        }
+
+        Transform playerHUDTransform = m_singleton.GetPlayerHUDTransform(playerNumber+1);
         playerHUDTransform.FindChild("PlayerJob").GetComponent<GUIText>().text = "Job: " + jobName;
     }
 
