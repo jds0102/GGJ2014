@@ -16,8 +16,11 @@ public class Character : MonoBehaviour
 	public float MaxSpeed = 5f;
 	public float JumpForce = 1000f;
 	
-	private Transform m_GroundCheck;			
+    [HideInInspector]
+	public Transform m_GroundCheck;			
 	private bool m_Grounded = false;
+    [HideInInspector]
+    public bool m_Slowed = false;
 
     public Skill[] m_skills;
     private Skill[] m_instancedSkills;
@@ -34,6 +37,7 @@ public class Character : MonoBehaviour
 
     protected virtual void Start()
     {
+        Physics2D.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("MopWater"), true);
         m_instancedSkills = new Skill[m_skills.Length];
         for (int i = 0; i < m_skills.Length; i++) {
             Skill s = m_skills[i];
@@ -57,7 +61,17 @@ public class Character : MonoBehaviour
 		} else {
 			transform.rotation = Quaternion.Euler(0.0f,0.0f,0.0f);
 		}
-		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform")); 
+		m_Grounded = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("Ground") | 1 << LayerMask.NameToLayer("Platform"));
+
+        m_Slowed = false;
+        RaycastHit2D waterHit = Physics2D.Linecast(transform.position, m_GroundCheck.position, 1 << LayerMask.NameToLayer("MopWater"));
+        if (waterHit != null && waterHit.transform != null && waterHit.transform.gameObject != null) {
+            MopWater mopWater = waterHit.transform.gameObject.GetComponent<MopWater>();
+            if (mopWater.Owner != m_Player) {
+                m_Slowed = true;
+            }
+        }
+        //Debug.Log("Slowed? " + m_Slowed);
 	
 
 		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.7f);
@@ -143,6 +157,9 @@ public class Character : MonoBehaviour
 
 	public void Move(float h)
 	{
+        if (m_Slowed) {
+            h = h / 3;
+        }
         m_anim.SetFloat("Speed", Mathf.Abs(h));
         if(m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") || m_anim.GetCurrentAnimatorStateInfo(0).IsName("Action1")) return;
 		h *= Time.deltaTime;
