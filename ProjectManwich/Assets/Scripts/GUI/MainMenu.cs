@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour
         m_elements = new List<GameObject>();
         m_elements.Add(m_newGameElement);
         m_elements.Add(m_exitElement);
+
+		AudioManager.Singleton.PlayMenuMusic ();
 	}
 
     void Update()

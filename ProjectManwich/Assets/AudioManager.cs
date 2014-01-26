@@ -88,6 +88,7 @@ public class AudioManager : MonoBehaviour {
 		AudioSources[2].Play();
 	}
 
+	//Level 0 is menu
 	public void FadeBetweenLevels(int prevLevel, int nextLevel, float fadeDuration) {
 		fading = true;
 
@@ -99,6 +100,13 @@ public class AudioManager : MonoBehaviour {
 		levelTracks [fadeIn].volume = 0;
 		levelTracks [fadeIn].loop = true;
 		levelTracks [fadeIn].Play ();
+
+	}
+
+	public void PlayMenuMusic() {
+		levelTracks [0].volume = 1;
+		levelTracks [0].loop = true;
+		levelTracks [0].Play ();
 
 	}
 }

@@ -39,7 +39,8 @@ public class PlayerSignin : MonoBehaviour
         //}
 
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("Pause")) {
-            Application.LoadLevel("Level"); 
+			AudioManager.Singleton.FadeBetweenLevels(0,1,1);
+			Application.LoadLevel("Level"); 
         }
 
         if (Input.GetButtonDown("Player1Jump")) {
