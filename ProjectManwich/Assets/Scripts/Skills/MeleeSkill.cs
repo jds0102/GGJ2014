@@ -29,7 +29,9 @@ public class MeleeSkill : Skill {
                         Debug.Log("Bottle hit: " + hit.transform.gameObject);
                         Character hitChar = hit.transform.gameObject.GetComponent<Character>();
                         if (hitChar != null) {
-                            hitChar.m_Player.TakeDamage(1);
+                            if (hitChar.m_Player.TakeDamage(1)) {
+                                   Debug.Log(m_myCharacter.gameObject + " killed " + hitChar + "!");
+                            }
                         }
                     }
                 }
