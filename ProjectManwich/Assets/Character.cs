@@ -12,6 +12,8 @@ public class Character : MonoBehaviour
 	[HideInInspector]
 	public bool FaceRight;
 
+	public string Type;
+
 	public float MoveForce = 365f;
 	public float MaxSpeed = 5f;
 	public float JumpForce = 1000f;
@@ -31,7 +33,7 @@ public class Character : MonoBehaviour
 		m_GroundCheck = transform.Find("groundCheck");
 	}
 
-    void Start()
+    protected virtual void Start()
     {
         m_instancedSkills = new Skill[m_skills.Length];
         for (int i = 0; i < m_skills.Length; i++) {
