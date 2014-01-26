@@ -78,6 +78,7 @@ public class Character : MonoBehaviour
 
 		if(m_FallThroughPlatform && Time.time - m_FallStartTime < 0.2f){
 			turnOffCollision = true;
+			this.collider2D.isTrigger = false;
 		} else {
 			m_FallThroughPlatform = turnOffCollision || false;
 		}
@@ -155,7 +156,7 @@ public class Character : MonoBehaviour
 		if(m_Grounded){
 			m_FallStartTime = Time.time;
 			m_FallThroughPlatform = true;
+			this.collider2D.isTrigger = true;
 		}
 	}
-
 }
