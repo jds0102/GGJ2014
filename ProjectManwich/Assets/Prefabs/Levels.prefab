@@ -735,9 +735,9 @@ GameObject:
   - 212: {fileID: 21200034}
   - 61: {fileID: 6100080}
   - 114: {fileID: 11400030}
-  m_Layer: 0
-  m_Name: PickupMoneyObject
-  m_TagString: BreakableObject
+  m_Layer: 20
+  m_Name: MeleeBreakableObject
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2222,7 +2222,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.9585819, y: -18.1364594, z: 10}
+  m_LocalPosition: {x: 17.3121643, y: -17.9714127, z: 10}
   m_LocalScale: {x: 1.30370283, y: 1.30370188, z: 1}
   m_Children: []
   m_Father: {fileID: 400092}
@@ -3398,7 +3398,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.03999996, y: 3.42000008}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6100082
 BoxCollider2D:
