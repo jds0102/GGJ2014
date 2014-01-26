@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FlyingCoin : InteractableItem {
 
-	private Player coinTarget;
+	private Player coinTarget, coinOrigin;
 	private int moneyAmount;
 	private bool initiated;
 	private Vector2 pos, targetPos;
@@ -25,11 +25,13 @@ public class FlyingCoin : InteractableItem {
 	}
 
 	override public void Activate(Player player) {
-		player.m_money += moneyAmount;
-		Destroy (gameObject);
+		if (player != coinOrigin) {
+			player.m_money += moneyAmount;
+			Destroy (gameObject);
+		}
 	}
 	
-	public void Initiate(int value, Vector3 startPosition, Player target) {
+	public void Initiate(int value, Player startPlayer, Player target) {
 //		transform.position = startPosition;
 //		pos.x = transform.position.x;
 //		pos.y = transform.position.y;
@@ -38,7 +40,8 @@ public class FlyingCoin : InteractableItem {
 //		Vector2 vec = (pos - targetPos).normalized * 1.0f;
 //		Vector3 vec3 = new Vector3 (vec.x, vec.y, transform.position.z);
 //		transform.position = transform.position + vec3;
-		transform.position = Vector3.zero;
+		transform.position = startPlayer.m_character.transform.position;
+		coinOrigin = startPlayer;
 		coinTarget = target;
 		moneyAmount = value;
 		destroyAfterInteraction = true;
