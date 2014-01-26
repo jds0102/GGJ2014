@@ -39,11 +39,6 @@ public class PlayerManager : MonoBehaviour
                 player.Update();
             }
         }
-
-		if (Input.GetKeyDown(KeyCode.T)) {
-			TestTemp();
-		}
-
 		//m_players [0].m_money ++;
 	}
 
@@ -124,10 +119,4 @@ public class PlayerManager : MonoBehaviour
 
 
 	}
-
-	void TestTemp() {
-		GameObject coin = (GameObject)Instantiate (tempTest);
-		coin.GetComponent<FlyingCoin> ().Initiate (100, m_players[1], m_players[0]);
-	}
-
 }
