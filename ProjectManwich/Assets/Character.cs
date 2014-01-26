@@ -118,6 +118,7 @@ public class Character : MonoBehaviour
         } else if (slot == 1) {
             m_anim.SetTrigger("Action1"); //melee
         } else if (slot == 2) {
+            Move(0);
             m_anim.SetTrigger("Special"); //special
         }
     }
@@ -171,8 +172,5 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (m_Player != null) {
-            m_Player.TakeDamage(amount);
-        }
     }
 }

@@ -32,7 +32,7 @@ public class Player
 		if(Input.GetButtonDown(player + "Jump")){
 			m_character.Jump();
 		}
-		Debug.Log (Input.GetAxis(player + "Vertical"));
+		//Debug.Log (Input.GetAxis(player + "Vertical"));
 		m_character.Move(Input.GetAxis(player + "Horizontal"));
 		if(Input.GetAxis(player + "Vertical") > 0.0f){
 			m_character.Drop();
@@ -93,6 +93,7 @@ public class Player
 
     public bool TakeDamage(int amount) //returns true if damage kills
     {
+        m_character.TakeDamage(amount);
         Debug.Log(m_health);
         m_health -= amount;
         Debug.Log("Took Damage - remaining health: " + m_health);
