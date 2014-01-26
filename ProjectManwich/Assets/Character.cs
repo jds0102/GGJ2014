@@ -113,10 +113,10 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
-		Debug.Log (slot);
+
         Skill skillToFire = m_instancedSkills[slot];
         skillToFire.Execute();
-		AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
+		AudioManager.Singleton.PlaySFX(skillToFire.m_sfx.Key,skillToFire.m_sfx.Value);
 
         if (slot == 0) {
             m_anim.SetTrigger("Action2"); //melee

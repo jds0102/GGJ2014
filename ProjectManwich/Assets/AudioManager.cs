@@ -63,7 +63,7 @@ public class AudioManager : MonoBehaviour {
 
 	}
 
-	public void PlaySFX(AudioClip clip)
+	public void PlaySFX(AudioClip clip,float delay)
 	{
 		if(clip == null){
 			return;

@@ -8,7 +8,7 @@ public class Skill : MonoBehaviour {
 	public Texture m_icon;
 	public string m_description;
     public Character m_myCharacter;
-	public AudioClip m_sfx;
+	public KeyValuePair<AudioClip,float> m_sfx;
 	
 	public float m_cooldownTime;
 	protected float m_cooldownTimer;
