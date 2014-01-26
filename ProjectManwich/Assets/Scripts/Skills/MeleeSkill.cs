@@ -32,6 +32,9 @@ public class MeleeSkill : Skill {
                         if (hitChar != null) {
                             if (hitChar.m_Player.TakeDamage(1)) {
                                    Debug.Log(m_myCharacter.gameObject + " killed " + hitChar + "!");
+                                   if (hitChar.m_Marked > 0) {
+                                       m_myCharacter.m_Player.m_money += 100 * hitChar.m_Marked;
+                                   }
                             }
                         }
                     }

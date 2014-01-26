@@ -3,13 +3,18 @@ using System.Collections;
 
 public class BribeProjectile : Projectile {
 
-    public GameObject m_targetMarker;
+    public Target m_targetMarker;
 
     public void OnMarkTarget(Character hitChar) {
         Vector3 hitCharPos = hitChar.transform.position;
         hitCharPos.y += 5.0f;
-        GameObject target = (GameObject)(GameObject.Instantiate(m_targetMarker, hitCharPos, Quaternion.EulerAngles(0, 0, 0)));
+        Target target = (Target)(GameObject.Instantiate(m_targetMarker, hitCharPos, Quaternion.EulerAngles(0, 0, 0)));
         target.transform.parent = hitChar.transform;
+        target.Owner = Owner.m_character;
+        target.Targeted = hitChar;
+        hitChar.m_Marked++;
+        Owner.m_money -= 100;
+        Owner.m_character.m_bribeTarget = hitChar;
     }
 
     public override void OnTriggerEnter2D(Collider2D col)
