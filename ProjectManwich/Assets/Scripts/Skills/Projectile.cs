@@ -45,11 +45,11 @@ public class Projectile : MonoBehaviour
 
 	void OnExplode()
 	{
-		// Create a quaternion with a random rotation in the z-axis.
-		//Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+        // Create a quaternion with a random rotation in the z-axis.
+        Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
-		// Instantiate the explosion where the rocket is with the random rotation.
-		//Instantiate(explosion, transform.position, randomRotation);
+        // Instantiate the explosion where the rocket is with the random rotation.
+        Instantiate(explosion, transform.position, randomRotation);
 	}
 
     void OnTriggerEnter2D(Collider2D col)
@@ -59,8 +59,14 @@ public class Projectile : MonoBehaviour
                 if (p != null && col.gameObject == p.m_character.gameObject) {
                     Debug.Log("Hit: " + col.gameObject);
                     //TODO: HANDLE DAMAGE
+                    OnExplode();
                     Destroy(gameObject);
                 }
+            }
+            if (col.gameObject.layer == LayerMask.NameToLayer("Platform")) {
+                Debug.Log("Hit: " + col.gameObject);
+                OnExplode();
+                Destroy(gameObject);
             }
         }
 
