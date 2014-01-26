@@ -3,10 +3,13 @@ using System.Collections;
 
 public class ArcProjectile : Projectile {
     
-    // Use this for initialization
+    public float horizontalFactor;
+    public float verticalFactor;
+    public float power;
+
     public override void Start()
     {
-        Vector2 direction = new Vector2(-1, 1.5f) * 300;
+        Vector2 direction = new Vector2(-1 * horizontalFactor, 1.5f * verticalFactor) * power;
         if (FireDirection == Direction.Right) {
             direction.x *= -1;
         }
