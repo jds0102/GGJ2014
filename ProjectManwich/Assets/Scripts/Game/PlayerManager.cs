@@ -13,7 +13,10 @@ public class PlayerManager : MonoBehaviour
     public GameObject m_officePrefab;
     public GameObject m_ceoPrefab;
 
+	public GameObject m_moneyDrop;
+
     public static PlayerManager m_singleton;
+
 
     // Use this for initialization
 	void Start ()
@@ -95,5 +98,26 @@ public class PlayerManager : MonoBehaviour
     {        
         return m_singleton.m_players;
     }
+
+	public void DropMoney(Vector3 location, int amount) {
+		GameObject moneyDrop3 = (GameObject)Instantiate(m_moneyDrop);
+		moneyDrop3.transform.position = location;
+		moneyDrop3.GetComponent<MoneyDrop> ().Initiate (amount/3, 5);
+		moneyDrop3.rigidbody2D.AddForce (Vector2.up * 1000.0f);
+
+		location.x -= .5f;
+		GameObject moneyDrop = (GameObject)Instantiate(m_moneyDrop);
+		moneyDrop.transform.position = location;
+		moneyDrop.GetComponent<MoneyDrop> ().Initiate (amount/3, 5);
+		moneyDrop.rigidbody2D.AddForce (new Vector2(-1,1) * 400.0f);
+
+		location.x += 1;
+		GameObject moneyDrop2 = (GameObject)Instantiate(m_moneyDrop);
+		moneyDrop2.transform.position = location;
+		moneyDrop2.GetComponent<MoneyDrop> ().Initiate (amount/3, 5);
+		moneyDrop2.rigidbody2D.AddForce (new Vector2(1,1) * 400.0f);
+
+
+	}
 
 }
