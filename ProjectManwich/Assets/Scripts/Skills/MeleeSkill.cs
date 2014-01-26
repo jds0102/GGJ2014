@@ -57,7 +57,12 @@ public class MeleeSkill : Skill {
                         BreakableObject hitObj = hit.transform.gameObject.GetComponent<BreakableObject>();
                         if (hitObj != null) {
                             hitObj.Activate(m_myCharacter.m_Player);
-                        }
+						} else {
+							hitObj = hit.transform.gameObject.GetComponent<Civilian>();
+							if(hitObj != null) {
+								hitObj.Activate(m_myCharacter.m_Player);
+							}
+						}
                     }
                 }
             }
