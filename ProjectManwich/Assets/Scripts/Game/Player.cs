@@ -52,7 +52,7 @@ public class Player
 	}
 
 	void CheckPlayerPrefab()
-	{
+	{ 
 		if(m_money < 2000){
 
 		} else if(m_money < 4000){
