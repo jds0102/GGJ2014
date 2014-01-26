@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: NailGun
+  m_Name: Briefcase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2242d413f13e424a872b8429d27d9bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 86e65dc7f110a974d95fbf4f08fa30a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_name: 
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_description: 
   m_myCharacter: {fileID: 0}
   m_cooldownTime: .0500000007
-  m_projectile: {fileID: 0}
+  m_range: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
