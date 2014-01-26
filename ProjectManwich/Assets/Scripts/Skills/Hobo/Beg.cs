@@ -4,6 +4,7 @@ using System.Collections;
 public class Beg : Skill {
 
     public float m_effectDistance;
+	public GameObject coinObject;
     /*private int m_routineHandle;
 
 public override void Execute() 

@@ -1767,6 +1767,7 @@ MonoBehaviour:
   m_officePrefab: {fileID: 100002, guid: 29dfab797b47fd045b183082732e300b, type: 2}
   m_ceoPrefab: {fileID: 100002, guid: 41cd48f27df24684d85edeab0fadbd95, type: 2}
   m_moneyDrop: {fileID: 100000, guid: c64fd836699384d25a2e643df91d1cd1, type: 2}
+  tempTest: {fileID: 100000, guid: 7a07603921bf6426f850f4d85147ef08, type: 2}
 --- !u!1 &1452408366
 GameObject:
   m_ObjectHideFlags: 0
