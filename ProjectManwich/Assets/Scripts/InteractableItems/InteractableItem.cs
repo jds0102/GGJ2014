@@ -5,10 +5,11 @@ public class InteractableItem : MonoBehaviour {
 
 	public InteractionType interaction;
 	public bool destroyAfterInteraction;
-	public Sprite originalImage, activatedImage;
+	public Sprite activatedImage;
+	protected Sprite originalImage;
 
 	private BoxCollider2D collisionBox;
-	public bool m_activated;
+	protected bool m_activated;
 
 	// Use this for initialization
 	void Start () {
