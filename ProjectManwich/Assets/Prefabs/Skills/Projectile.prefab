@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c5ff22f75ad9c41bf2216ef2cc1c77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100000, guid: 5b8d8461f4d094ae1911a6d9df6d9f68, type: 2}
+  explosion: {fileID: 100000, guid: 42404bf7d14c342f69690c9961a7530d, type: 2}
   m_speed: 20
 --- !u!198 &19800000
 ParticleSystem:
