@@ -32,6 +32,8 @@ public class Player
             if (Time.time - m_deathTime > k_respawnTime) {
                 m_dead = false;
                 m_deathTime = 0.0f;
+                SpawnPlayerPrefab();
+                m_health = 3;
             }
         }
     }
@@ -69,41 +71,65 @@ public class Player
 	void CheckPlayerPrefab()
 	{ 
 		if(m_money < 4000){
-			if(m_character == null || m_character.Type != "Hobo"){
-				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+			if(m_character.Type != "Hobo"){
+				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab, m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
 			}
 		} else if(m_money < 5000){
-            if (m_character == null || m_character.Type != "FryCook") {
+            if (m_character.Type != "FryCook") {
 				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
 			}
 		} else if(m_money < 6000){
-            if (m_character == null || m_character.Type != "BlueCollar") {
+            if (m_character.Type != "BlueCollar") {
 				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_constructionPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
 			}
 		} else if(m_money < 8000){
-            if (m_character == null || m_character.Type != "WhiteCollar") {
+            if (m_character.Type != "WhiteCollar") {
 				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_officePrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
 			}
 		} else if(m_money < 10000){
-            if (m_character == null || m_character.Type != "CEO") {
+            if (m_character.Type != "CEO") {
 				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_ceoPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
 				newCharacter.layer = m_character.gameObject.layer;
 				GameObject.Destroy(m_character.gameObject);
 				m_character = newCharacter.GetComponent<Character>();
 			}
 		}
+	}
+
+
+    public void SpawnPlayerPrefab()
+	{
+        Vector3 spawnPosition = GameObject.Find("Player" + m_playerIndex + "Spawner").transform.position;
+
+        GameObject newCharacter = null;
+		if(m_money < 4000){
+			newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab, spawnPosition, Quaternion.identity) as GameObject;
+		} else if(m_money < 5000){
+            newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab, spawnPosition, Quaternion.identity) as GameObject;
+		} else if(m_money < 6000){
+            newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_constructionPrefab, spawnPosition, Quaternion.identity) as GameObject;
+		} else if(m_money < 8000){
+            newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_officePrefab, spawnPosition, Quaternion.identity) as GameObject;
+		} else {
+            newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_ceoPrefab, spawnPosition, Quaternion.identity) as GameObject;
+		}
+
+        newCharacter.name = "Player " + m_playerIndex;
+        newCharacter.layer = LayerMask.NameToLayer("Player" + (m_playerIndex + 1));
+        m_character = newCharacter.GetComponent<Character>();
+        m_character.m_Player = this;
 	}
 
     public bool TakeDamage(int amount) //returns true if damage kills
