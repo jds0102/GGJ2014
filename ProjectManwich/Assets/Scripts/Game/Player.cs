@@ -93,6 +93,7 @@ public class Player
 
     public bool TakeDamage(int amount) //returns true if damage kills
     {
+        Debug.Log(m_health);
         m_health -= amount;
         Debug.Log("Took Damage - remaining health: " + m_health);
         if (m_health <= 0) {

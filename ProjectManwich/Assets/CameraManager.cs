@@ -26,7 +26,8 @@ public class CameraManager : MonoBehaviour {
 			} 
 		}
 		Debug.Log (distance);
-		transform.position = new Vector3(position.x/PlayerManager.m_singleton.playerCount,position.y/PlayerManager.m_singleton.playerCount,-5.0f*distance/10.0f);
+		transform.position = new Vector3(position.x/PlayerManager.m_singleton.playerCount,position.z);
+		Camera.main.rect = new Rect(Camera.main.rect.x,Camera.main.rect.y,30.0f/distance,30.0f/distance);
 	}
 
 	void ZoomIn()
