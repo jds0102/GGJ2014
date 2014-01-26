@@ -42,7 +42,7 @@ MonoBehaviour:
   m_icon: {fileID: 0}
   m_description: 
   m_myCharacter: {fileID: 0}
-  m_sfx: {fileID: 0}
+  m_sfx: {fileID: 8300000, guid: aaed20cd3e7ca0741a14896e118499e5, type: 3}
   m_cooldownTime: .0500000007
   m_range: 5
 --- !u!1001 &100100000
