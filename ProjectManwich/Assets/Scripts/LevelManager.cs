@@ -32,13 +32,6 @@ public class LevelManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButtonDown(1)) {
-			if(m_activeLevel == 0) {
-				SwitchToLevel(1);
-			} else if(m_activeLevel == 1) {
-				SwitchToLevel(0);
-			}
-		}
 
 		float avgMoneyPerPlayer = 0;
 		float totalPlayers = 0;

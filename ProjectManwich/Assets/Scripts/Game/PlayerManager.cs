@@ -36,7 +36,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-		m_players [0].m_money ++;
+		//m_players [0].m_money ++;
 	}
 
     void OnLevelWasLoaded(int levelID)
