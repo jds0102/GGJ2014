@@ -93,6 +93,7 @@ public class Player
 
     public void TakeDamage(int amount)
     {
+        Debug.Log(m_health);
         m_health -= amount;
         if (m_health <= 0) {
             m_health = 0;
