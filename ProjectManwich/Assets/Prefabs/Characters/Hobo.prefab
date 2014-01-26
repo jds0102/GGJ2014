@@ -91,7 +91,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c8b3053470673fb48a159247a336037f, type: 2}
   m_CullingMode: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   MaxSpeed: 15
   JumpForce: 1350
   m_skills:
-  - {fileID: 11400000, guid: 40de308de92fb854d9dcea6334ea07ca, type: 2}
+  - {fileID: 11400000, guid: 2107bf5d31521f249a114272d7ac08d6, type: 2}
   - {fileID: 11400000, guid: dc783d2ad0e5b8549a1d30eaf634298d, type: 2}
   - {fileID: 11400000, guid: ed277ee950d722e4e9005e32d6446265, type: 2}
 --- !u!212 &21200000
