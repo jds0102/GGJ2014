@@ -30,6 +30,9 @@ public class Character : MonoBehaviour
     public Skill[] m_skills;
     private Skill[] m_instancedSkills;
 
+	public Vector2 CircleCastOffset;
+	public float CircleCastRadius;
+
     private Animator m_anim;
 
 	public Player m_Player { get; set;}
@@ -79,7 +82,7 @@ public class Character : MonoBehaviour
         //Debug.Log("Slowed? " + m_Slowed);
 	
 
-		Collider2D[] collisions = Physics2D.OverlapCircleAll(transform.position,1.7f);
+		Collider2D[] collisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x+CircleCastOffset.x,transform.position.y+CircleCastOffset.y),CircleCastRadius);
 		bool turnOffCollision = false;
 		foreach(Collider2D collision in collisions){
 			if(Physics2D.GetIgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"))){
@@ -126,7 +129,7 @@ public class Character : MonoBehaviour
 
 	void OnDrawGizmos()
 	{
-		Gizmos.DrawWireSphere(transform.position,1.7f);
+		Gizmos.DrawWireSphere(new Vector2(transform.position.x+CircleCastOffset.x,transform.position.y+CircleCastOffset.y),CircleCastRadius);
 	}
 
     public void FireSkill(int slot)

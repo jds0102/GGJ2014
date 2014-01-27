@@ -77,7 +77,7 @@ public class Player
 			if(m_character.Type != "Hobo"){
 				ReplaceCharacter(PlayerManager.m_singleton.m_hoboPrefab,"Hobo");
 			}
-		} else if(m_money < 5000){
+		} else if(m_money < 900){
             if (m_character.Type != "FryCook") {
 				ReplaceCharacter(PlayerManager.m_singleton.m_fryCookPrefab,"Fry Cook");
 			}
