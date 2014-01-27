@@ -25,6 +25,9 @@ public class Player
 
     public void Update()
     {
+		if(Input.GetKeyDown(KeyCode.X)){
+			m_money -= 500;
+		}
         if (!m_dead) {
             CheckPlayerPrefab();
             GetPlayerInput(m_playerInputLayer);
@@ -70,59 +73,52 @@ public class Player
 
 	void CheckPlayerPrefab()
 	{ 
-		if(m_money < 4000){
+
+		if(m_money < 800){
 			if(m_character.Type != "Hobo"){
-				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab, m_character.transform.position,m_character.transform.rotation) as GameObject;
-				newCharacter.layer = m_character.gameObject.layer;
-				GameObject.Destroy(m_character.gameObject);
-				m_character = newCharacter.GetComponent<Character>();
-                HUD.ChangePlayerJobString(m_playerIndex, "Hobo");
+				SpawnCharacter(PlayerManager.m_singleton.m_hoboPrefab,"Hobo");
 			}
 		} else if(m_money < 5000){
             if (m_character.Type != "FryCook") {
-				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
-				newCharacter.layer = m_character.gameObject.layer;
-				GameObject.Destroy(m_character.gameObject);
-				m_character = newCharacter.GetComponent<Character>();
-                HUD.ChangePlayerJobString(m_playerIndex, "Fry Cook");
+				SpawnCharacter(PlayerManager.m_singleton.m_fryCookPrefab,"Fry Cook");
 			}
 		} else if(m_money < 6000){
             if (m_character.Type != "BlueCollar") {
-				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_constructionPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
-				newCharacter.layer = m_character.gameObject.layer;
-				GameObject.Destroy(m_character.gameObject);
-				m_character = newCharacter.GetComponent<Character>();
-                HUD.ChangePlayerJobString(m_playerIndex, "Construction Worker");
+				SpawnCharacter(PlayerManager.m_singleton.m_constructionPrefab,"Construction Worker");
 			}
 		} else if(m_money < 8000){
             if (m_character.Type != "WhiteCollar") {
-				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_officePrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
-				newCharacter.layer = m_character.gameObject.layer;
-				GameObject.Destroy(m_character.gameObject);
-				m_character = newCharacter.GetComponent<Character>();
-                HUD.ChangePlayerJobString(m_playerIndex, "Paper Pusher");
+				SpawnCharacter(PlayerManager.m_singleton.m_officePrefab,"Paper Pusher");
 			}
 		} else if(m_money < 10000){
             if (m_character.Type != "CEO") {
-				GameObject newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_ceoPrefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
-				newCharacter.layer = m_character.gameObject.layer;
-				GameObject.Destroy(m_character.gameObject);
-				m_character = newCharacter.GetComponent<Character>();
-                HUD.ChangePlayerJobString(m_playerIndex, "CEO");
+				SpawnCharacter(PlayerManager.m_singleton.m_ceoPrefab,"CEO");
 			}
 		}
+
+
 	}
 
+	void SpawnCharacter(GameObject prefab, string name)
+	{
+		GameObject newCharacter = GameObject.Instantiate(prefab,m_character.transform.position,m_character.transform.rotation) as GameObject;
+		newCharacter.layer = m_character.gameObject.layer;
+		newCharacter.gameObject.name = m_character.name;
+		GameObject.Destroy(m_character.gameObject);
+		m_character = newCharacter.GetComponent<Character>();
+		newCharacter.GetComponent<Character>().m_Player = this;
+		HUD.ChangePlayerJobString(m_playerIndex, name);
+	}
 
     public void SpawnPlayerPrefab()
 	{
         Vector3 spawnPosition = GameObject.Find("Player" + m_playerIndex + "Spawner").transform.position;
 
         GameObject newCharacter = null;
-		if(m_money < 4000){
+		if(m_money < 1000){
 			newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_hoboPrefab, spawnPosition, Quaternion.identity) as GameObject;
             HUD.ChangePlayerJobString(m_playerIndex, "Hobo");
-		} else if(m_money < 5000){
+		} else if(m_money < 2000){
             newCharacter = GameObject.Instantiate(PlayerManager.m_singleton.m_fryCookPrefab, spawnPosition, Quaternion.identity) as GameObject;
             HUD.ChangePlayerJobString(m_playerIndex, "Fry Cook");
 		} else if(m_money < 6000){
