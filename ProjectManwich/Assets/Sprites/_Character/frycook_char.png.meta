@@ -124,8 +124,8 @@ TextureImporter:
         y: 1615
         width: 752
         height: 765
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .529999971, y: .49000001}
     - name: frycook_basketToss2
       rect:
         serializedVersion: 2
@@ -133,8 +133,8 @@ TextureImporter:
         y: 1616
         width: 807
         height: 770
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .49000001, y: .485000014}
     - name: frycook_basketToss3
       rect:
         serializedVersion: 2
@@ -142,8 +142,8 @@ TextureImporter:
         y: 1622
         width: 465
         height: 772
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .850000024, y: .474999994}
     - name: frycook_mop1
       rect:
         serializedVersion: 2
@@ -151,8 +151,8 @@ TextureImporter:
         y: 817
         width: 692
         height: 720
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .784506798, y: .540000021}
     - name: frycook_mop2
       rect:
         serializedVersion: 2
@@ -160,8 +160,8 @@ TextureImporter:
         y: 809
         width: 671
         height: 710
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .870000005, y: .560000002}
     - name: frycook_mop3
       rect:
         serializedVersion: 2
@@ -169,8 +169,8 @@ TextureImporter:
         y: 819
         width: 745
         height: 696
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 9
+      pivot: {x: .900069773, y: .555002868}
     - name: frycook_jump
       rect:
         serializedVersion: 2
@@ -197,7 +197,7 @@ TextureImporter:
         width: 795
         height: 714
       alignment: 9
-      pivot: {x: .479999989, y: .550000012}
+      pivot: {x: .492708802, y: .550000012}
     - name: frycook_walk3
       rect:
         serializedVersion: 2
@@ -206,7 +206,7 @@ TextureImporter:
         width: 790
         height: 736
       alignment: 9
-      pivot: {x: .479999989, y: .529999971}
+      pivot: {x: .49000001, y: .535000026}
     - name: frycook_walk4
       rect:
         serializedVersion: 2
@@ -215,7 +215,7 @@ TextureImporter:
         width: 813
         height: 732
       alignment: 9
-      pivot: {x: .479999989, y: .519999981}
+      pivot: {x: .485000014, y: .529999971}
     - name: frycook_walk5
       rect:
         serializedVersion: 2
@@ -224,6 +224,6 @@ TextureImporter:
         width: 787
         height: 744
       alignment: 9
-      pivot: {x: .469999999, y: .519999981}
+      pivot: {x: .485000014, y: .529999971}
   spritePackingTag: 
   userData: 
