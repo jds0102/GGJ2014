@@ -1,4 +1,5 @@
 using UnityEngine;
+using InControl;
 using System.Collections;
 
 public class PlayerManager : MonoBehaviour
@@ -58,9 +59,9 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public static void AddPlayer(int playerInputLayer)
+    public static void AddPlayer(int playerInputLayer, InputDevice inputDevice)
     {
-        Player newPlayer = new Player(m_singleton.playerCount, playerInputLayer);
+        Player newPlayer = new Player(playerInputLayer - 1, playerInputLayer, inputDevice);
 		m_singleton.m_players[newPlayer.m_playerIndex] = newPlayer;
         m_singleton.playerCount++;
     }
@@ -107,7 +108,14 @@ public class PlayerManager : MonoBehaviour
 		moneyDrop2.transform.position = location;
 		moneyDrop2.GetComponent<MoneyDrop> ().Initiate (amount/3, 5);
 		moneyDrop2.rigidbody2D.AddForce (new Vector2(1,1) * 400.0f);
+	}
 
-
+	public void DeviceChangeDetected() 
+	{
+		foreach (Player p in m_players) {
+			if (p!= null) {
+				p.DeviceUpdate();
+			}
+		}
 	}
 }

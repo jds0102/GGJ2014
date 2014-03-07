@@ -20,7 +20,6 @@ public class Target : MonoBehaviour {
 	void Start () {
         Renderer[] textRenderer = gameObject.GetComponentsInChildren<Renderer>();
         if (textRenderer != null) {
-            Debug.Log(textRenderer[1]);
             textRenderer[1].sortingLayerID = 5;
         }
         m_textMesh = gameObject.GetComponentsInChildren<TextMesh>();

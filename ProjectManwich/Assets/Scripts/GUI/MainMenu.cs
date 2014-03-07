@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using InControl;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -37,11 +38,13 @@ public class MainMenu : MonoBehaviour
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+		InputDevice device = InputManager.ActiveDevice;
+
+		if (device.Direction.y < 0) {
             m_selectedIndex++;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+		if (device.Direction.y > 0) {
             m_selectedIndex--;
         }
 
@@ -49,8 +52,8 @@ public class MainMenu : MonoBehaviour
             m_selectedIndex = 0;
         }
 
-        if (m_selectedIndex >= 3) {
-            m_selectedIndex = 2;
+        if (m_selectedIndex >= 2) {
+            m_selectedIndex = 1;
         }
 
         if (m_prevSelectedIndex != m_selectedIndex) {
@@ -64,7 +67,7 @@ public class MainMenu : MonoBehaviour
             m_prevSelectedIndex = m_selectedIndex;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+		if (device.Action1.WasPressed || device.GetControl(InputControlType.Start).WasPressed) {
             HandleSelection();
         }
     }
@@ -83,11 +86,13 @@ public class MainMenu : MonoBehaviour
                 m_playerSignIn.GetComponent<PlayerSignin>().EnableUIElements(true);
                 break;
 
-            case 1:
-                Debug.LogError("NYI");
-                break;
+//            case 1:
+//                Debug.LogError("NYI");
+//                break;
 
-            case 2:
+            case 1:
+				Application.Quit();
+				break;
             default:
                 Application.Quit();
                 break;

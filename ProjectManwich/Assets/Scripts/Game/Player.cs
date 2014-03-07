@@ -1,4 +1,5 @@
 using UnityEngine;
+using InControl;
 using System.Collections;
 
 public class Player
@@ -13,14 +14,18 @@ public class Player
     public bool m_dead;
     public float m_deathTime;
 
+
     private const float k_respawnTime = 1.0f;
 
-    public Player(int index, int playerInputLayer)
+	private InputDevice m_device;
+
+    public Player(int index, int playerInputLayer, InputDevice inputDevice)
     {
         m_playerIndex = index;
         m_playerInputLayer = playerInputLayer;
         m_money = 500;
         m_health = 3;
+		m_device = inputDevice;
     }
 
     public void Update()
@@ -30,7 +35,7 @@ public class Player
 		}
         if (!m_dead) {
             CheckPlayerPrefab();
-            GetPlayerInput(m_playerInputLayer);
+            GetPlayerInput();
         } else {
             if (Time.time - m_deathTime > k_respawnTime) {
                 m_dead = false;
@@ -41,32 +46,33 @@ public class Player
         }
     }
 
-	void GetPlayerInput(int num)
+	void GetPlayerInput()
 	{
-		string player = "Player" + num.ToString();
-
         if (m_character == null || !m_character.m_loaded) {
             return;
         }
 		
-		if(Input.GetButtonDown(player + "Jump")){
+		if(m_device.Action1.WasPressed){
 			m_character.Jump();
 		}
 		//Debug.Log (Input.GetAxis(player + "Vertical"));
-		m_character.Move(Input.GetAxis(player + "Horizontal"));
-		if(Input.GetAxis(player + "Vertical") > 0.0f){
+		float deviceX, deviceY;
+		deviceX = m_device.Direction.x;
+		deviceY = m_device.Direction.y;
+		m_character.Move(deviceX);
+		if(deviceY < -.33f){
 			m_character.Drop();
 		}
 
-		if(Input.GetButtonDown(player + "Skill1")){
+		if(m_device.Action2.WasPressed){
 			m_character.FireSkill(0);
 		}
 
-		if(Input.GetButtonDown(player + "Skill2")){
+		if(m_device.Action3.WasPressed){
 			m_character.FireSkill(1);
 		}
 
-		if(Input.GetButtonDown(player + "Skill3")){
+		if(m_device.Action4.WasPressed){
 			m_character.FireSkill(2);
 		}
 	}
@@ -159,4 +165,16 @@ public class Player
 		m_money -= moneyLost;
         GameObject.Destroy(m_character.gameObject);
     }
+
+	//For now this is called whenever a device is connected or disconnected.
+	//This is because we need to reconnect to the controller we originally connected to.
+	public void DeviceUpdate()
+	{
+		foreach(InputDevice d in InputManager.Devices) {
+			if (d.Meta == m_device.Meta) {
+				m_device = d;
+				return;
+			}
+		}
+	}
 }
