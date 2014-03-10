@@ -8,6 +8,7 @@ public class InControlManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		InputManager.Setup ();
+		InputManager.AttachDevice( new UnityInputDevice( new KeyboardProfile() ) );
 		if (singleton == null) {
 			singleton = this;
 		}
