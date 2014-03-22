@@ -8,8 +8,8 @@ public class Notification : MonoBehaviour
     public float m_duration;
 
     private float m_startTime;
-    private float m_startX = 1.0f;
-    private float m_endX = -0.33f;
+    private float m_startX = 1.33f;
+    private float m_endX = -0.66f;
 
 	// Use this for initialization
 	void Start ()
