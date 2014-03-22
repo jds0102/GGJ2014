@@ -207,5 +207,68 @@ TextureImporter:
         height: 238
       alignment: 0
       pivot: {x: .5, y: .5}
+    - name: hobo_char_bubbleExplode1
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 839
+        width: 332
+        height: 271
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_bubbleExplode2
+      rect:
+        serializedVersion: 2
+        x: 2075
+        y: 507
+        width: 374
+        height: 329
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_bubbleExplode3
+      rect:
+        serializedVersion: 2
+        x: 2463
+        y: 807
+        width: 427
+        height: 399
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_bubbleExplode4
+      rect:
+        serializedVersion: 2
+        x: 2454
+        y: 430
+        width: 396
+        height: 377
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_bubbleExplode5
+      rect:
+        serializedVersion: 2
+        x: 2962
+        y: 958
+        width: 336
+        height: 264
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_bubbleExplode6
+      rect:
+        serializedVersion: 2
+        x: 2920
+        y: 574
+        width: 357
+        height: 360
+      alignment: 9
+      pivot: {x: .515423954, y: .630011976}
+    - name: hobo_char_bubbleExplode7
+      rect:
+        serializedVersion: 2
+        x: 2930
+        y: 238
+        width: 339
+        height: 308
+      alignment: 9
+      pivot: {x: .629944742, y: .491061121}
   spritePackingTag: 
   userData: 
