@@ -6,6 +6,11 @@ using System.Collections.Generic;
 public class MainMenu : MonoBehaviour
 {
 
+	public GUIStyle defaultStyle;
+	public GUIStyle titleStyle;
+
+	private Rect titleRect = new Rect(0,0,0,100);
+
     private bool m_enable = true;
     private GameObject m_uiElements;
     private GameObject m_playerSignIn;
@@ -74,7 +79,14 @@ public class MainMenu : MonoBehaviour
 
     void OnGUI()
     {
+		if (m_enable) {
+			GUIContent temp = new GUIContent("CLASS WARFAIRE");
+			titleRect.width = titleStyle.CalcSize(temp).x;
+			titleRect.x = (Screen.width / 2.0f) - (titleRect.width / 2.0f);
+			titleRect.y = (Screen.height / 3.0f);
+			GUI.Label(titleRect, temp, titleStyle);
 
+		}
     }
 
     private void HandleSelection()
