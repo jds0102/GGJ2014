@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Marked: 0
   m_bribeTarget: {fileID: 0}
   m_skills:
+  - {fileID: 11400000, guid: de505a37e26fd3d47ad6401a054626c9, type: 2}
   - {fileID: 11400000, guid: ed277ee950d722e4e9005e32d6446265, type: 2}
   - {fileID: 11400000, guid: 9fa04156a5e341743a8d14cd8efac178, type: 2}
-  - {fileID: 11400000, guid: de505a37e26fd3d47ad6401a054626c9, type: 2}
   CircleCastOffset: {x: -.540000021, y: -.119999997}
   CircleCastRadius: 1.79999995
   m_loaded: 0
