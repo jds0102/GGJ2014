@@ -23,6 +23,8 @@ public class Character : MonoBehaviour
     [HideInInspector]
     public bool m_Slowed = false;
     [HideInInspector]
+    public bool m_Stunned = false;
+    [HideInInspector]
     public int m_Marked = 0;
     [HideInInspector]
     public Character m_bribeTarget = null;
@@ -55,7 +57,6 @@ public class Character : MonoBehaviour
             instanced.m_myCharacter = this;
             s.m_myCharacter = this;
             m_instancedSkills[i] = instanced;
-            //Debug.Log(instanced.m_myCharacter);
         }
         m_anim = GetComponent<Animator>();
         m_loaded = true;
@@ -79,7 +80,6 @@ public class Character : MonoBehaviour
                 m_Slowed = true;
             }
         }
-        //Debug.Log("Slowed? " + m_Slowed);
 	
 
 		Collider2D[] collisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x+CircleCastOffset.x,transform.position.y+CircleCastOffset.y),CircleCastRadius);
@@ -134,6 +134,7 @@ public class Character : MonoBehaviour
 
     public void FireSkill(int slot)
     {
+        if (m_Stunned) return;
 
         Skill skillToFire = m_instancedSkills[slot];
         if (!skillToFire.Locked) {
@@ -150,24 +151,17 @@ public class Character : MonoBehaviour
         }
     }
 
-    /*
-	void UseAbility(int slot)
-	{
-        //Debug.Log("Use Ability Called - Slot [" + slot + "]");
-        FireSkill(slot);
-	}
-    */
-
 	public void Jump()
 	{
-		if(m_Grounded){
-            
+		if(m_Grounded && !m_Stunned){
 			m_Jump = true;
 		}
 	}
 
 	public void Move(float h)
 	{
+        if (m_Stunned) return; 
+
         if (m_Slowed) {
             h = h / 3;
         }

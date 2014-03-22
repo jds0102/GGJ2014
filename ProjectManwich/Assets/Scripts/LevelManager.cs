@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -102,6 +102,8 @@ public class LevelManager : MonoBehaviour {
 
 		//CivilianSpawner.m_singleton.UnPauseForTransition ();
 		m_activeLevel = m_nextLevel;
+
+        NotificationManager.CreateNewNotification("NEW LEVEL!");
 	}
 
 	void FadeOutComplete() 
