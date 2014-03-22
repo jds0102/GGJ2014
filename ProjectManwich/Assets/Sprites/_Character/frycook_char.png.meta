@@ -225,5 +225,32 @@ TextureImporter:
         height: 744
       alignment: 9
       pivot: {x: .485000014, y: .529999971}
+    - name: frycook_char_grease3
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 2905
+        width: 280
+        height: 257
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_grease2
+      rect:
+        serializedVersion: 2
+        x: 3338
+        y: 2882
+        width: 292
+        height: 272
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_grease1
+      rect:
+        serializedVersion: 2
+        x: 3022
+        y: 2878
+        width: 288
+        height: 276
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
