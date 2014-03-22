@@ -64,8 +64,11 @@ public class Projectile : MonoBehaviour
         if (m_exploded) return;
         Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
-        
-        m_animator.SetBool("Exploding", true);
+        if (m_animator != null) {
+            if (m_animator.GetBool("Exploding")) {
+                m_animator.SetBool("Exploding", true);
+            }
+        }
         m_exploded = true;
 	}
 
