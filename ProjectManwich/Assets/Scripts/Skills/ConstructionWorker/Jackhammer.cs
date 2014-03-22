@@ -36,9 +36,8 @@ public class Jackhammer : Skill
             //handle right hits
             foreach (RaycastHit2D hit in playerHitsRight) {
                 if (hit != null) {
-                    Debug.Log("Hit: " + hit.transform.gameObject);
                     if (hit.transform.gameObject != m_myCharacter.gameObject) {
-                        Debug.Log("Bottle hit: " + hit.transform.gameObject);
+                        Debug.Log("Jackhammer hit: " + hit.transform.gameObject);
                         Character hitChar = hit.transform.gameObject.GetComponent<Character>();
                         if (hitChar != null) {
                             hitChar.m_Stunned = true;
@@ -51,9 +50,8 @@ public class Jackhammer : Skill
             //handle left hits
             foreach (RaycastHit2D hit in playerHitsLeft) {
                 if (hit != null) {
-                    Debug.Log("Hit: " + hit.transform.gameObject);
                     if (hit.transform.gameObject != m_myCharacter.gameObject) {
-                        Debug.Log("Bottle hit: " + hit.transform.gameObject);
+                        Debug.Log("Jackhammer hit: " + hit.transform.gameObject);
                         Character hitChar = hit.transform.gameObject.GetComponent<Character>();
                         if (hitChar != null) {
                             hitChar.m_Stunned = true;
@@ -91,9 +89,6 @@ public class Jackhammer : Skill
                     }
                 }
             }*/
-
-            StartStunTimer();
-            StartCooldownTimer();
             Locked = true;
         }
     }
@@ -122,5 +117,11 @@ public class Jackhammer : Skill
         m_stunTimer = 0.0f;
         Func<int, int> executable = StunTimer;
         CoroutineHandler.StartCoroutine(executable);
+    }
+
+    public void OnJackhammerEnd()
+    {
+        StartStunTimer();
+        StartCooldownTimer();
     }
 }

@@ -64,6 +64,13 @@ public class Character : MonoBehaviour
 	
 	void Update()
 	{
+        Debug.Log(this.Type);
+        if (m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") && this.Type.Equals("BlueCollar")) {
+            if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.95f) {
+                Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[2];
+                skillToEnd.OnJackhammerEnd();
+            }
+        }
 
 		if(FaceRight){
 			transform.rotation = Quaternion.Euler(0.0f,180.0f,0.0f);
