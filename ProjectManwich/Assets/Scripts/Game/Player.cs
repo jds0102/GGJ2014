@@ -177,4 +177,9 @@ public class Player
 			}
 		}
 	}
+
+	public void ReturnToSpawn()
+	{
+		m_character.transform.position = GameObject.Find("Player" + m_playerIndex + "Spawner").transform.position;
+	}
 }
