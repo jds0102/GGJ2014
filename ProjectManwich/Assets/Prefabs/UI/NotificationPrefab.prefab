@@ -24,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: .50999999, z: 0}
+  m_LocalPosition: {x: 1.5, y: .50999999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,27 +44,27 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 3.13333344
-      outSlope: 3.13333344
+      inSlope: 3.66666698
+      outSlope: 3.66666698
       tangentMode: 10
     - time: .149999991
-      value: .469999999
-      inSlope: 3.13333344
-      outSlope: .0857142508
+      value: .550000012
+      inSlope: 3.66666698
+      outSlope: .0933333263
       tangentMode: 21
-    - time: .849999964
-      value: .529999971
-      inSlope: .0857142508
-      outSlope: 3.13333273
+    - time: .899999976
+      value: .620000005
+      inSlope: .0933333263
+      outSlope: 3.799999
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 3.13333273
+      inSlope: 3.799999
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
-  m_duration: 2
+  m_duration: 1.5
 --- !u!132 &13200000
 GUIText:
   m_ObjectHideFlags: 1
