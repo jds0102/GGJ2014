@@ -116,12 +116,13 @@ MonoBehaviour:
   JumpForce: 1350
   m_GroundCheck: {fileID: 0}
   m_Slowed: 0
+  m_Stunned: 0
   m_Marked: 0
   m_bribeTarget: {fileID: 0}
   m_skills:
   - {fileID: 11400000, guid: 9aa52540e9fea974191c1f16edfdd93d, type: 2}
   - {fileID: 11400000, guid: 54f6736bad9e08c41b8495ce4a662ec4, type: 2}
-  - {fileID: 11400000, guid: 54f6736bad9e08c41b8495ce4a662ec4, type: 2}
+  - {fileID: 11400000, guid: 03169eeba33648e4b884ef2bf214b46f, type: 2}
   CircleCastOffset: {x: 0, y: 0}
   CircleCastRadius: 2.31999993
   m_loaded: 0
