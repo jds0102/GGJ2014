@@ -64,9 +64,8 @@ public class Character : MonoBehaviour
 	
 	void Update()
 	{
-        Debug.Log(this.Type);
         if (m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") && this.Type.Equals("BlueCollar")) {
-            if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.95f) {
+            if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.8f) {
                 Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[2];
                 skillToEnd.OnJackhammerEnd();
             }
@@ -111,7 +110,7 @@ public class Character : MonoBehaviour
 			this.collider2D.isTrigger = false;
 		}
 
-		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
+		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"), turnOffCollision);
 
 		if(m_Jump)
 		{			

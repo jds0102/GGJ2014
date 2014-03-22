@@ -9,16 +9,17 @@ public class Jackhammer : Skill
     public bool Stunning { get; set; }
 
     protected float m_stunTimer;
-    public float m_stunTime;
 
     private List<Character> m_stunnedChars;
+    protected bool m_executing;
 
     public override void Execute()
     {
         if (!Locked) {
+            m_executing = true;
             m_stunnedChars = new List<Character>();
 
-            Debug.Log("Fired Skill - Bottle - Character[" + m_myCharacter + "]");
+            Debug.Log("Fired Skill - Jackhammer - Character[" + m_myCharacter + "]");
             Vector3 charPos = m_myCharacter.gameObject.transform.position;
 
 
@@ -96,7 +97,7 @@ public class Jackhammer : Skill
     public int StunTimer(int arg)
     {
         m_stunTimer += Time.deltaTime;
-        if (m_stunTimer > m_stunTime) {
+        if (m_stunTimer > m_cooldownTime * 0.5f) {
             Stunning = false;
             foreach (Character character in m_stunnedChars) {
                 character.m_Stunned = false;
@@ -121,6 +122,8 @@ public class Jackhammer : Skill
 
     public void OnJackhammerEnd()
     {
+        if (!m_executing) return;
+        m_executing = false;
         StartStunTimer();
         StartCooldownTimer();
     }

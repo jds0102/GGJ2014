@@ -43,9 +43,8 @@ MonoBehaviour:
   m_description: 
   m_myCharacter: {fileID: 0}
   m_sfx: {fileID: 0}
-  m_cooldownTime: .100000001
+  m_cooldownTime: .649999976
   m_range: 10
-  m_stunTime: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
