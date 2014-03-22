@@ -136,15 +136,17 @@ public class Character : MonoBehaviour
     {
 
         Skill skillToFire = m_instancedSkills[slot];
-        skillToFire.Execute();
-		AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
+        if (!skillToFire.Locked) {
+            skillToFire.Execute();
+            AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
 
-        if (slot == 0) {
-            m_anim.SetTrigger("Action2"); //melee
-        } else if (slot == 1) {
-            m_anim.SetTrigger("Action1"); //ranged
-        } else if (slot == 2) {
-            m_anim.SetTrigger("Special"); //special
+            if (slot == 0) {
+                m_anim.SetTrigger("Action2"); //melee
+            } else if (slot == 1) {
+                m_anim.SetTrigger("Action1"); //ranged
+            } else if (slot == 2) {
+                m_anim.SetTrigger("Special"); //special
+            }
         }
     }
 
