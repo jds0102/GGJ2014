@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour {
 
 	public static LevelManager m_singleton;
 	public List<GameObject> levels;
+	public List<string> levelNames;
 
 	public const int TRANSITION_TIME = 2;
 	private float m_transitionStart =0;
@@ -103,7 +104,7 @@ public class LevelManager : MonoBehaviour {
 		//CivilianSpawner.m_singleton.UnPauseForTransition ();
 		m_activeLevel = m_nextLevel;
 
-        NotificationManager.CreateNewNotification("NEW LEVEL!");
+        NotificationManager.CreateNewNotification("Welcome to " + levelNames[m_activeLevel] + "!");
 	}
 
 	void FadeOutComplete() 
@@ -114,6 +115,9 @@ public class LevelManager : MonoBehaviour {
 				p.ReturnToSpawn();
 			}
 		}
+		levels [m_activeLevel].SetActive (false);
+		levels [m_activeLevel + 1].SetActive (true);
+		levels [m_activeLevel + 1].transform.position = levels [m_activeLevel].transform.position;
 		m_fadingIn = true;
 	}
 }
