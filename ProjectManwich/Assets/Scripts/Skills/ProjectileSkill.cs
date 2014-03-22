@@ -8,7 +8,20 @@ public class ProjectileSkill : Skill {
     {
         if (!Locked) {
             Debug.Log("Fired Skill - Projectile - Character [" + m_myCharacter + "]");
+
             Vector3 spawnPos = m_myCharacter.gameObject.transform.position;
+            
+            Transform launchPos = null;
+            if (m_myCharacter.FaceRight) {
+                launchPos = m_myCharacter.transform.FindChild("projectileLauncherRight");
+            } else {
+                launchPos = m_myCharacter.transform.FindChild("projectileLauncherLeft");
+            }
+
+            if (launchPos != null) {
+                spawnPos = launchPos.transform.position;
+            }
+
             //Debug.Log("Facing" + m_myCharacter.FaceRight);
             if (m_myCharacter.FaceRight) {
                 Projectile bulletInstance = (Projectile)(GameObject.Instantiate(m_projectile, spawnPos, Quaternion.Euler(new Vector3(0, 0, 0))));
