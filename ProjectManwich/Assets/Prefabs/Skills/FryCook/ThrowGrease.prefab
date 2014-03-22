@@ -42,7 +42,8 @@ MonoBehaviour:
   m_icon: {fileID: 0}
   m_description: 
   m_myCharacter: {fileID: 0}
-  m_cooldownTime: .0500000007
+  m_sfx: {fileID: 0}
+  m_cooldownTime: .25
   m_projectile: {fileID: 11400002, guid: bff9a7116448dfb4bbc969dfd168273a, type: 2}
 --- !u!1001 &100100000
 Prefab:

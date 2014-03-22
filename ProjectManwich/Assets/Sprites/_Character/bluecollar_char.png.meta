@@ -62,7 +62,7 @@ TextureImporter:
         width: 531
         height: 694
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .546563745, y: .524999976}
     - name: bluecollar_jumping_1
       rect:
         serializedVersion: 2
@@ -71,8 +71,8 @@ TextureImporter:
         width: 552
         height: 764
       alignment: 9
-      pivot: {x: .5, y: .5}
-    - name: bluecollar_kick_1
+      pivot: {x: .519999981, y: .519999981}
+    - name: bluecollar_idle_0_copy
       rect:
         serializedVersion: 2
         x: 1766
@@ -89,7 +89,7 @@ TextureImporter:
         width: 532
         height: 729
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .545000017, y: .5}
     - name: bluecollar_kick_3
       rect:
         serializedVersion: 2
@@ -98,7 +98,7 @@ TextureImporter:
         width: 594
         height: 732
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .560000002, y: .5}
     - name: bluecollar_kick_4
       rect:
         serializedVersion: 2
@@ -107,7 +107,7 @@ TextureImporter:
         width: 572
         height: 729
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .579999983, y: .5}
     - name: bluecollar_range_1
       rect:
         serializedVersion: 2
@@ -116,7 +116,7 @@ TextureImporter:
         width: 615
         height: 776
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .519687295, y: .529981792}
     - name: bluecollar_range_2
       rect:
         serializedVersion: 2
@@ -125,7 +125,7 @@ TextureImporter:
         width: 901
         height: 732
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .704185545, y: .50248611}
     - name: bluecollar_range_3
       rect:
         serializedVersion: 2
@@ -134,7 +134,7 @@ TextureImporter:
         width: 877
         height: 732
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .70172447, y: .503730476}
     - name: bluecollar_range_4
       rect:
         serializedVersion: 2
@@ -143,7 +143,7 @@ TextureImporter:
         width: 882
         height: 732
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .669371307, y: .50433284}
     - name: bluecollar_flinch_1
       rect:
         serializedVersion: 2
@@ -161,7 +161,7 @@ TextureImporter:
         width: 555
         height: 798
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .519999981, y: .538999975}
     - name: bluecollar_special_2
       rect:
         serializedVersion: 2
@@ -170,7 +170,7 @@ TextureImporter:
         width: 582
         height: 752
       alignment: 9
-      pivot: {x: .5, y: .5}
+      pivot: {x: .499859899, y: .536362648}
     - name: bluecollar_walk_1
       rect:
         serializedVersion: 2
