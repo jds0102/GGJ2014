@@ -47,31 +47,33 @@ public class PlayerSignin : MonoBehaviour
             return;
         }
 
-		InputDevice activeDevice = InputManager.ActiveDevice;
+        for (int j = 0; j < InputManager.Devices.Count; j++) {
+            InputDevice activeDevice = InputManager.Devices[j];
 
-		//If any player presses start and at least one player is logged in
-		if (InputManager.ActiveDevice.GetControl (InputControlType.Start).WasPressed && PlayerManager.m_singleton.playerCount > 0) {
-			AudioManager.Singleton.FadeBetweenLevels(0,1,1);
-			Application.LoadLevel("Level"); 
+            //If any player presses start and at least one player is logged in
+            if (InputManager.ActiveDevice.GetControl(InputControlType.Start).WasPressed && PlayerManager.m_singleton.playerCount > 0) {
+                AudioManager.Singleton.FadeBetweenLevels(0, 1, 1);
+                Application.LoadLevel("Level");
+            }
+
+            bool playerAdded = false;
+            //If login button pressed and the device that pressed it is not in use by a logged in player
+            if (activeDevice.Action1.WasPressed && !devicesInUse.Contains(activeDevice.Meta)) {
+                //Loop through each possible player num
+                for (int i = 1; i <= 4 && !playerAdded; i++) {
+                    // Check if this player has already been registered
+                    Player p = PlayerManager.GetPlayerByInputLayer(i);
+                    if (p == null) {
+                        playerAdded = true;
+                        devicesInUse.Add(activeDevice.Meta);
+                        //Passing the device to the player like this will break if the players device ever becomes disconnected
+                        PlayerManager.AddPlayer(i, activeDevice);
+                        m_signedIn[i - 1] = true;
+                    }
+                }
+
+            }
         }
-
-		bool playerAdded = false;
-		//If login button pressed and the device that pressed it is not in use by a logged in player
-		if (activeDevice.Action1.WasPressed && !devicesInUse.Contains(activeDevice.Meta)) {
-			//Loop through each possible player num
-			for (int i = 1; i <= 4 && !playerAdded; i++) {
-	            // Check if this player has already been registered
-	            Player p = PlayerManager.GetPlayerByInputLayer(i);
-	            if (p == null) {
-					playerAdded = true;
-					devicesInUse.Add(activeDevice.Meta);
-					//Passing the device to the player like this will break if the players device ever becomes disconnected
-	                PlayerManager.AddPlayer(i,activeDevice);
-					m_signedIn[i-1] = true;
-	            }
-			} 
-        
-		}
 
 //		if (InputManager.Devices.Count > 1) {
 //			//Player 2 login
