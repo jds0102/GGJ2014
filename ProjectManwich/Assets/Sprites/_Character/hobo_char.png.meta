@@ -180,5 +180,32 @@ TextureImporter:
         height: 939
       alignment: 9
       pivot: {x: .504000008, y: .400999993}
+    - name: hobo_char_swearbubble1
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 954
+        width: 320
+        height: 244
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_swearbubble2
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 694
+        width: 315
+        height: 240
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: hobo_char_swearbubble3
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 436
+        width: 316
+        height: 238
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
