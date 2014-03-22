@@ -39,6 +39,10 @@ public class Character : MonoBehaviour
 
 	public Player m_Player { get; set;}
     public bool m_loaded;
+
+    private const int k_meleeSlot = 0;
+    private const int k_projectileSlot = 1;
+    private const int k_specialSlot = 2;
 	
 	void Awake()
 	{
@@ -66,7 +70,7 @@ public class Character : MonoBehaviour
 	{
         if (m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") && this.Type.Equals("BlueCollar")) {
             if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.8f) {
-                Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[2];
+                Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[k_specialSlot];
                 skillToEnd.OnJackhammerEnd();
             }
         }
@@ -147,11 +151,11 @@ public class Character : MonoBehaviour
             skillToFire.Execute();
             AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
 
-            if (slot == 0) {
+            if (slot == k_meleeSlot) {
                 m_anim.SetTrigger("Action2"); //melee
-            } else if (slot == 1) {
+            } else if (slot == k_projectileSlot) {
                 m_anim.SetTrigger("Action1"); //ranged
-            } else if (slot == 2) {
+            } else if (slot == k_specialSlot) {
                 m_anim.SetTrigger("Special"); //special
             }
         }
