@@ -39,7 +39,10 @@ public class Character : MonoBehaviour
 
 	public Player m_Player { get; set;}
     public bool m_loaded;
-	
+
+	private const int JUMP_COOLDOWN_FRAMES = 5; //Without this it is possible to jump multiple times in a few frames and it still thinks your grounded
+	private int m_framesSinceJump;
+
 	void Awake()
 	{
 		m_GroundCheck = transform.Find("groundCheck");
@@ -64,7 +67,6 @@ public class Character : MonoBehaviour
 	
 	void Update()
 	{
-        Debug.Log(this.Type);
         if (m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") && this.Type.Equals("BlueCollar")) {
             if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.95f) {
                 Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[2];
@@ -132,6 +134,8 @@ public class Character : MonoBehaviour
             m_anim.ResetTrigger("Special");
             m_anim.ResetTrigger("Damaged");
         }
+
+		m_framesSinceJump++;
 	}
 
 	void OnDrawGizmos()
@@ -160,8 +164,10 @@ public class Character : MonoBehaviour
 
 	public void Jump()
 	{
-		if(m_Grounded && !m_Stunned){
+		if(m_Grounded && !m_Stunned && m_framesSinceJump > JUMP_COOLDOWN_FRAMES){
+			Debug.Log("jump" + Type);
 			m_Jump = true;
+			m_framesSinceJump = 0;
 		}
 	}
 
@@ -206,4 +212,9 @@ public class Character : MonoBehaviour
     {
         m_anim.SetTrigger("Damaged");
     }
+
+	public bool IsGrounded() 
+	{
+		return m_Grounded;
+	}
 }

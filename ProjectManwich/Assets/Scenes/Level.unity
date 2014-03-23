@@ -5088,7 +5088,7 @@ MonoBehaviour:
   civilian: {fileID: 100000, guid: a8533209926f74f98ba38f6e5a19da5a, type: 2}
   direction: 1
   maxCivilians: 6
-  secondaryLocation: {x: 27, y: -11, z: 0}
+  secondaryLocation: {x: 24.4099998, y: -5.0999999, z: 0}
 --- !u!4 &1097674100
 Transform:
   m_ObjectHideFlags: 0
