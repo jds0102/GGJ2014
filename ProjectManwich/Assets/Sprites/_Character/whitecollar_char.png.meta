@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: 04b3e98e34f079041a4f654c213716af
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: whitecollar_char_idle1
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 3366
+        width: 493
+        height: 688
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: whitecollar_char_idle2
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 3366
+        width: 485
+        height: 688
+      alignment: 9
+      pivot: {x: .49000001, y: .5}
+    - name: whitecollar_char_idle3
+      rect:
+        serializedVersion: 2
+        x: 1150
+        y: 3366
+        width: 536
+        height: 688
+      alignment: 9
+      pivot: {x: .545000017, y: .5}
+    - name: whitecollar_char_idle4
+      rect:
+        serializedVersion: 2
+        x: 1720
+        y: 3366
+        width: 541
+        height: 688
+      alignment: 9
+      pivot: {x: .540000021, y: .5}
+    - name: whitecollar_char_idle5
+      rect:
+        serializedVersion: 2
+        x: 2346
+        y: 3370
+        width: 516
+        height: 698
+      alignment: 9
+      pivot: {x: .519999981, y: .486000001}
+    - name: whitecollar_char_idle6
+      rect:
+        serializedVersion: 2
+        x: 2982
+        y: 3366
+        width: 475
+        height: 684
+      alignment: 9
+      pivot: {x: .433564454, y: .5}
+    - name: whitecollar_char_jump
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 2554
+        width: 500
+        height: 692
+      alignment: 9
+      pivot: {x: .49000001, y: .5}
+    - name: whitecollar_char_idle7
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 2558
+        width: 476
+        height: 656
+      alignment: 9
+      pivot: {x: .50999999, y: .519999981}
+    - name: whitecollar_char_flinch
+      rect:
+        serializedVersion: 2
+        x: 1741
+        y: 2558
+        width: 525
+        height: 696
+      alignment: 9
+      pivot: {x: .460000008, y: .495000005}
+    - name: whitecollar_char_walk1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 1778
+        width: 512
+        height: 692
+      alignment: 9
+      pivot: {x: .479999989, y: .501996875}
+    - name: whitecollar_char_walk2
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1774
+        width: 488
+        height: 644
+      alignment: 9
+      pivot: {x: .5, y: .536474407}
+    - name: whitecollar_char_walk3
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 1760
+        width: 460
+        height: 678
+      alignment: 9
+      pivot: {x: .534686565, y: .513132095}
+    - name: whitecollar_char_walk4
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 1770
+        width: 460
+        height: 700
+      alignment: 9
+      pivot: {x: .537739873, y: .499999642}
+    - name: whitecollar_char_walk5
+      rect:
+        serializedVersion: 2
+        x: 2442
+        y: 1776
+        width: 460
+        height: 670
+      alignment: 9
+      pivot: {x: .537739336, y: .517273128}
+    - name: whitecollar_char_walk7
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 1776
+        width: 516
+        height: 694
+      alignment: 9
+      pivot: {x: .464112759, y: .498332173}
+    - name: whitecollar_char_attack1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 898
+        width: 457
+        height: 784
+      alignment: 9
+      pivot: {x: .459561944, y: .436229467}
+    - name: whitecollar_char_attack2
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 895
+        width: 642
+        height: 691
+      alignment: 9
+      pivot: {x: .597666681, y: .500000358}
+    - name: whitecollar_char_attack3
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 898
+        width: 574
+        height: 688
+      alignment: 9
+      pivot: {x: .579966068, y: .4983643}
+    - name: whitecollar_char_intern1
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 898
+        width: 494
+        height: 688
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: whitecollar_char_intern2
+      rect:
+        serializedVersion: 2
+        x: 2942
+        y: 898
+        width: 566
+        height: 688
+      alignment: 9
+      pivot: {x: .438351899, y: .5}
+    - name: whitecollar_char_intern3
+      rect:
+        serializedVersion: 2
+        x: 3508
+        y: 898
+        width: 556
+        height: 688
+      alignment: 9
+      pivot: {x: .460000008, y: .5}
+    - name: whitecollar_char_memo1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 110
+        width: 516
+        height: 688
+      alignment: 9
+      pivot: {x: .535000026, y: .497387111}
+    - name: whitecollar_char_memo2
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 109
+        width: 552
+        height: 689
+      alignment: 9
+      pivot: {x: .559752524, y: .497606218}
+    - name: whitecollar_char_memo3
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 109
+        width: 567
+        height: 689
+      alignment: 9
+      pivot: {x: .572234631, y: .495999992}
+    - name: whitecollar_char_memoplane
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 578
+        width: 231
+        height: 110
+      alignment: 0
+      pivot: {x: .5, y: .5}
+  spritePackingTag: 
+  userData: 

@@ -225,5 +225,95 @@ TextureImporter:
         height: 744
       alignment: 9
       pivot: {x: .485000014, y: .529999971}
+    - name: frycook_char_grease3
+      rect:
+        serializedVersion: 2
+        x: 3654
+        y: 2905
+        width: 280
+        height: 257
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_grease2
+      rect:
+        serializedVersion: 2
+        x: 3338
+        y: 2882
+        width: 292
+        height: 272
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_grease1
+      rect:
+        serializedVersion: 2
+        x: 3022
+        y: 2878
+        width: 288
+        height: 276
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_grease4
+      rect:
+        serializedVersion: 2
+        x: 3034
+        y: 2605
+        width: 284
+        height: 269
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_grease5
+      rect:
+        serializedVersion: 2
+        x: 3338
+        y: 2614
+        width: 280
+        height: 265
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: frycook_char_greaseExplode1
+      rect:
+        serializedVersion: 2
+        x: 2730
+        y: 2158
+        width: 280
+        height: 310
+      alignment: 9
+      pivot: {x: .627194643, y: .328986585}
+    - name: frycook_char_greaseExplode2
+      rect:
+        serializedVersion: 2
+        x: 3038
+        y: 2118
+        width: 293
+        height: 288
+      alignment: 9
+      pivot: {x: .733685076, y: .289086223}
+    - name: frycook_char_greaseExplode3
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 2146
+        width: 257
+        height: 236
+      alignment: 9
+      pivot: {x: .866540551, y: .16278179}
+    - name: frycook_char_greaseExplode4
+      rect:
+        serializedVersion: 2
+        x: 3610
+        y: 2122
+        width: 300
+        height: 296
+      alignment: 9
+      pivot: {x: .799927592, y: .244852424}
+    - name: frycook_char_greaseExplode5
+      rect:
+        serializedVersion: 2
+        x: 3934
+        y: 2218
+        width: 151
+        height: 172
+      alignment: 8
+      pivot: {x: 1, y: 0}
   spritePackingTag: 
   userData: 

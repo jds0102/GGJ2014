@@ -42,6 +42,10 @@ public class Character : MonoBehaviour
 
 	private const int JUMP_COOLDOWN_FRAMES = 5; //Without this it is possible to jump multiple times in a few frames and it still thinks your grounded
 	private int m_framesSinceJump;
+    
+	private const int k_meleeSlot = 0;
+    private const int k_projectileSlot = 1;
+    private const int k_specialSlot = 2;
 
 	void Awake()
 	{
@@ -68,8 +72,8 @@ public class Character : MonoBehaviour
 	void Update()
 	{
         if (m_anim.GetCurrentAnimatorStateInfo(0).IsName("Special") && this.Type.Equals("BlueCollar")) {
-            if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.95f) {
-                Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[2];
+            if (m_anim.GetCurrentAnimatorStateInfo(0).normalizedTime % 1 > 0.8f) {
+                Jackhammer skillToEnd = (Jackhammer)m_instancedSkills[k_specialSlot];
                 skillToEnd.OnJackhammerEnd();
             }
         }
@@ -113,7 +117,7 @@ public class Character : MonoBehaviour
 			this.collider2D.isTrigger = false;
 		}
 
-		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"),turnOffCollision);
+		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"), turnOffCollision);
 
 		if(m_Jump)
 		{			
@@ -152,11 +156,11 @@ public class Character : MonoBehaviour
             skillToFire.Execute();
             AudioManager.Singleton.PlaySFX(skillToFire.m_sfx);
 
-            if (slot == 0) {
+            if (slot == k_meleeSlot) {
                 m_anim.SetTrigger("Action2"); //melee
-            } else if (slot == 1) {
+            } else if (slot == k_projectileSlot) {
                 m_anim.SetTrigger("Action1"); //ranged
-            } else if (slot == 2) {
+            } else if (slot == k_specialSlot) {
                 m_anim.SetTrigger("Special"); //special
             }
         }
