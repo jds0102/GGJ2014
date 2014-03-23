@@ -118,4 +118,21 @@ public class PlayerManager : MonoBehaviour
 			}
 		}
 	}
+
+	public Player FindClosestEnemy(Player player) 
+	{
+		float closestDistance = 99999;
+		Player closestPlayer = null;
+		foreach (Player p in m_players) {
+			if (p != player && p != null) {
+				float distance = (p.m_character.transform.position - player.m_character.transform.position).magnitude;
+				if ((distance < closestDistance)) {
+					closestDistance = distance;
+					closestPlayer = p;
+				}
+			}
+		}
+
+		return closestPlayer;
+	}
 }
