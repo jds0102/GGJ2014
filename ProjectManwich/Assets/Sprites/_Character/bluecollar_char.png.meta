@@ -228,19 +228,46 @@ TextureImporter:
     - name: bluecollar_char_nail2
       rect:
         serializedVersion: 2
-        x: 3722
-        y: 2906
-        width: 164
-        height: 100
-      alignment: 9
-      pivot: {x: .5, y: .449999988}
+        x: 3603
+        y: 2341
+        width: 303
+        height: 282
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: bluecollar_char_nail4
+      rect:
+        serializedVersion: 2
+        x: 3494
+        y: 1814
+        width: 422
+        height: 408
+      alignment: 0
+      pivot: {x: .5, y: .5}
     - name: bluecollar_char_nail3
       rect:
         serializedVersion: 2
-        x: 3910
-        y: 2882
-        width: 160
-        height: 123
+        x: 3037
+        y: 1829
+        width: 412
+        height: 403
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: bluecollar_char_nail5
+      rect:
+        serializedVersion: 2
+        x: 2515
+        y: 1829
+        width: 452
+        height: 418
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: bluecollar_char_nail6
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 1819
+        width: 437
+        height: 418
       alignment: 0
       pivot: {x: .5, y: .5}
   spritePackingTag: 
