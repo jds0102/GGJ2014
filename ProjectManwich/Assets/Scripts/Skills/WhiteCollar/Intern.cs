@@ -18,7 +18,11 @@ public class Intern : MonoBehaviour {
 	private Vector3 m_destination;
 	private bool m_attackReady = true;
 
-	private const float ATTACK_COOLDOWN = 2;
+	private float m_lastAction = 0;
+	private bool m_actionReady = true; //This makes it so that the AI can't perform a crazy number of actions per frame
+
+	private const float ATTACK_COOLDOWN = 1;
+	private const float ACTION_COOLDOWN = .33f;
 	// Use this for initialization
 	void Start () {
 		m_character = gameObject.GetComponent<Character> ();
@@ -34,6 +38,10 @@ public class Intern : MonoBehaviour {
 
 		if (Time.time - m_lastAttack > ATTACK_COOLDOWN && !m_attackReady) {
 			m_attackReady = true;
+		}
+
+		if (Time.time - m_lastAction > ACTION_COOLDOWN && !m_actionReady) {
+			m_actionReady = true;
 		}
 
 		//Debug.Log (m_character.IsGrounded ());
@@ -56,8 +64,10 @@ public class Intern : MonoBehaviour {
 			if (direction.x > 1 || direction.x < -1) {
 				m_character.Move (Mathf.Sign(direction.x));
 			}
-			if (direction.y > 1) {
+			if (direction.y > 1 && m_actionReady) {
 				m_character.Jump();
+				m_actionReady = false;
+				m_lastAction = Time.time;
 			} else if (direction.y < -1) {
 				m_character.Drop();
 			}
@@ -66,7 +76,7 @@ public class Intern : MonoBehaviour {
 		if (m_attack && m_enemyToAttack != null) {
 			m_destination = m_enemyToAttack.m_character.transform.position;
 
-			if ((m_enemyToAttack.m_character.transform.position - this.transform.position).magnitude < 2 && m_attackReady) {
+			if ((m_enemyToAttack.m_character.transform.position - this.transform.position).magnitude < 2 && m_attackReady && m_actionReady) {
 				MeleeAttack();
 			}
 
@@ -109,5 +119,7 @@ public class Intern : MonoBehaviour {
 
 		m_attackReady = false;
 		m_lastAttack = Time.time;
+		m_actionReady = false;
+		m_lastAction = Time.time;
 	}
 }
