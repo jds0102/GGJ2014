@@ -43,7 +43,7 @@ MonoBehaviour:
   m_description: 
   m_myCharacter: {fileID: 0}
   m_sfx: {fileID: 0}
-  m_cooldownTime: .25
+  m_cooldownTime: 4
   m_effectDistance: 20
   coinObject: {fileID: 100000, guid: 7a07603921bf6426f850f4d85147ef08, type: 2}
 --- !u!1001 &100100000
