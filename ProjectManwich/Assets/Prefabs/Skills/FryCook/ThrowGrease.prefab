@@ -43,8 +43,8 @@ MonoBehaviour:
   m_description: 
   m_myCharacter: {fileID: 0}
   m_sfx: {fileID: 0}
-  m_cooldownTime: .25
-  m_projectile: {fileID: 11400002, guid: bff9a7116448dfb4bbc969dfd168273a, type: 2}
+  m_cooldownTime: .75
+  m_projectile: {fileID: 11400000, guid: e86622ee1709d684a873adfdf3821e62, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
