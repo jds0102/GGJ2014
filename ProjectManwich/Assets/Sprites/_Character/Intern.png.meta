@@ -1,0 +1,94 @@
+fileFormatVersion: 2
+guid: c1c09c1e2200a1b449401e4f8ba54fec
+TextureImporter:
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Intern_idle1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 3335
+        width: 342
+        height: 351
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Intern_idle2
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 3336
+        width: 335
+        height: 351
+      alignment: 9
+      pivot: {x: .49000001, y: .5}
+    - name: Intern_idle3
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 3336
+        width: 342
+        height: 351
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: Intern_idle4
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 3334
+        width: 342
+        height: 351
+      alignment: 9
+      pivot: {x: .495000005, y: .504999995}
+    - name: Intern_idle5
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 3351
+        width: 342
+        height: 351
+      alignment: 9
+      pivot: {x: .493000001, y: .495000005}
+  spritePackingTag: 
+  userData: 
