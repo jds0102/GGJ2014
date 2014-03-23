@@ -5,7 +5,8 @@ public class Projectile : MonoBehaviour
 {
 	public GameObject explosion;		// Prefab of explosion effect.
     public float m_speed;
-    private Animator m_animator;
+    [HideInInspector]
+    public Animator m_animator;
     private bool m_exploded;
 
     public enum Direction
@@ -65,9 +66,7 @@ public class Projectile : MonoBehaviour
         Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
         if (m_animator != null) {
-            if (m_animator.GetBool("Exploding")) {
-                m_animator.SetBool("Exploding", true);
-            }
+            m_animator.SetBool("Exploding", true);
         }
         m_exploded = true;
 	}
