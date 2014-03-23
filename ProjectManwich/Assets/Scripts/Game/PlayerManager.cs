@@ -110,23 +110,6 @@ public class PlayerManager : MonoBehaviour
 		moneyDrop2.rigidbody2D.AddForce (new Vector2(1,1) * 400.0f);
 	}
 
-	public Player FindClosestEnemy(Player player) 
-	{
-		float closestDistance = 99999;
-		Player closestPlayer = null;
-		foreach (Player p in m_players) {
-			if (p != player && p != null) {
-				float distance = (p.m_character.transform.position - player.m_character.transform.position).magnitude;
-				if ((distance < closestDistance)) {
-					closestDistance = distance;
-					closestPlayer = p;
-				}
-			}
-		}
-
-		return closestPlayer;
-	}
-
 	public void DeviceChangeDetected() 
 	{
 		foreach (Player p in m_players) {

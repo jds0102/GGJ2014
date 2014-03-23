@@ -38,7 +38,7 @@ public class Skill : MonoBehaviour {
 
 	public virtual int CooldownTimer(int arg) 
 	{
-		m_cooldownTimer += .1f; //We increment by .1 since the Coroutine handler calls this function every .1 seconds, kinda hackky but it works
+		m_cooldownTimer += Time.deltaTime;
 		if (m_cooldownTimer > m_cooldownTime) {
 			Locked = false;
 			Cooldown = false;
