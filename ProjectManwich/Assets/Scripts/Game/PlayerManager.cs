@@ -125,7 +125,7 @@ public class PlayerManager : MonoBehaviour
 		Player closestPlayer = null;
 		foreach (Player p in m_players) {
 			if (p != player && p != null) {
-				if (p.m_character != null) {
+				if (p.m_character != null && player.m_character != null) {
 					float distance = (p.m_character.transform.position - player.m_character.transform.position).magnitude;
 					if ((distance < closestDistance)) {
 						closestDistance = distance;
