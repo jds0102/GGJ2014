@@ -101,8 +101,6 @@ public class Character : MonoBehaviour
 
 		if(rigidbody2D.velocity.y > 0.0f){
 			turnOffCollision = true;
-		} else if(rigidbody2D.velocity.y < 0.0f){
-			turnOffCollision = turnOffCollision || false;
 		}
 
 		if(m_FallThroughPlatform){
