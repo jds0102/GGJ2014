@@ -54,7 +54,7 @@ public class Character : MonoBehaviour
 
     protected virtual void Start()
     {
-        Physics2D.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("MopWater"), true);
+        //Physics2D.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("MopWater"), true);
         m_instancedSkills = new Skill[m_skills.Length];
         for (int i = 0; i < m_skills.Length; i++) {
             Skill s = m_skills[i];
@@ -95,7 +95,6 @@ public class Character : MonoBehaviour
             }
         }
 	
-
 		Collider2D[] collisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x+CircleCastOffset.x,transform.position.y+CircleCastOffset.y),CircleCastRadius);
 		bool turnOffCollision = false;
 		foreach(Collider2D collision in collisions){
@@ -118,7 +117,7 @@ public class Character : MonoBehaviour
 			this.collider2D.isTrigger = false;
 		}
 
-		Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"), turnOffCollision);
+		//Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"), turnOffCollision);
 
 		if(m_Jump)
 		{			

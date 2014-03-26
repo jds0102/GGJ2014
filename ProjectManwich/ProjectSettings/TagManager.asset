@@ -38,10 +38,10 @@ TagManager:
   User Layer 20: BreakableObjects
   User Layer 21: MopWater
   User Layer 22: Coin
-  User Layer 23: 
-  User Layer 24: 
-  User Layer 25: 
-  User Layer 26: 
+  User Layer 23: Player1PlatformCollision
+  User Layer 24: Player2PlatformCollision
+  User Layer 25: Player3PlatformCollision
+  User Layer 26: Player4PlatformCollision
   User Layer 27: 
   User Layer 28: 
   User Layer 29: 
