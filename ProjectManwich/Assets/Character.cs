@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class Character : MonoBehaviour
 {
+	public GameObject platformCollision;
+
 	private bool m_Jump = false;
 
 	private bool m_FallThroughPlatform = false;
@@ -54,7 +56,7 @@ public class Character : MonoBehaviour
 
     protected virtual void Start()
     {
-        //Physics2D.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("MopWater"), true);
+        Physics2D.IgnoreLayerCollision(this.gameObject.layer, LayerMask.NameToLayer("MopWater"), true);
         m_instancedSkills = new Skill[m_skills.Length];
         for (int i = 0; i < m_skills.Length; i++) {
             Skill s = m_skills[i];
@@ -95,15 +97,7 @@ public class Character : MonoBehaviour
             }
         }
 	
-		Collider2D[] collisions = Physics2D.OverlapCircleAll(new Vector2(transform.position.x+CircleCastOffset.x,transform.position.y+CircleCastOffset.y),CircleCastRadius);
 		bool turnOffCollision = false;
-		foreach(Collider2D collision in collisions){
-			if(Physics2D.GetIgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"))){
-				if(collision.gameObject.layer == LayerMask.NameToLayer("Platform")){
-					turnOffCollision = true;
-				}
-			}
-		}
 
 		if(rigidbody2D.velocity.y > 0.0f){
 			turnOffCollision = true;
@@ -114,10 +108,10 @@ public class Character : MonoBehaviour
 		if(m_FallThroughPlatform){
 			m_FallThroughPlatform = false;
 			turnOffCollision = true;
-			this.collider2D.isTrigger = false;
+			platformCollision.collider2D.isTrigger = false;
 		}
 
-		//Physics2D.IgnoreLayerCollision(this.gameObject.layer,LayerMask.NameToLayer("Platform"), turnOffCollision);
+		Physics2D.IgnoreLayerCollision(platformCollision.layer,LayerMask.NameToLayer("Platform"), turnOffCollision);
 
 		if(m_Jump)
 		{			
@@ -206,7 +200,7 @@ public class Character : MonoBehaviour
         m_anim.SetTrigger("Jump");
 		if(m_Grounded){
 			m_FallThroughPlatform = true;
-			this.collider2D.isTrigger = true;
+			platformCollision.collider2D.isTrigger = true;
 		} 
 	}
      

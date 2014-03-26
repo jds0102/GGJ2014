@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0be5b724b33b34c86c361fb22f3e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  platformCollision: {fileID: 100000}
   FaceRight: 1
   Type: Hobo
   MoveForce: 5000
