@@ -162,6 +162,7 @@ public class Character : MonoBehaviour
 	{
 		if(m_Grounded && !m_Stunned && m_framesSinceJump > JUMP_COOLDOWN_FRAMES){
 			m_Jump = true;
+			Physics2D.IgnoreLayerCollision(platformCollision.layer,LayerMask.NameToLayer("Platform"), true);
 			m_framesSinceJump = 0;
 		}
 	}
